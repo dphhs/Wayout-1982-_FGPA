@@ -1,0 +1,101 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1100mV 85C Model Setup 'CLOCK_50'
+Slack : -3.349
+TNS   : -3.349
+
+Type  : Slow 1100mV 85C Model Setup 'VGA_CLOCK:make_vga_clock|vga_clock'
+Slack : -2.015
+TNS   : -40.182
+
+Type  : Slow 1100mV 85C Model Hold 'VGA_CLOCK:make_vga_clock|vga_clock'
+Slack : 0.639
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'CLOCK_50'
+Slack : 1.079
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'CLOCK_50'
+Slack : -0.860
+TNS   : -1.490
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'VGA_CLOCK:make_vga_clock|vga_clock'
+Slack : -0.394
+TNS   : -11.022
+
+Type  : Slow 1100mV 0C Model Setup 'CLOCK_50'
+Slack : -3.281
+TNS   : -3.281
+
+Type  : Slow 1100mV 0C Model Setup 'VGA_CLOCK:make_vga_clock|vga_clock'
+Slack : -1.946
+TNS   : -39.084
+
+Type  : Slow 1100mV 0C Model Hold 'VGA_CLOCK:make_vga_clock|vga_clock'
+Slack : 0.609
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Hold 'CLOCK_50'
+Slack : 1.170
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'CLOCK_50'
+Slack : -0.855
+TNS   : -1.505
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'VGA_CLOCK:make_vga_clock|vga_clock'
+Slack : -0.394
+TNS   : -11.103
+
+Type  : Fast 1100mV 85C Model Setup 'CLOCK_50'
+Slack : -2.527
+TNS   : -2.527
+
+Type  : Fast 1100mV 85C Model Setup 'VGA_CLOCK:make_vga_clock|vga_clock'
+Slack : -0.792
+TNS   : -15.771
+
+Type  : Fast 1100mV 85C Model Hold 'VGA_CLOCK:make_vga_clock|vga_clock'
+Slack : 0.301
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'CLOCK_50'
+Slack : 1.084
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'CLOCK_50'
+Slack : -0.761
+TNS   : -1.174
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'VGA_CLOCK:make_vga_clock|vga_clock'
+Slack : 0.086
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Setup 'CLOCK_50'
+Slack : -2.162
+TNS   : -2.162
+
+Type  : Fast 1100mV 0C Model Setup 'VGA_CLOCK:make_vga_clock|vga_clock'
+Slack : -0.733
+TNS   : -13.780
+
+Type  : Fast 1100mV 0C Model Hold 'VGA_CLOCK:make_vga_clock|vga_clock'
+Slack : 0.265
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'CLOCK_50'
+Slack : 0.912
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'CLOCK_50'
+Slack : -0.718
+TNS   : -1.096
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'VGA_CLOCK:make_vga_clock|vga_clock'
+Slack : 0.109
+TNS   : 0.000
+
+------------------------------------------------------------

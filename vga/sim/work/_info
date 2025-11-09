@@ -1,0 +1,131 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/apiwi/Desktop/digital circuits (241)/Wayout-1982-FGPA/vga/sim
+vhorizontal_clock
+Z1 !s110 1762713221
+!i10b 1
+!s100 4j_zZQf`[4ejPAoXL5YAQ3
+I^7KTEeebJ:PX^Y5O@6jn?0
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+Z3 w1762668098
+Z4 8../vga.v
+Z5 F../vga.v
+L0 79
+Z6 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z7 !s108 1762713221.000000
+Z8 !s107 ../vga.v|../top.v|
+Z9 !s90 ../top.v|../vga.v|
+!i113 1
+Z10 tCvgOpt 0
+vtb
+R1
+!i10b 1
+!s100 :QWTEC6V;48iP[jPjbn2a0
+IQg=R4PWET]J6WDON8J:i_3
+R2
+R0
+w1762668706
+8../tb/tb.v
+F../tb/tb.v
+L0 7
+R6
+r1
+!s85 0
+31
+R7
+!s107 ../tb/tb.v|
+!s90 ../tb/tb.v|
+!i113 1
+R10
+vtop
+R1
+!i10b 1
+!s100 Ff:^lC8VLDCOVM2=?8zUK3
+IDJlIMZLz<PX^ezNkT3V9W0
+R2
+R0
+w1762669586
+8../top.v
+F../top.v
+L0 1
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+vvertical_clock
+R1
+!i10b 1
+!s100 <9RL8[5mE_jf<?_fzK[lN1
+I_b<ClhUHn5^AKn_R]Eg<a2
+R2
+R0
+R3
+R4
+R5
+L0 107
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+vvga
+R1
+!i10b 1
+!s100 EWmLWodWJ:a]Dj^_FdC6B0
+IOMj79>Y:O>c8ShhJRAl4V1
+R2
+R0
+R3
+R4
+R5
+L0 1
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+vVGA_CLOCK
+R1
+!i10b 1
+!s100 eH;5o4LgLMmNG:KVPTjTc1
+I3eSQ5M1FjZ;X:e5o0hPeD2
+R2
+R0
+R3
+R4
+R5
+L0 57
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+n@v@g@a_@c@l@o@c@k
