@@ -2,36 +2,36 @@
 
 module map_horizontal(
     input [3:0] addr,
-    output reg [`MAP_WIDTH-1:0] data
+    output reg [0:`MAP_WIDTH-1] data
 );
     // 8*7
     always @(*)
         case (addr)
-        3'd0: data = 7'b1111111;
-        3'd1: data = 7'b0000000;
-        3'd2: data = 7'b0000000;
-        3'd3: data = 7'b0000000;
-        3'd4: data = 7'b0000000;
-        3'd5: data = 7'b0000000;
-        3'd6: data = 7'b0000000;
         3'd7: data = 7'b1111111;
+        3'd6: data = 7'b0000000;
+        3'd5: data = 7'b0000000;
+        3'd4: data = 7'b0000000;
+        3'd3: data = 7'b0000000;
+        3'd2: data = 7'b0000000;
+        3'd1: data = 7'b0000000;
+        3'd0: data = 7'b1111111;
         endcase
 endmodule
 
 module map_vertical(
     input [3:0] addr,
-    output reg [`MAP_WIDTH:0] data
+    output reg [0:`MAP_WIDTH] data
 );
     // 7*8
     always @(*)
         case (addr)
-        3'd0: data = 8'b10000001;
-        3'd1: data = 8'b10000001;
-        3'd2: data = 8'b10000001;
-        3'd3: data = 8'b10000001;
-        3'd4: data = 8'b10000001;
-        3'd5: data = 8'b10000001;
         3'd6: data = 8'b10000001;
+        3'd5: data = 8'b10000001;
+        3'd4: data = 8'b10000001;
+        3'd3: data = 8'b10000001;
+        3'd2: data = 8'b10000001;
+        3'd1: data = 8'b10000001;
+        3'd0: data = 8'b10000001;
         endcase
 endmodule
 
