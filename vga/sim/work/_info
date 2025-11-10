@@ -8,26 +8,46 @@ z2
 !i10f 100
 cModel Technology
 Z0 dC:/Users/apiwi/Desktop/digital circuits (241)/Wayout-1982-FGPA/vga/sim
-vhorizontal_clock
-Z1 !s110 1762713221
+vdual_port_ram
+Z1 !s110 1762784201
 !i10b 1
-!s100 4j_zZQf`[4ejPAoXL5YAQ3
-I^7KTEeebJ:PX^Y5O@6jn?0
+!s100 fc[JafmzQAQmi1okY31L[0
+I<IN3zoQ:lEL4zTOPZj4QP3
 Z2 VDg1SIo80bB@j0V0VzS_@n1
 R0
-Z3 w1762668098
-Z4 8../vga.v
-Z5 F../vga.v
-L0 79
-Z6 OV;L;10.5b;63
+w1762749750
+8../dual_port_ram_bb.v
+F../dual_port_ram_bb.v
+L0 34
+Z3 OV;L;10.5b;63
 r1
 !s85 0
 31
-Z7 !s108 1762713221.000000
-Z8 !s107 ../vga.v|../top.v|
-Z9 !s90 ../top.v|../vga.v|
+Z4 !s108 1762784201.000000
+Z5 !s107 ../vga.v|../top.v|../dual_port_ram_bb.v|../dual_port_ram.v|
+Z6 !s90 ../dual_port_ram.v|../dual_port_ram_bb.v|../top.v|../vga.v|
 !i113 1
-Z10 tCvgOpt 0
+Z7 tCvgOpt 0
+vhorizontal_clock
+R1
+!i10b 1
+!s100 92VdPkB5:jRUDo_>NMI^:0
+IRQ=f0`<9PJ`QdVAJMDb<F3
+R2
+R0
+Z8 w1762779702
+Z9 8../vga.v
+Z10 F../vga.v
+L0 122
+R3
+r1
+!s85 0
+31
+R4
+R5
+R6
+!i113 1
+R7
 vtb
 R1
 !i10b 1
@@ -39,93 +59,93 @@ w1762668706
 8../tb/tb.v
 F../tb/tb.v
 L0 7
-R6
+R3
 r1
 !s85 0
 31
-R7
+R4
 !s107 ../tb/tb.v|
 !s90 ../tb/tb.v|
 !i113 1
-R10
+R7
 vtop
 R1
 !i10b 1
-!s100 Ff:^lC8VLDCOVM2=?8zUK3
-IDJlIMZLz<PX^ezNkT3V9W0
+!s100 O5>iF=XeY4A_@aUWjHTel0
+Io>Q<RiKNb_L@zMjmLM1Na1
 R2
 R0
 w1762669586
 8../top.v
 F../top.v
 L0 1
-R6
+R3
 r1
 !s85 0
 31
-R7
-R8
-R9
+R4
+R5
+R6
 !i113 1
-R10
+R7
 vvertical_clock
 R1
 !i10b 1
-!s100 <9RL8[5mE_jf<?_fzK[lN1
-I_b<ClhUHn5^AKn_R]Eg<a2
+!s100 HUBN^hf:ZAb:RD`NBF<Zl3
+IT>DEaZ[o7EY[<Kg4?Ec_S1
 R2
 R0
+R8
+R9
+R10
+L0 157
 R3
-R4
-R5
-L0 107
-R6
 r1
 !s85 0
 31
-R7
-R8
-R9
+R4
+R5
+R6
 !i113 1
-R10
+R7
 vvga
 R1
 !i10b 1
-!s100 EWmLWodWJ:a]Dj^_FdC6B0
-IOMj79>Y:O>c8ShhJRAl4V1
+!s100 ::8ga9Em7Y:53D_nS^l:`1
+IDoSbDH@eSmahZHG<g`oS_1
 R2
 R0
-R3
-R4
-R5
+R8
+R9
+R10
 L0 1
-R6
+R3
 r1
 !s85 0
 31
-R7
-R8
-R9
+R4
+R5
+R6
 !i113 1
-R10
+R7
 vVGA_CLOCK
 R1
 !i10b 1
-!s100 eH;5o4LgLMmNG:KVPTjTc1
-I3eSQ5M1FjZ;X:e5o0hPeD2
+!s100 `c9J2kG;NFOXc]PUd]N?K2
+I[b>6YSP1S^0nQA?e60K>[2
 R2
 R0
+R8
+R9
+R10
+L0 100
 R3
-R4
-R5
-L0 57
-R6
 r1
 !s85 0
 31
-R7
-R8
-R9
+R4
+R5
+R6
 !i113 1
-R10
+R7
 n@v@g@a_@c@l@o@c@k

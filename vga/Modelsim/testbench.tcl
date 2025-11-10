@@ -10,7 +10,6 @@ vlog ../vga.v
 vlog *.v
 # start the Simulator, including some libraries that may be needed
 vsim work.testbench -Lf 220model -Lf altera_mf_ver -Lf verilog
-# show waveforms specified in wave.do
-do wave.do
+
 # advance the simulation the desired amount of time
 run 200 ns

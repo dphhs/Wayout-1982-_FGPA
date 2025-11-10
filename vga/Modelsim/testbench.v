@@ -1,52 +1,30 @@
-`timescale 1ns / 1ps
+`timescale 1ns/1ps
+module testbench;
 
-module testbench ( );
+  reg        CLOCK_50 = 1'b0;
+  reg  [3:0] KEY      = 4'b1111;   // KEY[0]=1 -> resetn=0 (in reset)
 
-    // 50 MHz board clock → 20 ns period
-    parameter CLOCK_PERIOD = 20;
+  wire [7:0] VGA_R, VGA_G, VGA_B;
+  wire       VGA_HS, VGA_VS;
+  wire       VGA_BLANK_N, VGA_SYNC_N, VGA_CLK;
 
-    reg        CLOCK_50;
-    reg  [0:0] KEY;          // KEY[0] = RESET_N (active-low)
-    wire [7:0] VGA_R, VGA_G, VGA_B;
-    wire       VGA_HS, VGA_VS;
+  // 50 MHz board clock (20 ns period)
+  always #10 CLOCK_50 = ~CLOCK_50;
 
-    // clock init
-    initial begin
-        CLOCK_50 <= 1'b0;
-    end
+  // Reset pulse: hold in reset 200 ns, then release
+  initial begin
+    KEY[0] = 1'b1;   // reset asserted (resetn=~1=0)
+    #200;
+    KEY[0] = 1'b0;   // deassert (resetn=1)
+  end
 
-    // same "always @(*)" style clock generator as your template
-    always @(*) begin : Clock_Generator
-        #(CLOCK_PERIOD/2) CLOCK_50 <= ~CLOCK_50;
-    end
-
-    // reset pulse (hold low, then release)
-    initial begin
-        KEY[0] <= 1'b0;     // assert RESET_N low
-        #200;
-        KEY[0] <= 1'b1;     // deassert reset
-    end
-
-    // ---------------- DUT ----------------
-    // If your vga has RESET_N (recommended):
-    vga U1 (
-        .CLOCK_50 (CLOCK_50),
-        .RESET_N  (KEY[0]),
-        .VGA_R    (VGA_R),
-        .VGA_G    (VGA_G),
-        .VGA_B    (VGA_B),
-        .VGA_HS   (VGA_HS),
-        .VGA_VS   (VGA_VS)
-    );
-
-    // If your current vga has NO reset port yet, use this instead:
-    // vga U1 (
-    //     .CLOCK_50 (CLOCK_50),
-    //     .VGA_R    (VGA_R),
-    //     .VGA_G    (VGA_G),
-    //     .VGA_B    (VGA_B),
-    //     .VGA_HS   (VGA_HS),
-    //     .VGA_VS   (VGA_VS)
-    // );
+  // Instantiate DUT (instance name U1 so wave.do paths like /testbench/U1/... work)
+  vga u1 (
+    .CLOCK_50(CLOCK_50),
+    .KEY(KEY),
+    .VGA_R(VGA_R), .VGA_G(VGA_G), .VGA_B(VGA_B),
+    .VGA_HS(VGA_HS), .VGA_VS(VGA_VS),
+    .VGA_BLANK_N(VGA_BLANK_N), .VGA_SYNC_N(VGA_SYNC_N), .VGA_CLK(VGA_CLK)
+  );
 
 endmodule
