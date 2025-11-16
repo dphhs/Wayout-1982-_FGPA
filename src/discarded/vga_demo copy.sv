@@ -12,13 +12,17 @@ module vga_demo(CLOCK_50, SW, KEY, LEDR, PS2_CLK, PS2_DAT, HEX5, HEX4, HEX3, HEX
 				VGA_R, VGA_G, VGA_B,
 				VGA_HS, VGA_VS, VGA_BLANK_N, VGA_SYNC_N, VGA_CLK);
 
-    // specify the number of bits needed for an X (column) pixel coordinate on the VGA display
-    parameter nX = 10;
-    // specify the number of bits needed for a Y (row) pixel coordinate on the VGA display
-    parameter nY = 9;
+    // default resolution. Specify a resolution in top.v
+    parameter RESOLUTION = "640x480"; // "640x480" "320x240" "160x120"
 
-    // state names for the FSM that controls drawing of objects
-    parameter A = 2'b00, B = 2'b01, C = 2'b10, D = 2'b11;
+    // default color depth. Specify a color in top.v
+    parameter COLOR_DEPTH = 3; // 9 6 3
+
+    // specify the number of bits needed for an X (column) pixel coordinate on the VGA display
+    parameter nX = (RESOLUTION == "640x480") ? 11 : ((RESOLUTION == "320x240") ? 9 : 8);
+    // specify the number of bits needed for a Y (row) pixel coordinate on the VGA display
+    parameter nY = (RESOLUTION == "640x480") ? 10 : ((RESOLUTION == "320x240") ? 8 : 7);
+
 
 	input wire CLOCK_50;	
 	input wire [9:0] SW;
@@ -26,6 +30,7 @@ module vga_demo(CLOCK_50, SW, KEY, LEDR, PS2_CLK, PS2_DAT, HEX5, HEX4, HEX3, HEX
 	output wire [9:0] LEDR;
     inout wire PS2_CLK, PS2_DAT;
     output wire [6:0] HEX5, HEX4, HEX3, HEX2, HEX1, HEX0;
+
 	output wire [7:0] VGA_R;
 	output wire [7:0] VGA_G;
 	output wire [7:0] VGA_B;
@@ -35,159 +40,253 @@ module vga_demo(CLOCK_50, SW, KEY, LEDR, PS2_CLK, PS2_DAT, HEX5, HEX4, HEX3, HEX
 	output wire VGA_SYNC_N;
 	output wire VGA_CLK;	
 	
-    // The signals below are used to multiplex the pixels displayed for objects 1 and 2
-	wire [nX-1:0] O1_x, O2_x, MUX_x;    // x coordinate multiplexer
-	wire [nY-1:0] O1_y, O2_y, MUX_y;    // y coordinate multiplexer
-	wire [8:0] O1_color, O2_color, MUX_color; // color multiplexer
-	wire O1_write, O2_write, MUX_write; // write control multiplexer
+    wire signed [nX:0] draw_X;
+    wire signed [nX:0] draw_Y;
 
-    reg prev_ps2_clk;               // ps2_clk value in the previous clock cycle
-    wire negedge_ps2_clk;           // used for PS2 keyboard signals
-    wire ps2_rec;                   // set when a PS2 packet has been received
-    wire object_sel;                // used to select which object to erase/draw
-    reg [32:0] Serial;              // each PS2 serial data packet has 11 bits:
-                                    // STOP (1) PARITY d7 d6 d5 d4 d3 d2 d1 d0 START (0)
-                                    // 33 total bits are received (scancode/release/scancode
-    reg [3:0] Packet;               // used to know when 11 bits have been received
-    wire [7:0] scancode;            // used to save the current ps2 scancode
-    reg Esc;                        // enable scancode register
-    reg step;                       // move an object
-    wire O1_done, O2_done, done;    // object move completed
-    reg O1_O2;                      // draw object 1 when cleared, object 2 when set
-    wire [1:0] O1_dir, O2_dir;      // used to set direction of moving for objects
-    reg [1:0] y_Q, Y_D;             // FSM, used to control drawing of objects
+    wire Resetn = KEY[0];
 
-    wire Resetn, KEY1, KEY2;        // Reset, and synchronized versions of KEYs
-    wire PS2_CLK_S, PS2_DAT_S;      // synchronized versions of PS2 signals
 
-    assign Resetn = KEY[0];
-    sync S1 (~KEY[1], Resetn, CLOCK_50, KEY1);
-    sync S2 (~KEY[2], Resetn, CLOCK_50, KEY2);
 
-    sync S3 (PS2_CLK, Resetn, CLOCK_50, PS2_CLK_S);
-    sync S4 (PS2_DAT, Resetn, CLOCK_50, PS2_DAT_S);
+    // The points to draw
+    wire signed [nX:0] x0 = 10'd20;
+    wire signed [nX:0] y0 = 10'd20;
 
-    always @(posedge CLOCK_50)  // record PS2 clock value in previous CLOCK_50 cycle
-        prev_ps2_clk <= PS2_CLK_S;
+    wire signed [nX:0] x1 = 10'd100;
+    wire signed [nX:0] y1 = 10'd100;
 
-    // check when PS2_CLK has changed from 1 to 0
-    assign negedge_ps2_clk = (prev_ps2_clk & !PS2_CLK_S);
+    wire signed [nX:0] x2 = 10'd100;
+    wire signed [nX:0] y2 = 10'd350;
 
-    // save PS2 data packet
-    always @(posedge CLOCK_50) begin    // specify a 33-bit shift register
-        if (Resetn == 0)
-            Serial <= 33'b0;
-        else if (negedge_ps2_clk) begin
-            Serial[31:0] <= Serial[32:1];
-            Serial[32] <= PS2_DAT_S;
+    wire signed [nX:0] x3 = 10'd20;
+    wire signed [nX:0] y3 = 10'd430;
+
+
+
+
+
+    wire [COLOR_DEPTH-1:0] Color = 3'b111;
+    wire Write;
+    assign Write = 1;
+    
+
+/*
+// Vertex Memory: Load the four vertexes
+// ===================================================
+    // Vertex coordinates
+    reg [9:0] x0, y0, x1, y1, x2, y2, x3, y3;
+    reg [2:0] current_line;  // Which shape (0-7)
+    reg draw_lines;
+
+    //==========================
+    wire start_loading = SW[0];
+    wire [2:0]line_select;
+    assign LEDR[0] = start_loading;
+    //==========================
+
+    vertex_loader u_vertex_loader (
+        .clk(CLOCK_50),
+        .rst_n(Resetn),
+        .start_loading(start_loading),
+        .line_done(line_done),
+        .shape_sel(line_select),
+        .x0(x0), .x1(x1), .x2(x2), .x3(x3),
+        .y0(y0), .y1(y1), .y2(y2), .y3(y3),
+        .draw_lines(draw_lines)
+    );
+    assign LEDR[9] = draw_lines;
+*/
+
+
+//==============
+    wire draw_lines = 1'b1;
+//====================
+
+
+// Polygon Drawing
+//====================================================
+    parameter
+        INIT = 2'b00,
+        DRAW = 2'b01,
+        IDLE = 2'b10;
+
+    // Internal Signal
+    reg [2:0] line_id; 
+    reg [1:0] State;
+    reg line_start;
+
+    reg [nX:0] mux_x0, mux_x1, mux_y0, mux_y1;
+    always @(posedge CLOCK_50) begin
+        case(State)
+            INIT: begin
+                State <= DRAW;
+                line_start <= 1;
+                if (line_id == 2'd0) begin  // (x0,y0) (x1,y1)
+                    mux_x0 <= x0; mux_y0 <= y0;
+                    mux_x1 <= x1; mux_y1 <= y1;
+                end else if (line_id == 2'd1) begin  // (x1,y1) (x2,y2)
+                    mux_x0 <= x1; mux_y0 <= y1;
+                    mux_x1 <= x2; mux_y1 <= y2;
+                end else if (line_id == 2'd2) begin  // (x2,y2) (x3,y3)
+                    mux_x0 <= x2; mux_y0 <= y2;
+                    mux_x1 <= x3; mux_y1 <= y3;
+                end else begin  // (x3,y3) (x0,y0)
+                    mux_x0 <= x3; mux_y0 <= y3;
+                    mux_x1 <= x0; mux_y1 <= y0;
+                end
+            end
+            DRAW: begin
+                line_start <= 0;
+                if(line_done) begin
+                    if (line_id == 3) begin  // final line
+                        State <= IDLE;
+                    end else begin
+                        State <= INIT;
+                        line_id <= line_id + 1;
+                    end
+                end
+            end
+            default: begin  // IDLE
+                if (draw_lines) begin
+                    State <= INIT;
+                    line_id <= 2'b0;
+                end
+            end
+        endcase
+    end
+
+    wire line_drawing, line_busy, line_done;
+    wire signed [nX:0] line_X;
+    wire signed [nX:0] line_Y;
+    // Draw Line Module
+    draw_line #(.CORDW(nX+1))  
+    u_draw_line (  // signed coordinate width
+        .clk(CLOCK_50),           
+        .rst(!Resetn),
+        .start(line_start),
+        .oe(Write),
+        .x0(mux_x0),
+        .x1(mux_x1),
+        .y0(mux_y0),
+        .y1(mux_y1),
+        .x(line_X),
+        .y(line_Y),
+        .drawing(line_drawing),
+        .busy(line_busy),
+        .done(line_done)
+    );
+
+/*
+
+    wire rect_drawing, rect_busy, rect_done;
+    wire signed [nX:0] rect_X;
+    wire signed [nX:0] rect_Y;
+    // Rectangle Drawing
+    //====================================================
+    draw_rectangle_fill #(.CORDW(nX+1))
+        u_draw_rectangle_fill ( 
+            .clk(CLOCK_50),           
+            .rst(!Resetn),
+            .start(line_start),
+            .oe(Write),
+            .x0(mux_x0),
+            .x1(mux_x1),
+            .y0(mux_y0),
+            .y1(mux_y1),
+            .x(rect_X),
+            .y(rect_Y),
+            .drawing(rect_drawing),
+            .busy(rect_busy),
+            .done(rect_done)
+        );
+
+    always_comb begin
+        if (draw_line_active) begin
+            draw_X = line_x;
+            draw_Y = line_y;
+            line_done = line_done_signal;
+        end else if (draw_rect_active) begin
+            draw_X = rect_x;
+            draw_Y = rect_y;
+            line_done = rect_done_signal;
+        end else begin
+            draw_X = 0;
+            draw_Y = 0;
+            line_done = 0;
         end
     end
-        
-    // 'count' ps2 data bits
-    always @(posedge CLOCK_50) begin    // specify a 34-bit shift register
-        if (!Resetn || Packet == 'd11)
-            Packet <= 'b0;
-        else if (negedge_ps2_clk) begin
-            Packet <= Packet + 'b1;
-        end
-    end
-        
-    // used to start an object move. Key press makes scancode/release/scancode, so we check
-    // for Serial[30:23] == Serial[8:1]. Key repeat makes scancode/scancode/...
-    assign ps2_rec = (Packet == 'd11) && (Serial[30:23] == Serial[8:1]);
+*/
 
-    // ps2 scancode is in Serial[8:1]
-    regn USC (Serial[8:1], Resetn, Esc, CLOCK_50, scancode);
-    assign LEDR = {2'b0,scancode};
 
-    // select object according to which PS2 key was pressed. 
-    // scancode[4] == 1 for a/s/w/z and 0 for d/f/r/c
-    assign object_sel = scancode[4];
-    // register whether to move object 1 or object 2
-    always @(posedge CLOCK_50)
-        if (!Resetn | KEY1)
-            O1_O2 <= 1'b0;  // select object 1
-        else if (KEY2)
-            O1_O2 <= 1'b1;  // select object 2
-        else if (step)
-            O1_O2 <= !object_sel;
 
-    assign O1_dir = scancode[1:0]; // ps2 key identifier (for a, s, w, z)
-    assign O2_dir = {scancode[3],scancode[1]}; // ps2 key identifier (for d, f, r, c)
-    // FSM state table
-    always @ (*)
-        case (y_Q)
-            A:  if (!ps2_rec) Y_D = A;
-                else Y_D = B;
-            B:  Y_D = C;        // enable scancode register
-            C:  Y_D = D;        // send step signal to object
-            D:  if (done == 1'b0) Y_D = D;
-                else Y_D = A;
-            default: Y_D = A;
-        endcase
-    // FSM outputs
-    always @ (*)
-    begin
-        // default assignments
-        Esc = 1'b0; step = 1'b0;
-        case (y_Q)
-            A:  ;
-            B:  Esc = 1'b1;
-            C:  step = 1'b1;  
-            D:  ;
-        endcase
-    end
+//===========================================================
+/*
+Draw Lines
+    draw_line_1d #(.CORDW(nX))  
+    u_draw_line_1d (  
+        .clk(CLOCK_50),           
+        .rst(!Resetn),
+        .start(Start),
+        .oe(Write),
+        .x0(X0),
+        .x1(X1),
+        .x(X),
+        .drawing(Drawing),
+        .busy(Busy),
+        .done(Done)              
+    );
+*/
 
-    // FSM state FFs
-    always @(posedge CLOCK_50)
-        if (!Resetn)
-            y_Q <= A;
-        else
-            y_Q <= Y_D;
+/*
+draw_rectangle #(.CORDW(nX))
+    u_draw_rectangle ( 
+        .clk(CLOCK_50),           
+        .rst(!Resetn),
+        .start(Start),
+        .oe(Write),
+        .x0(X0),
+        .x1(X1),
+        .y0(Y0),
+        .y1(Y1),
+        .x(MUX_X),
+        .y(MUX_Y),
+        .drawing(Drawing),
+        .busy(Busy),
+        .done(Done)
+    );
+*/
 
-    // instantiate object 1
-    object O1 (Resetn, CLOCK_50, KEY1, object_sel & step, O1_dir, O1_x, O1_y, 
-               O1_color, O1_write, O1_done);
-        defparam O1.LEFT  = 2'b00;  // 'a'
-        defparam O1.RIGHT = 2'b11;  // 's'
-        defparam O1.UP    = 2'b01;  // 'w'
-        defparam O1.DOWN =  2'b10;  // 'z'
+/*
+module draw_rectangle_fill #(parameter CORDW=16) (  // signed coordinate width
+    input  wire logic clk,             // clock
+    input  wire logic rst,             // reset
+    input  wire logic start,           // start rectangle drawing
+    input  wire logic oe,              // output enable
+    input  wire logic signed [CORDW-1:0] x0, y0,  // vertex 0
+    input  wire logic signed [CORDW-1:0] x1, y1,  // vertex 2
+    output      logic signed [CORDW-1:0] x,  y,   // drawing position
+    output      logic drawing,         // actively drawing
+    output      logic busy,            // drawing request in progress
+    output      logic done             // drawing is complete (high for one tick)
+    );
+*/
 
-    // instantiate object 2
-    object O2 (Resetn, CLOCK_50, KEY2, !object_sel & step, O2_dir, O2_x, O2_y,
-               O2_color, O2_write, O2_done);
-        defparam O2.XOFFSET = 160;
-        defparam O2.YOFFSET = 150;
-        defparam O2.LEFT  = 2'b01;  // 'd'
-        defparam O2.RIGHT = 2'b11;  // 'f'
-        defparam O2.UP    = 2'b10;  // 'r'
-        defparam O2.DOWN =  2'b00;  // 'c'
-        defparam O2.INIT_FILE = "./MIF/circle_16_16_9.mif";
 
-    assign done = O1_done | O2_done;
 
-    // choose x, y, color, and write for one of the two objects
-    assign MUX_x = !O1_O2 ? O1_x : O2_x;
-    assign MUX_y = !O1_O2 ? O1_y : O2_y;
-    assign MUX_color = !O1_O2 ? O1_color : O2_color;
-    assign MUX_write = !O1_O2 ? O1_write : O2_write;
 
-    // display PS2 data
-    hex7seg H0 (Serial[4:1], HEX0);
-    hex7seg H1 (Serial[8:5], HEX1);
-    hex7seg H2 (Serial[15:12], HEX2);
-    hex7seg H3 (Serial[19:16], HEX3);
-    hex7seg H4 (Serial[26:23], HEX4);
-    hex7seg H5 (Serial[30:27], HEX5);
+    wire  [nY-1:0] VGA_Y = draw_Y[nY-1:0];
+    wire  [nX-1:0] VGA_X = draw_X[nX-1:0];
+
+//===============================================================
 
     // connect to VGA controller
     vga_adapter VGA (
 			.resetn(Resetn),
 			.clock(CLOCK_50),
-			.color(MUX_color),
-			.x(MUX_x),
-			.y(MUX_y),
-			.write(MUX_write),
+			.color(Color),
+			.x(VGA_X),
+			.y(VGA_Y),
+			.write(Write),
+
 			.VGA_R(VGA_R),
 			.VGA_G(VGA_G),
 			.VGA_B(VGA_B),
@@ -428,3 +527,4 @@ module object (Resetn, Clock, go, ps2_rec, dir, VGA_x, VGA_y, VGA_color, VGA_wri
     assign VGA_color = erase ? {9{1'b0}} : obj_color;
 
 endmodule
+

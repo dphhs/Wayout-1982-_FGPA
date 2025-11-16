@@ -1,16 +1,16 @@
-Fitter Status : Successful - Fri Nov 14 19:22:13 2025
+Fitter Status : Successful - Sun Nov 16 03:02:43 2025
 Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 Revision Name : vga_demo
 Top-level Entity Name : vga_demo
 Family : Cyclone V
 Device : 5CSEMA5F31C6
 Timing Models : Final
-Logic utilization (in ALMs) : 349 / 32,070 ( 1 % )
-Total registers : 217
+Logic utilization (in ALMs) : 295 / 32,070 ( < 1 % )
+Total registers : 133
 Total pins : 98 / 457 ( 21 % )
 Total virtual pins : 0
-Total block memory bits : 2,769,408 / 4,065,280 ( 68 % )
-Total RAM Blocks : 340 / 397 ( 86 % )
+Total block memory bits : 2,764,800 / 4,065,280 ( 68 % )
+Total RAM Blocks : 338 / 397 ( 85 % )
 Total DSP Blocks : 0 / 87 ( 0 % )
 Total HSSI RX PCSs : 0
 Total HSSI PMA RX Deserializers : 0

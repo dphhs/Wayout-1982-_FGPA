@@ -1,13 +1,13 @@
-Analysis & Synthesis Status : Successful - Fri Nov 14 19:19:32 2025
+Analysis & Synthesis Status : Successful - Sun Nov 16 03:00:59 2025
 Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 Revision Name : vga_demo
 Top-level Entity Name : vga_demo
 Family : Cyclone V
 Logic utilization (in ALMs) : N/A
-Total registers : 205
+Total registers : 109
 Total pins : 98
 Total virtual pins : 0
-Total block memory bits : 2,769,408
+Total block memory bits : 2,764,800
 Total DSP Blocks : 0
 Total HSSI RX PCSs : 0
 Total HSSI PMA RX Deserializers : 0

@@ -1,29 +1,6 @@
 
-State Machine - |vga_demo|y_Q
-Name y_Q.D y_Q.C y_Q.B y_Q.A 
-y_Q.A 0 0 0 0 
-y_Q.B 0 0 1 1 
-y_Q.C 0 1 0 1 
-y_Q.D 1 0 0 1 
-
-State Machine - |vga_demo|object:O2|y_Q
-Name y_Q.H y_Q.G y_Q.F y_Q.E y_Q.D y_Q.C y_Q.B y_Q.A 
-y_Q.A 0 0 0 0 0 0 0 0 
-y_Q.B 0 0 0 0 0 0 1 1 
-y_Q.C 0 0 0 0 0 1 0 1 
-y_Q.D 0 0 0 0 1 0 0 1 
-y_Q.E 0 0 0 1 0 0 0 1 
-y_Q.F 0 0 1 0 0 0 0 1 
-y_Q.G 0 1 0 0 0 0 0 1 
-y_Q.H 1 0 0 0 0 0 0 1 
-
-State Machine - |vga_demo|object:O1|y_Q
-Name y_Q.H y_Q.G y_Q.F y_Q.E y_Q.D y_Q.C y_Q.B y_Q.A 
-y_Q.A 0 0 0 0 0 0 0 0 
-y_Q.B 0 0 0 0 0 0 1 1 
-y_Q.C 0 0 0 0 0 1 0 1 
-y_Q.D 0 0 0 0 1 0 0 1 
-y_Q.E 0 0 0 1 0 0 0 1 
-y_Q.F 0 0 1 0 0 0 0 1 
-y_Q.G 0 1 0 0 0 0 0 1 
-y_Q.H 1 0 0 0 0 0 0 1 
+State Machine - |vga_demo|state
+Name state.INIT state.IDLE state.DRAW 
+state.INIT 0 0 0 
+state.DRAW 1 0 1 
+state.IDLE 1 1 0 

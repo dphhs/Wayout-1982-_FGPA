@@ -1,5 +1,5 @@
 Flow report for vga_demo
-Fri Nov 14 19:22:34 2025
+Sun Nov 16 03:02:58 2025
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -40,18 +40,18 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Flow Summary                                                                  ;
 +---------------------------------+---------------------------------------------+
-; Flow Status                     ; Successful - Fri Nov 14 19:22:27 2025       ;
+; Flow Status                     ; Successful - Sun Nov 16 03:02:51 2025       ;
 ; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                   ; vga_demo                                    ;
 ; Top-level Entity Name           ; vga_demo                                    ;
 ; Family                          ; Cyclone V                                   ;
 ; Device                          ; 5CSEMA5F31C6                                ;
 ; Timing Models                   ; Final                                       ;
-; Logic utilization (in ALMs)     ; 349 / 32,070 ( 1 % )                        ;
-; Total registers                 ; 217                                         ;
+; Logic utilization (in ALMs)     ; 295 / 32,070 ( < 1 % )                      ;
+; Total registers                 ; 133                                         ;
 ; Total pins                      ; 98 / 457 ( 21 % )                           ;
 ; Total virtual pins              ; 0                                           ;
-; Total block memory bits         ; 2,769,408 / 4,065,280 ( 68 % )              ;
+; Total block memory bits         ; 2,764,800 / 4,065,280 ( 68 % )              ;
 ; Total DSP Blocks                ; 0 / 87 ( 0 % )                              ;
 ; Total HSSI RX PCSs              ; 0                                           ;
 ; Total HSSI PMA RX Deserializers ; 0                                           ;
@@ -67,7 +67,7 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 11/14/2025 19:19:24 ;
+; Start date & time ; 11/16/2025 03:00:51 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; vga_demo            ;
 +-------------------+---------------------+
@@ -78,9 +78,10 @@ refer to the applicable agreement for further details.
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id ;
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
-; COMPILER_SIGNATURE_ID               ; 91760221544.176316596432716            ; --            ; --          ; --         ;
+; COMPILER_SIGNATURE_ID               ; 9619521835493.176328005110592          ; --            ; --          ; --         ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --          ; --         ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --            ; --          ; --         ;
+; MISC_FILE                           ; ../src/vertex_ram_bb.v                 ; --            ; --          ; --         ;
 ; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; --          ; Top        ;
 ; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family) ; --            ; --          ; Top        ;
 ; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family) ; --            ; --          ; Top        ;
@@ -94,11 +95,11 @@ refer to the applicable agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:08     ; 1.0                     ; 4953 MB             ; 00:00:16                           ;
-; Fitter               ; 00:02:40     ; 1.5                     ; 7955 MB             ; 00:17:28                           ;
-; Assembler            ; 00:00:08     ; 1.0                     ; 4892 MB             ; 00:00:07                           ;
-; Timing Analyzer      ; 00:00:06     ; 4.1                     ; 5413 MB             ; 00:00:22                           ;
-; Total                ; 00:03:02     ; --                      ; --                  ; 00:18:13                           ;
+; Analysis & Synthesis ; 00:00:07     ; 1.0                     ; 4951 MB             ; 00:00:13                           ;
+; Fitter               ; 00:01:44     ; 1.2                     ; 8019 MB             ; 00:20:25                           ;
+; Assembler            ; 00:00:06     ; 1.0                     ; 4891 MB             ; 00:00:06                           ;
+; Timing Analyzer      ; 00:00:07     ; 4.2                     ; 5401 MB             ; 00:00:16                           ;
+; Total                ; 00:02:04     ; --                      ; --                  ; 00:21:00                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

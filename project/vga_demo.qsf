@@ -796,15 +796,16 @@ set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 
 
 
-set_global_assignment -name VERILOG_FILE ../src/object_mem.v
-set_global_assignment -name VERILOG_FILE ../src/vga_demo.v
 set_global_assignment -name QIP_FILE object_mem.qip
-set_global_assignment -name VERILOG_FILE ../src/alu.v
-set_global_assignment -name VERILOG_FILE ../src/map.v
-set_global_assignment -name VERILOG_FILE ../src/player.v
-set_global_assignment -name SYSTEMVERILOG_FILE ../src/sine_table.sv
 set_global_assignment -name VERILOG_FILE ../src/vga_adapter/vga_adapter.v
 set_global_assignment -name VERILOG_FILE ../src/vga_adapter/vga_address_translator.v
 set_global_assignment -name VERILOG_FILE ../src/vga_adapter/vga_controller.v
 set_global_assignment -name VERILOG_FILE ../src/vga_adapter/vga_pll.v
+set_global_assignment -name SYSTEMVERILOG_FILE ../src/draw/draw_line.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../src/vga_demo.sv
+set_global_assignment -name VERILOG_FILE ../src/vertex_loader.v
+set_global_assignment -name QIP_FILE ../src/vertex_ram.qip
+set_global_assignment -name SYSTEMVERILOG_FILE ../src/draw/draw_rectangle.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../src/draw/draw_rectangle_fill.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../src/draw/draw_line_1d.sv
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

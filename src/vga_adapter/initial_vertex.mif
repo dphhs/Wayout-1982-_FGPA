@@ -1,0 +1,17 @@
+WIDTH = 10;
+DEPTH = 32;
+ADDRESS_RADIX = DEC;
+DATA_RADIX = DEC;
+
+CONTENT
+BEGIN
+0		: 20;
+1		: 20;
+2		: 100;
+3		: 100;
+4		: 100;
+5		: 350;
+6		: 20;
+7		: 430;
+
+END;
