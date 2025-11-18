@@ -1,9 +1,12 @@
 `default_nettype none
+`include "params.vh"
 
 module vga_adapter(
     resetn, clock, color, x, y, write,
-    VGA_R, VGA_G, VGA_B, VGA_HS, VGA_VS, VGA_BLANK_N, VGA_SYNC_N, VGA_CLK
+    VGA_R, VGA_G, VGA_B, VGA_HS, VGA_VS, VGA_BLANK_N, VGA_SYNC_N, VGA_CLK,
+    player_tile_x, player_tile_y, player_dir
 );
+
     // The VGA resolution, which can be set to "640x480", "320x240", and "160x120"
     parameter RESOLUTION = "640x480";
 
@@ -26,11 +29,14 @@ module vga_adapter(
     parameter ROWS = (RESOLUTION == "640x480") ? 480 :
                      ((RESOLUTION == "320x240") ? 240 : 120);
 
-    // ----------------------------------------------------------------
-    // Ports (keep same interface as lab)
-    // ----------------------------------------------------------------
     input  wire                        resetn;
     input  wire                        clock;
+	 
+	     // Player tile position (grid 0..29 × 0..11) and direction
+    input  wire [4:0] player_tile_x;
+    input  wire [4:0] player_tile_y;
+    input  wire [1:0] player_dir;
+
 
     // These are *not* used now – background comes from ROM
     input  wire [COLOR_DEPTH-1:0]      color;
@@ -54,9 +60,9 @@ module vga_adapter(
     wire [Mn-1:0] controller_to_video_memory_addr;
     wire [COLOR_DEPTH-1:0] rom_color;
 
-    // Tie player position to (0,0) for now (just to satisfy the port)
-    wire [nX-1:0] player_x = {nX{1'b0}};
-    wire [nY-1:0] player_y = {nY{1'b0}};
+	 
+
+	
 
     // ----------------------------------------------------------------
     // 50 MHz -> 25 MHz clock divider (replaces vga_pll)
@@ -83,7 +89,8 @@ module vga_adapter(
     // ----------------------------------------------------------------
     // VGA Controller: reads ROM, overlays maze from play_map.v
     // ----------------------------------------------------------------
-    vga_controller controller(
+	 
+    /*vga_controller controller(
         .vga_clock      (clock_25),
         .resetn         (resetn),
         .pixel_color    (rom_color),
@@ -99,6 +106,27 @@ module vga_adapter(
         .player_x       (player_x),
         .player_y       (player_y)
     );
+	 */
+	 
+    vga_controller controller(
+        .vga_clock      (clock_25),
+        .resetn         (resetn),
+        .pixel_color    (rom_color),
+        .memory_address (controller_to_video_memory_addr),
+        .VGA_R          (VGA_R),
+        .VGA_G          (VGA_G),
+        .VGA_B          (VGA_B),
+        .VGA_HS         (VGA_HS),
+        .VGA_VS         (VGA_VS),
+        .VGA_BLANK_N    (VGA_BLANK_N),
+        .VGA_SYNC_N     (VGA_SYNC_N),
+        .VGA_CLK        (VGA_CLK),
+        .player_x       (player_tile_x),
+        .player_y       (player_tile_y),
+        .player_dir     (player_dir)
+    );
+
+	 
     defparam controller.RESOLUTION  = RESOLUTION;
     defparam controller.COLOR_DEPTH = COLOR_DEPTH;
     defparam controller.nX          = nX;
