@@ -55,7 +55,7 @@ module draw_screen #(parameter CORDW=16) (  // signed coordinate width
         row0    =   3'b011,
         row1    =   3'b001,
         row2    =   3'b110,  
-        row3    =   3'b101,  
+        row3    =   3'b001,  
         row4    =   3'b001, 
 
         init_px =   3'd1,
@@ -79,7 +79,7 @@ module draw_screen #(parameter CORDW=16) (  // signed coordinate width
     logic Write = 1'b1;
 
     // 3 x 5 2D array (x=3, y=5)
-    logic [2:0] map [0:4]; // 5 rows, 3 bits each row
+    logic [0:2] map [0:4]; // 5 rows, 3 bits each row
     // map[py][px]
     logic [x_width + 1:0]px;
     logic [y_width + 1:0]py;
@@ -105,7 +105,7 @@ module draw_screen #(parameter CORDW=16) (  // signed coordinate width
     // Draw FSM=================
 
     // Internal Signal:
-    logic [4:0] end_d, dx, dy;
+    logic [x_width + 1:0] end_d, dx, dy;
     logic draw_frame, draw_left, draw_right;
     logic first_left, first_right;
 
@@ -132,11 +132,11 @@ module draw_screen #(parameter CORDW=16) (  // signed coordinate width
                 // Draw filled Rec
 
                 // Count end_d
-                
                 if (map[index_y][px] == 0) begin
                     dy <= dy + 1;
                     end_d <= end_d + 1; 
                 end else begin
+                    dx <= -1;
                     dy <= 0;
                     draw_frame <= 0;
                     state <= INITLEFT;
@@ -148,7 +148,6 @@ module draw_screen #(parameter CORDW=16) (  // signed coordinate width
                 state <= DRAWLEFT;
 
                 if (draw_frame == 0) begin
-                    draw_frame <= 1;
                     x0 <= 13'd0;    y0 <= 13'd0;
                     x1 <= W;        y1 <= 13'd0;
                     x2 <= W;        y2 <= H;
@@ -156,7 +155,7 @@ module draw_screen #(parameter CORDW=16) (  // signed coordinate width
                 end else if (first_left == 0) begin
                     first_left <= 1;
                     // Draw the First Block
-                    if (map[index_y][px-1] == 0) begin
+                    if (map[index_y][index_x] == 0) begin
                         // Left block is empty
                         x0 <= 13'd0;    y0 <= V;
                         x1 <= V;        y1 <= V;
@@ -179,12 +178,22 @@ module draw_screen #(parameter CORDW=16) (  // signed coordinate width
                 quad_start <= 0;
                 if (quad_done) begin
                     // Done Drawing
-                    if(draw_left == 0) begin
+
+                    // Done the frame or the first_left
+                    if (first_left == 0) begin
+                        state <= INITLEFT;
+                        if (draw_frame == 0) begin
+                            draw_frame <= 1;
+                        end else begin
+                            first_left <= 1;
+                        end
+                    end else if(draw_left == 0) begin
                         state <= INITLEFT;
                         // Check next stage;
                         dy <= dy + 1;
                         // draw_left <= 0;
                     end else begin
+                        dx <= 1;
                         dy <= 0;
                         state <= INITRIGHT;
                     end
@@ -250,9 +259,9 @@ module draw_screen #(parameter CORDW=16) (  // signed coordinate width
         endcase
     end
 
-
     always_comb begin
-        index_y <= py-dy;
+        index_x = px+dx;
+        index_y = py-dy;
         V = D[2]; // accesses V
     end
 
