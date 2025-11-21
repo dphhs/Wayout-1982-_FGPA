@@ -9,7 +9,7 @@ z2
 cModel Technology
 dC:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/test/vertex_test
 vvertex_loader
-Z0 !s110 1763275717
+Z0 !s110 1763390585
 !i10b 1
 !s100 S2C50E4K96l1H[m4g83ej3
 ImoO>4OWiocU7Dbi19`2B@3
@@ -23,7 +23,7 @@ Z3 OV;L;10.5b;63
 r1
 !s85 0
 31
-Z4 !s108 1763275717.000000
+Z4 !s108 1763390585.000000
 !s107 vertex_loader.v|
 !s90 -reportprogress|300|vertex_loader.v|
 !i113 1

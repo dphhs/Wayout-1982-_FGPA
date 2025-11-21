@@ -1,5 +1,5 @@
 Analysis & Synthesis report for vga_demo
-Sun Nov 16 03:00:59 2025
+Wed Nov 19 00:41:35 2025
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -14,28 +14,32 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. Analysis & Synthesis RAM Summary
-  9. State Machine - |vga_demo|state
+  9. State Machine - |vga_demo|draw_screen:u_draw_screen|state
  10. Registers Removed During Synthesis
  11. Removed Registers Triggering Further Register Optimizations
  12. General Register Statistics
  13. Multiplexer Restructuring Statistics (Restructuring Performed)
  14. Source assignments for vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_bem1:auto_generated
  15. Parameter Settings for User Entity Instance: Top-level Entity: |vga_demo
- 16. Parameter Settings for User Entity Instance: draw_line:u_draw_line
- 17. Parameter Settings for User Entity Instance: vga_adapter:VGA
- 18. Parameter Settings for User Entity Instance: vga_adapter:VGA|vga_address_translator:user_input_translator
- 19. Parameter Settings for User Entity Instance: vga_adapter:VGA|altsyncram:VideoMemory
- 20. Parameter Settings for User Entity Instance: vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component
- 21. Parameter Settings for User Entity Instance: vga_adapter:VGA|vga_controller:controller
- 22. Parameter Settings for User Entity Instance: vga_adapter:VGA|vga_controller:controller|vga_address_translator:controller_translator
- 23. altsyncram Parameter Settings by Entity Instance
- 24. altpll Parameter Settings by Entity Instance
- 25. Port Connectivity Checks: "vga_adapter:VGA"
- 26. Port Connectivity Checks: "draw_line:u_draw_line"
- 27. Post-Synthesis Netlist Statistics for Top Partition
- 28. Elapsed Time Per Partition
- 29. Analysis & Synthesis Messages
- 30. Analysis & Synthesis Suppressed Messages
+ 16. Parameter Settings for User Entity Instance: draw_screen:u_draw_screen
+ 17. Parameter Settings for User Entity Instance: draw_screen:u_draw_screen|draw_quad:u_draw_quad
+ 18. Parameter Settings for User Entity Instance: draw_screen:u_draw_screen|draw_quad:u_draw_quad|draw_line:draw_line_inst
+ 19. Parameter Settings for User Entity Instance: vga_adapter:VGA
+ 20. Parameter Settings for User Entity Instance: vga_adapter:VGA|vga_address_translator:user_input_translator
+ 21. Parameter Settings for User Entity Instance: vga_adapter:VGA|altsyncram:VideoMemory
+ 22. Parameter Settings for User Entity Instance: vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component
+ 23. Parameter Settings for User Entity Instance: vga_adapter:VGA|vga_controller:controller
+ 24. Parameter Settings for User Entity Instance: vga_adapter:VGA|vga_controller:controller|vga_address_translator:controller_translator
+ 25. altsyncram Parameter Settings by Entity Instance
+ 26. altpll Parameter Settings by Entity Instance
+ 27. Port Connectivity Checks: "vga_adapter:VGA"
+ 28. Port Connectivity Checks: "draw_screen:u_draw_screen|draw_quad:u_draw_quad|draw_line:draw_line_inst"
+ 29. Port Connectivity Checks: "draw_screen:u_draw_screen|draw_quad:u_draw_quad"
+ 30. Port Connectivity Checks: "draw_screen:u_draw_screen"
+ 31. Post-Synthesis Netlist Statistics for Top Partition
+ 32. Elapsed Time Per Partition
+ 33. Analysis & Synthesis Messages
+ 34. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -61,13 +65,13 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Sun Nov 16 03:00:59 2025       ;
+; Analysis & Synthesis Status     ; Successful - Wed Nov 19 00:41:35 2025       ;
 ; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                   ; vga_demo                                    ;
 ; Top-level Entity Name           ; vga_demo                                    ;
 ; Family                          ; Cyclone V                                   ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
-; Total registers                 ; 109                                         ;
+; Total registers                 ; 154                                         ;
 ; Total pins                      ; 98                                          ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 2,764,800                                   ;
@@ -184,7 +188,8 @@ refer to the applicable agreement for further details.
 ;     Processor 2            ;   0.0%      ;
 ;     Processor 3            ;   0.0%      ;
 ;     Processor 4            ;   0.0%      ;
-;     Processors 5-16        ;   0.0%      ;
+;     Processor 5            ;   0.0%      ;
+;     Processors 6-16        ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -199,6 +204,8 @@ refer to the applicable agreement for further details.
 ; ../src/vga_adapter/vga_pll.v                ; yes             ; User Wizard-Generated File   ; C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/vga_adapter/vga_pll.v                ;         ;
 ; ../src/draw/draw_line.sv                    ; yes             ; User SystemVerilog HDL File  ; C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw/draw_line.sv                    ;         ;
 ; ../src/vga_demo.sv                          ; yes             ; User SystemVerilog HDL File  ; C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/vga_demo.sv                          ;         ;
+; ../src/draw/draw_quad.sv                    ; yes             ; User SystemVerilog HDL File  ; C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw/draw_quad.sv                    ;         ;
+; ../src/draw_screen.sv                       ; yes             ; User SystemVerilog HDL File  ; C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv                       ;         ;
 ; altsyncram.tdf                              ; yes             ; Megafunction                 ; d:/ece241_lab/quartus/libraries/megafunctions/altsyncram.tdf                                                   ;         ;
 ; stratix_ram_block.inc                       ; yes             ; Megafunction                 ; d:/ece241_lab/quartus/libraries/megafunctions/stratix_ram_block.inc                                            ;         ;
 ; lpm_mux.inc                                 ; yes             ; Megafunction                 ; d:/ece241_lab/quartus/libraries/megafunctions/lpm_mux.inc                                                      ;         ;
@@ -225,16 +232,16 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+----------------+
 ; Resource                                    ; Usage          ;
 +---------------------------------------------+----------------+
-; Estimate of Logic utilization (ALMs needed) ; 326            ;
+; Estimate of Logic utilization (ALMs needed) ; 362            ;
 ;                                             ;                ;
-; Combinational ALUT usage for logic          ; 435            ;
+; Combinational ALUT usage for logic          ; 492            ;
 ;     -- 7 input functions                    ; 0              ;
-;     -- 6 input functions                    ; 214            ;
-;     -- 5 input functions                    ; 53             ;
-;     -- 4 input functions                    ; 27             ;
-;     -- <=3 input functions                  ; 141            ;
+;     -- 6 input functions                    ; 229            ;
+;     -- 5 input functions                    ; 69             ;
+;     -- 4 input functions                    ; 30             ;
+;     -- <=3 input functions                  ; 164            ;
 ;                                             ;                ;
-; Dedicated logic registers                   ; 109            ;
+; Dedicated logic registers                   ; 154            ;
 ;                                             ;                ;
 ; I/O pins                                    ; 98             ;
 ; Total MLAB memory bits                      ; 0              ;
@@ -246,9 +253,9 @@ refer to the applicable agreement for further details.
 ;     -- PLLs                                 ; 1              ;
 ;                                             ;                ;
 ; Maximum fan-out node                        ; CLOCK_50~input ;
-; Maximum fan-out                             ; 414            ;
-; Total fan-out                               ; 12917          ;
-; Average fan-out                             ; 11.91          ;
+; Maximum fan-out                             ; 459            ;
+; Total fan-out                               ; 13339          ;
+; Average fan-out                             ; 11.24          ;
 +---------------------------------------------+----------------+
 
 
@@ -257,8 +264,10 @@ refer to the applicable agreement for further details.
 +---------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------------------------------------------------------+------------------------+--------------+
 ; Compilation Hierarchy Node                              ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                      ; Entity Name            ; Library Name ;
 +---------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------------------------------------------------------+------------------------+--------------+
-; |vga_demo                                               ; 435 (11)            ; 109 (12)                  ; 2764800           ; 0          ; 98   ; 0            ; |vga_demo                                                                                                ; vga_demo               ; work         ;
-;    |draw_line:u_draw_line|                              ; 163 (163)           ; 59 (59)                   ; 0                 ; 0          ; 0    ; 0            ; |vga_demo|draw_line:u_draw_line                                                                          ; draw_line              ; work         ;
+; |vga_demo                                               ; 492 (1)             ; 154 (0)                   ; 2764800           ; 0          ; 98   ; 0            ; |vga_demo                                                                                                ; vga_demo               ; work         ;
+;    |draw_screen:u_draw_screen|                          ; 230 (15)            ; 116 (13)                  ; 0                 ; 0          ; 0    ; 0            ; |vga_demo|draw_screen:u_draw_screen                                                                      ; draw_screen            ; work         ;
+;       |draw_quad:u_draw_quad|                           ; 215 (34)            ; 103 (31)                  ; 0                 ; 0          ; 0    ; 0            ; |vga_demo|draw_screen:u_draw_screen|draw_quad:u_draw_quad                                                ; draw_quad              ; work         ;
+;          |draw_line:draw_line_inst|                     ; 181 (181)           ; 72 (72)                   ; 0                 ; 0          ; 0    ; 0            ; |vga_demo|draw_screen:u_draw_screen|draw_quad:u_draw_quad|draw_line:draw_line_inst                       ; draw_line              ; work         ;
 ;    |vga_adapter:VGA|                                    ; 261 (2)             ; 38 (0)                    ; 2764800           ; 0          ; 0    ; 0            ; |vga_demo|vga_adapter:VGA                                                                                ; vga_adapter            ; work         ;
 ;       |altsyncram:VideoMemory|                          ; 172 (0)             ; 12 (0)                    ; 2764800           ; 0          ; 0    ; 0            ; |vga_demo|vga_adapter:VGA|altsyncram:VideoMemory                                                         ; altsyncram             ; work         ;
 ;          |altsyncram_bem1:auto_generated|               ; 172 (0)             ; 12 (12)                   ; 2764800           ; 0          ; 0    ; 0            ; |vga_demo|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_bem1:auto_generated                          ; altsyncram_bem1        ; work         ;
@@ -285,77 +294,177 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 
 
 Encoding Type:  One-Hot
-+---------------------------------------------------+
-; State Machine - |vga_demo|state                   ;
-+------------+------------+------------+------------+
-; Name       ; state.INIT ; state.IDLE ; state.DRAW ;
-+------------+------------+------------+------------+
-; state.INIT ; 0          ; 0          ; 0          ;
-; state.DRAW ; 1          ; 0          ; 1          ;
-; state.IDLE ; 1          ; 1          ; 0          ;
-+------------+------------+------------+------------+
++--------------------------------------------------------------------------------------------------+
+; State Machine - |vga_demo|draw_screen:u_draw_screen|state                                        ;
++-----------------+----------------+----------------+---------------+------------+-----------------+
+; Name            ; state.DRAWLEFT ; state.INITLEFT ; state.REFRESH ; state.IDLE ; state.INITRIGHT ;
++-----------------+----------------+----------------+---------------+------------+-----------------+
+; state.IDLE      ; 0              ; 0              ; 0             ; 0          ; 0               ;
+; state.REFRESH   ; 0              ; 0              ; 1             ; 1          ; 0               ;
+; state.INITLEFT  ; 0              ; 1              ; 0             ; 1          ; 0               ;
+; state.DRAWLEFT  ; 1              ; 0              ; 0             ; 1          ; 0               ;
+; state.INITRIGHT ; 0              ; 0              ; 0             ; 1          ; 1               ;
++-----------------+----------------+----------------+---------------+------------+-----------------+
 
 
-+----------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                     ;
-+------------------------------------------+---------------------------------------------+
-; Register name                            ; Reason for Removal                          ;
-+------------------------------------------+---------------------------------------------+
-; mux_y1[2]                                ; Stuck at VCC due to stuck port data_in      ;
-; mux_y1[0,9..11]                          ; Stuck at GND due to stuck port data_in      ;
-; mux_x1[0,1]                              ; Stuck at GND due to stuck port data_in      ;
-; mux_x1[2]                                ; Stuck at VCC due to stuck port data_in      ;
-; mux_x1[3,7..11]                          ; Stuck at GND due to stuck port data_in      ;
-; mux_y0[0]                                ; Stuck at GND due to stuck port data_in      ;
-; mux_y0[2]                                ; Stuck at VCC due to stuck port data_in      ;
-; mux_y0[9..11]                            ; Stuck at GND due to stuck port data_in      ;
-; mux_x0[0,1]                              ; Stuck at GND due to stuck port data_in      ;
-; mux_x0[2]                                ; Stuck at VCC due to stuck port data_in      ;
-; mux_x0[3,7..11]                          ; Stuck at GND due to stuck port data_in      ;
-; draw_line:u_draw_line|x_end[3,7..11]     ; Stuck at GND due to stuck port data_in      ;
-; draw_line:u_draw_line|x_end[2]           ; Stuck at VCC due to stuck port data_in      ;
-; draw_line:u_draw_line|x_end[0,1]         ; Stuck at GND due to stuck port data_in      ;
-; draw_line:u_draw_line|y_end[9..11]       ; Stuck at GND due to stuck port data_in      ;
-; draw_line:u_draw_line|y_end[2]           ; Stuck at VCC due to stuck port data_in      ;
-; draw_line:u_draw_line|y_end[0]           ; Stuck at GND due to stuck port data_in      ;
-; draw_line:u_draw_line|dx[0..2]           ; Stuck at GND due to stuck port data_in      ;
-; mux_y0[5]                                ; Merged with mux_y1[4]                       ;
-; mux_y1[1,8]                              ; Merged with mux_y1[3]                       ;
-; mux_y0[6]                                ; Merged with mux_y1[3]                       ;
-; mux_x0[5,6]                              ; Merged with mux_y1[3]                       ;
-; mux_y0[4]                                ; Merged with mux_y1[5]                       ;
-; mux_x1[5,6]                              ; Merged with mux_y1[6]                       ;
-; mux_y0[1,3,8]                            ; Merged with mux_x1[4]                       ;
-; draw_line:u_draw_line|dy[11,12]          ; Merged with draw_line:u_draw_line|dy[10]    ;
-; draw_line:u_draw_line|x_end[6]           ; Merged with draw_line:u_draw_line|x_end[5]  ;
-; draw_line:u_draw_line|y_end[6]           ; Merged with draw_line:u_draw_line|x_end[5]  ;
-; draw_line:u_draw_line|y_end[3,8]         ; Merged with draw_line:u_draw_line|y_end[1]  ;
-; draw_line:u_draw_line|state[2..9,11..31] ; Merged with draw_line:u_draw_line|state[10] ;
-; draw_line:u_draw_line|dx[8,9,11,12]      ; Merged with draw_line:u_draw_line|dx[10]    ;
-; draw_line:u_draw_line|dy[0]              ; Stuck at GND due to stuck port data_in      ;
-; draw_line:u_draw_line|err[0]             ; Stuck at GND due to stuck port data_in      ;
-; draw_line:u_draw_line|state[10]          ; Stuck at GND due to stuck port data_in      ;
-; draw_line:u_draw_line|dx[3]              ; Stuck at GND due to stuck port data_in      ;
-; mux_y1[6]                                ; Merged with mux_x1[4]                       ;
-; mux_y1[5]                                ; Merged with mux_y1[4]                       ;
-; draw_line:u_draw_line|y_end[4]           ; Merged with draw_line:u_draw_line|y_end[5]  ;
-; draw_line:u_draw_line|dx[7]              ; Merged with draw_line:u_draw_line|dx[10]    ;
-; line_id[2]                               ; Stuck at GND due to stuck port data_in      ;
-; Total Number of Removed Registers = 105  ;                                             ;
-+------------------------------------------+---------------------------------------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                                                                                           ;
++---------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------+
+; Register name                                                                               ; Reason for Removal                                                                             ;
++---------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------+
+; draw_screen:u_draw_screen|map[4][0]                                                         ; Stuck at VCC due to stuck port data_in                                                         ;
+; draw_screen:u_draw_screen|map[4][1]                                                         ; Stuck at GND due to stuck port data_in                                                         ;
+; draw_screen:u_draw_screen|map[4][2]                                                         ; Stuck at GND due to stuck port data_in                                                         ;
+; draw_screen:u_draw_screen|map[3][0]                                                         ; Stuck at VCC due to stuck port data_in                                                         ;
+; draw_screen:u_draw_screen|map[3][1]                                                         ; Stuck at GND due to stuck port data_in                                                         ;
+; draw_screen:u_draw_screen|map[3][2]                                                         ; Stuck at VCC due to stuck port data_in                                                         ;
+; draw_screen:u_draw_screen|map[2][0]                                                         ; Stuck at GND due to stuck port data_in                                                         ;
+; draw_screen:u_draw_screen|map[2][1]                                                         ; Stuck at VCC due to stuck port data_in                                                         ;
+; draw_screen:u_draw_screen|map[2][2]                                                         ; Stuck at VCC due to stuck port data_in                                                         ;
+; draw_screen:u_draw_screen|map[1][0]                                                         ; Stuck at VCC due to stuck port data_in                                                         ;
+; draw_screen:u_draw_screen|map[1][1]                                                         ; Stuck at GND due to stuck port data_in                                                         ;
+; draw_screen:u_draw_screen|map[1][2]                                                         ; Stuck at GND due to stuck port data_in                                                         ;
+; draw_screen:u_draw_screen|map[0][0]                                                         ; Stuck at VCC due to stuck port data_in                                                         ;
+; draw_screen:u_draw_screen|map[0][1]                                                         ; Stuck at VCC due to stuck port data_in                                                         ;
+; draw_screen:u_draw_screen|map[0][2]                                                         ; Stuck at GND due to stuck port data_in                                                         ;
+; draw_screen:u_draw_screen|py[0,1]                                                           ; Stuck at GND due to stuck port data_in                                                         ;
+; draw_screen:u_draw_screen|py[2]                                                             ; Stuck at VCC due to stuck port data_in                                                         ;
+; draw_screen:u_draw_screen|py[3..6]                                                          ; Stuck at GND due to stuck port data_in                                                         ;
+; draw_screen:u_draw_screen|px[0]                                                             ; Stuck at VCC due to stuck port data_in                                                         ;
+; draw_screen:u_draw_screen|px[1..6]                                                          ; Stuck at GND due to stuck port data_in                                                         ;
+; draw_screen:u_draw_screen|draw_left                                                         ; Stuck at GND due to stuck port data_in                                                         ;
+; draw_screen:u_draw_screen|x0[0]                                                             ; Merged with draw_screen:u_draw_screen|x2[1]                                                    ;
+; draw_screen:u_draw_screen|y3[1]                                                             ; Merged with draw_screen:u_draw_screen|x2[1]                                                    ;
+; draw_screen:u_draw_screen|x1[0]                                                             ; Merged with draw_screen:u_draw_screen|x2[1]                                                    ;
+; draw_screen:u_draw_screen|y3[9]                                                             ; Merged with draw_screen:u_draw_screen|x2[1]                                                    ;
+; draw_screen:u_draw_screen|y0[4]                                                             ; Merged with draw_screen:u_draw_screen|x2[1]                                                    ;
+; draw_screen:u_draw_screen|y2[1]                                                             ; Merged with draw_screen:u_draw_screen|x2[1]                                                    ;
+; draw_screen:u_draw_screen|x0[8]                                                             ; Merged with draw_screen:u_draw_screen|x2[1]                                                    ;
+; draw_screen:u_draw_screen|x3[9]                                                             ; Merged with draw_screen:u_draw_screen|x2[1]                                                    ;
+; draw_screen:u_draw_screen|y1[0,8]                                                           ; Merged with draw_screen:u_draw_screen|x2[1]                                                    ;
+; draw_screen:u_draw_screen|x3[1]                                                             ; Merged with draw_screen:u_draw_screen|x2[1]                                                    ;
+; draw_screen:u_draw_screen|y0[0,8]                                                           ; Merged with draw_screen:u_draw_screen|x2[1]                                                    ;
+; draw_screen:u_draw_screen|x0[4,11]                                                          ; Merged with draw_screen:u_draw_screen|x2[1]                                                    ;
+; draw_screen:u_draw_screen|y2[11]                                                            ; Merged with draw_screen:u_draw_screen|x2[1]                                                    ;
+; draw_screen:u_draw_screen|x2[10]                                                            ; Merged with draw_screen:u_draw_screen|x2[1]                                                    ;
+; draw_screen:u_draw_screen|x3[3,7]                                                           ; Merged with draw_screen:u_draw_screen|x2[1]                                                    ;
+; draw_screen:u_draw_screen|y1[10]                                                            ; Merged with draw_screen:u_draw_screen|x2[1]                                                    ;
+; draw_screen:u_draw_screen|y3[11]                                                            ; Merged with draw_screen:u_draw_screen|x2[1]                                                    ;
+; draw_screen:u_draw_screen|x2[3]                                                             ; Merged with draw_screen:u_draw_screen|x2[1]                                                    ;
+; draw_screen:u_draw_screen|x1[10]                                                            ; Merged with draw_screen:u_draw_screen|x2[1]                                                    ;
+; draw_screen:u_draw_screen|y0[10]                                                            ; Merged with draw_screen:u_draw_screen|x2[1]                                                    ;
+; draw_screen:u_draw_screen|x0[2,6,7]                                                         ; Merged with draw_screen:u_draw_screen|x2[1]                                                    ;
+; draw_screen:u_draw_screen|x3[11]                                                            ; Merged with draw_screen:u_draw_screen|x2[1]                                                    ;
+; draw_screen:u_draw_screen|x0[10]                                                            ; Merged with draw_screen:u_draw_screen|x2[1]                                                    ;
+; draw_screen:u_draw_screen|x2[9]                                                             ; Merged with draw_screen:u_draw_screen|x2[1]                                                    ;
+; draw_screen:u_draw_screen|x3[8]                                                             ; Merged with draw_screen:u_draw_screen|x2[1]                                                    ;
+; draw_screen:u_draw_screen|x2[11]                                                            ; Merged with draw_screen:u_draw_screen|x2[1]                                                    ;
+; draw_screen:u_draw_screen|y2[10]                                                            ; Merged with draw_screen:u_draw_screen|x2[1]                                                    ;
+; draw_screen:u_draw_screen|y1[1]                                                             ; Merged with draw_screen:u_draw_screen|x2[1]                                                    ;
+; draw_screen:u_draw_screen|x3[6]                                                             ; Merged with draw_screen:u_draw_screen|x2[1]                                                    ;
+; draw_screen:u_draw_screen|y1[3]                                                             ; Merged with draw_screen:u_draw_screen|x2[1]                                                    ;
+; draw_screen:u_draw_screen|x3[4]                                                             ; Merged with draw_screen:u_draw_screen|x2[1]                                                    ;
+; draw_screen:u_draw_screen|y1[7,9]                                                           ; Merged with draw_screen:u_draw_screen|x2[1]                                                    ;
+; draw_screen:u_draw_screen|x3[2]                                                             ; Merged with draw_screen:u_draw_screen|x2[1]                                                    ;
+; draw_screen:u_draw_screen|y1[11]                                                            ; Merged with draw_screen:u_draw_screen|x2[1]                                                    ;
+; draw_screen:u_draw_screen|x0[5]                                                             ; Merged with draw_screen:u_draw_screen|x2[1]                                                    ;
+; draw_screen:u_draw_screen|x1[1]                                                             ; Merged with draw_screen:u_draw_screen|x2[1]                                                    ;
+; draw_screen:u_draw_screen|x3[0]                                                             ; Merged with draw_screen:u_draw_screen|x2[1]                                                    ;
+; draw_screen:u_draw_screen|x1[3]                                                             ; Merged with draw_screen:u_draw_screen|x2[1]                                                    ;
+; draw_screen:u_draw_screen|y2[6]                                                             ; Merged with draw_screen:u_draw_screen|x2[1]                                                    ;
+; draw_screen:u_draw_screen|y3[10]                                                            ; Merged with draw_screen:u_draw_screen|x2[1]                                                    ;
+; draw_screen:u_draw_screen|y2[0]                                                             ; Merged with draw_screen:u_draw_screen|x2[1]                                                    ;
+; draw_screen:u_draw_screen|x1[9,11]                                                          ; Merged with draw_screen:u_draw_screen|x2[1]                                                    ;
+; draw_screen:u_draw_screen|y0[1]                                                             ; Merged with draw_screen:u_draw_screen|x2[1]                                                    ;
+; draw_screen:u_draw_screen|y3[6]                                                             ; Merged with draw_screen:u_draw_screen|x2[1]                                                    ;
+; draw_screen:u_draw_screen|y0[3]                                                             ; Merged with draw_screen:u_draw_screen|x2[1]                                                    ;
+; draw_screen:u_draw_screen|x2[0]                                                             ; Merged with draw_screen:u_draw_screen|x2[1]                                                    ;
+; draw_screen:u_draw_screen|y0[7,9,11]                                                        ; Merged with draw_screen:u_draw_screen|x2[1]                                                    ;
+; draw_screen:u_draw_screen|x0[1,3]                                                           ; Merged with draw_screen:u_draw_screen|x2[1]                                                    ;
+; draw_screen:u_draw_screen|y3[0]                                                             ; Merged with draw_screen:u_draw_screen|x2[1]                                                    ;
+; draw_screen:u_draw_screen|x0[9]                                                             ; Merged with draw_screen:u_draw_screen|x2[1]                                                    ;
+; draw_screen:u_draw_screen|x3[10]                                                            ; Merged with draw_screen:u_draw_screen|x2[1]                                                    ;
+; draw_screen:u_draw_screen|y2[9]                                                             ; Merged with draw_screen:u_draw_screen|x2[1]                                                    ;
+; draw_screen:u_draw_screen|x3[5]                                                             ; Merged with draw_screen:u_draw_screen|x2[1]                                                    ;
+; draw_screen:u_draw_screen|y1[4]                                                             ; Merged with draw_screen:u_draw_screen|x2[1]                                                    ;
+; draw_screen:u_draw_screen|y3[8]                                                             ; Merged with draw_screen:u_draw_screen|y2[8]                                                    ;
+; draw_screen:u_draw_screen|x1[8]                                                             ; Merged with draw_screen:u_draw_screen|y2[7]                                                    ;
+; draw_screen:u_draw_screen|x2[8]                                                             ; Merged with draw_screen:u_draw_screen|y2[7]                                                    ;
+; draw_screen:u_draw_screen|x1[4]                                                             ; Merged with draw_screen:u_draw_screen|y2[7]                                                    ;
+; draw_screen:u_draw_screen|x2[4,7]                                                           ; Merged with draw_screen:u_draw_screen|y2[7]                                                    ;
+; draw_screen:u_draw_screen|x1[7]                                                             ; Merged with draw_screen:u_draw_screen|y2[7]                                                    ;
+; draw_screen:u_draw_screen|y2[4]                                                             ; Merged with draw_screen:u_draw_screen|y2[7]                                                    ;
+; draw_screen:u_draw_screen|y1[2,6]                                                           ; Merged with draw_screen:u_draw_screen|y2[5]                                                    ;
+; draw_screen:u_draw_screen|x1[2,6]                                                           ; Merged with draw_screen:u_draw_screen|y2[5]                                                    ;
+; draw_screen:u_draw_screen|y2[3]                                                             ; Merged with draw_screen:u_draw_screen|y2[5]                                                    ;
+; draw_screen:u_draw_screen|x2[2,5,6]                                                         ; Merged with draw_screen:u_draw_screen|y2[5]                                                    ;
+; draw_screen:u_draw_screen|y1[5]                                                             ; Merged with draw_screen:u_draw_screen|y2[5]                                                    ;
+; draw_screen:u_draw_screen|x1[5]                                                             ; Merged with draw_screen:u_draw_screen|y2[5]                                                    ;
+; draw_screen:u_draw_screen|y2[2]                                                             ; Merged with draw_screen:u_draw_screen|y2[5]                                                    ;
+; draw_screen:u_draw_screen|y3[4]                                                             ; Merged with draw_screen:u_draw_screen|y3[7]                                                    ;
+; draw_screen:u_draw_screen|y0[2,6]                                                           ; Merged with draw_screen:u_draw_screen|y3[5]                                                    ;
+; draw_screen:u_draw_screen|y3[3]                                                             ; Merged with draw_screen:u_draw_screen|y3[5]                                                    ;
+; draw_screen:u_draw_screen|y0[5]                                                             ; Merged with draw_screen:u_draw_screen|y3[5]                                                    ;
+; draw_screen:u_draw_screen|y3[2]                                                             ; Merged with draw_screen:u_draw_screen|y3[5]                                                    ;
+; draw_screen:u_draw_screen|draw_quad:u_draw_quad|state[2..9,11..31]                          ; Merged with draw_screen:u_draw_screen|draw_quad:u_draw_quad|state[10]                          ;
+; draw_screen:u_draw_screen|draw_quad:u_draw_quad|draw_line:draw_line_inst|x_end[1]           ; Merged with draw_screen:u_draw_screen|draw_quad:u_draw_quad|draw_line:draw_line_inst|x_end[0]  ;
+; draw_screen:u_draw_screen|draw_quad:u_draw_quad|draw_line:draw_line_inst|y_end[0,1]         ; Merged with draw_screen:u_draw_screen|draw_quad:u_draw_quad|draw_line:draw_line_inst|x_end[0]  ;
+; draw_screen:u_draw_screen|draw_quad:u_draw_quad|draw_line:draw_line_inst|state[2..9,11..31] ; Merged with draw_screen:u_draw_screen|draw_quad:u_draw_quad|draw_line:draw_line_inst|state[10] ;
+; draw_screen:u_draw_screen|draw_quad:u_draw_quad|lx0[1]                                      ; Merged with draw_screen:u_draw_screen|draw_quad:u_draw_quad|lx0[0]                             ;
+; draw_screen:u_draw_screen|draw_quad:u_draw_quad|lx1[0,1]                                    ; Merged with draw_screen:u_draw_screen|draw_quad:u_draw_quad|lx0[0]                             ;
+; draw_screen:u_draw_screen|draw_quad:u_draw_quad|ly0[0,1]                                    ; Merged with draw_screen:u_draw_screen|draw_quad:u_draw_quad|lx0[0]                             ;
+; draw_screen:u_draw_screen|draw_quad:u_draw_quad|ly1[0,1]                                    ; Merged with draw_screen:u_draw_screen|draw_quad:u_draw_quad|lx0[0]                             ;
+; draw_screen:u_draw_screen|draw_quad:u_draw_quad|draw_line:draw_line_inst|dy[0,1]            ; Stuck at GND due to stuck port data_in                                                         ;
+; draw_screen:u_draw_screen|draw_quad:u_draw_quad|draw_line:draw_line_inst|dx[0,1]            ; Stuck at GND due to stuck port data_in                                                         ;
+; draw_screen:u_draw_screen|x2[1]                                                             ; Stuck at GND due to stuck port data_in                                                         ;
+; draw_screen:u_draw_screen|draw_quad:u_draw_quad|lx0[0]                                      ; Stuck at GND due to stuck port data_in                                                         ;
+; draw_screen:u_draw_screen|draw_quad:u_draw_quad|draw_line:draw_line_inst|x_end[0]           ; Stuck at GND due to stuck port data_in                                                         ;
+; draw_screen:u_draw_screen|draw_quad:u_draw_quad|lx1[10,11]                                  ; Stuck at GND due to stuck port data_in                                                         ;
+; draw_screen:u_draw_screen|draw_quad:u_draw_quad|lx0[10,11]                                  ; Stuck at GND due to stuck port data_in                                                         ;
+; draw_screen:u_draw_screen|draw_quad:u_draw_quad|draw_line:draw_line_inst|x_end[10,11]       ; Stuck at GND due to stuck port data_in                                                         ;
+; draw_screen:u_draw_screen|draw_quad:u_draw_quad|ly1[9..11]                                  ; Stuck at GND due to stuck port data_in                                                         ;
+; draw_screen:u_draw_screen|draw_quad:u_draw_quad|ly0[9..11]                                  ; Stuck at GND due to stuck port data_in                                                         ;
+; draw_screen:u_draw_screen|draw_quad:u_draw_quad|draw_line:draw_line_inst|y_end[9..11]       ; Stuck at GND due to stuck port data_in                                                         ;
+; draw_screen:u_draw_screen|draw_quad:u_draw_quad|draw_line:draw_line_inst|dy[11,12]          ; Merged with draw_screen:u_draw_screen|draw_quad:u_draw_quad|draw_line:draw_line_inst|dy[10]    ;
+; draw_screen:u_draw_screen|draw_quad:u_draw_quad|draw_line:draw_line_inst|dx[12]             ; Merged with draw_screen:u_draw_screen|draw_quad:u_draw_quad|draw_line:draw_line_inst|dx[11]    ;
+; draw_screen:u_draw_screen|y2[8]                                                             ; Stuck at VCC due to stuck port data_in                                                         ;
+; draw_screen:u_draw_screen|draw_quad:u_draw_quad|state[10]                                   ; Stuck at GND due to stuck port data_in                                                         ;
+; draw_screen:u_draw_screen|draw_quad:u_draw_quad|draw_line:draw_line_inst|state[10]          ; Stuck at GND due to stuck port data_in                                                         ;
+; draw_screen:u_draw_screen|draw_quad:u_draw_quad|draw_line:draw_line_inst|err[0,1]           ; Stuck at GND due to stuck port data_in                                                         ;
+; draw_screen:u_draw_screen|draw_quad:u_draw_quad|lx0[7]                                      ; Merged with draw_screen:u_draw_screen|draw_quad:u_draw_quad|lx0[8]                             ;
+; draw_screen:u_draw_screen|draw_quad:u_draw_quad|lx1[7]                                      ; Merged with draw_screen:u_draw_screen|draw_quad:u_draw_quad|lx1[8]                             ;
+; draw_screen:u_draw_screen|draw_quad:u_draw_quad|draw_line:draw_line_inst|x_end[7]           ; Merged with draw_screen:u_draw_screen|draw_quad:u_draw_quad|draw_line:draw_line_inst|x_end[8]  ;
+; draw_screen:u_draw_screen|state~7                                                           ; Lost fanout                                                                                    ;
+; draw_screen:u_draw_screen|state~8                                                           ; Lost fanout                                                                                    ;
+; draw_screen:u_draw_screen|state.INITRIGHT                                                   ; Stuck at GND due to stuck port data_in                                                         ;
+; draw_screen:u_draw_screen|dy[3,4]                                                           ; Lost fanout                                                                                    ;
+; draw_screen:u_draw_screen|draw_quad:u_draw_quad|ly1[2]                                      ; Merged with draw_screen:u_draw_screen|draw_quad:u_draw_quad|ly1[6]                             ;
+; draw_screen:u_draw_screen|draw_quad:u_draw_quad|lx0[3]                                      ; Merged with draw_screen:u_draw_screen|draw_quad:u_draw_quad|lx0[2]                             ;
+; draw_screen:u_draw_screen|y3[5]                                                             ; Merged with draw_screen:u_draw_screen|y3[7]                                                    ;
+; draw_screen:u_draw_screen|draw_quad:u_draw_quad|lx1[3]                                      ; Merged with draw_screen:u_draw_screen|draw_quad:u_draw_quad|lx1[2]                             ;
+; Total Number of Removed Registers = 230                                                     ;                                                                                                ;
++---------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                                   ;
-+---------------------------------+---------------------------+-----------------------------------------------------------------+
-; Register name                   ; Reason for Removal        ; Registers Removed due to This Register                          ;
-+---------------------------------+---------------------------+-----------------------------------------------------------------+
-; mux_y1[2]                       ; Stuck at VCC              ; draw_line:u_draw_line|x_end[3], draw_line:u_draw_line|x_end[2], ;
-;                                 ; due to stuck port data_in ; draw_line:u_draw_line|x_end[1], draw_line:u_draw_line|x_end[0], ;
-;                                 ;                           ; draw_line:u_draw_line|y_end[2], draw_line:u_draw_line|y_end[0]  ;
-; draw_line:u_draw_line|x_end[11] ; Stuck at GND              ; draw_line:u_draw_line|err[0], draw_line:u_draw_line|state[10]   ;
-;                                 ; due to stuck port data_in ;                                                                 ;
-+---------------------------------+---------------------------+-----------------------------------------------------------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                                                                      ;
++--------------------------------------------------------------------------------+---------------------------+-------------------------------------------------------------------------------------+
+; Register name                                                                  ; Reason for Removal        ; Registers Removed due to This Register                                              ;
++--------------------------------------------------------------------------------+---------------------------+-------------------------------------------------------------------------------------+
+; draw_screen:u_draw_screen|x2[1]                                                ; Stuck at GND              ; draw_screen:u_draw_screen|draw_quad:u_draw_quad|lx0[0],                             ;
+;                                                                                ; due to stuck port data_in ; draw_screen:u_draw_screen|draw_quad:u_draw_quad|draw_line:draw_line_inst|x_end[0],  ;
+;                                                                                ;                           ; draw_screen:u_draw_screen|draw_quad:u_draw_quad|draw_line:draw_line_inst|x_end[11], ;
+;                                                                                ;                           ; draw_screen:u_draw_screen|draw_quad:u_draw_quad|draw_line:draw_line_inst|x_end[10], ;
+;                                                                                ;                           ; draw_screen:u_draw_screen|draw_quad:u_draw_quad|ly0[9],                             ;
+;                                                                                ;                           ; draw_screen:u_draw_screen|draw_quad:u_draw_quad|ly0[10],                            ;
+;                                                                                ;                           ; draw_screen:u_draw_screen|draw_quad:u_draw_quad|ly0[11],                            ;
+;                                                                                ;                           ; draw_screen:u_draw_screen|draw_quad:u_draw_quad|draw_line:draw_line_inst|y_end[11], ;
+;                                                                                ;                           ; draw_screen:u_draw_screen|draw_quad:u_draw_quad|draw_line:draw_line_inst|y_end[10], ;
+;                                                                                ;                           ; draw_screen:u_draw_screen|draw_quad:u_draw_quad|draw_line:draw_line_inst|y_end[9]   ;
+; draw_screen:u_draw_screen|draw_quad:u_draw_quad|draw_line:draw_line_inst|dy[1] ; Stuck at GND              ; draw_screen:u_draw_screen|draw_quad:u_draw_quad|draw_line:draw_line_inst|err[1],    ;
+;                                                                                ; due to stuck port data_in ; draw_screen:u_draw_screen|draw_quad:u_draw_quad|draw_line:draw_line_inst|err[0]     ;
+; draw_screen:u_draw_screen|dy[4]                                                ; Lost Fanouts              ; draw_screen:u_draw_screen|dy[3]                                                     ;
++--------------------------------------------------------------------------------+---------------------------+-------------------------------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -363,12 +472,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 109   ;
-; Number of registers using Synchronous Clear  ; 23    ;
-; Number of registers using Synchronous Load   ; 0     ;
+; Total registers                              ; 154   ;
+; Number of registers using Synchronous Clear  ; 27    ;
+; Number of registers using Synchronous Load   ; 19    ;
 ; Number of registers using Asynchronous Clear ; 20    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 57    ;
+; Number of registers using Clock Enable       ; 99    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -379,13 +488,21 @@ Encoding Type:  One-Hot
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                                        ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------------------------------------------+
 ; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |vga_demo|vga_adapter:VGA|vga_controller:controller|yCounter[4]                                                   ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |vga_demo|mux_y1[4]                                                                                               ;
-; 4:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |vga_demo|draw_line:u_draw_line|x[5]                                                                              ;
-; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |vga_demo|draw_line:u_draw_line|y[1]                                                                              ;
-; 5:1                ; 3 bits    ; 9 LEs         ; 3 LEs                ; 6 LEs                  ; Yes        ; |vga_demo|line_id[2]                                                                                              ;
-; 7:1                ; 10 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |vga_demo|draw_line:u_draw_line|err[11]                                                                           ;
-; 5:1                ; 9 bits    ; 27 LEs        ; 27 LEs               ; 0 LEs                  ; No         ; |vga_demo|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_bem1:auto_generated|mux_khb:mux3|l3_w6_n4_mux_dataout ;
-; 33:1               ; 9 bits    ; 198 LEs       ; 198 LEs              ; 0 LEs                  ; No         ; |vga_demo|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_bem1:auto_generated|mux_khb:mux3|l6_w1_n0_mux_dataout ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |vga_demo|draw_screen:u_draw_screen|draw_quad:u_draw_quad|lx1[9]                                                  ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |vga_demo|draw_screen:u_draw_screen|y2[7]                                                                         ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; Yes        ; |vga_demo|draw_screen:u_draw_screen|draw_quad:u_draw_quad|lx0[6]                                                  ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |vga_demo|draw_screen:u_draw_screen|draw_quad:u_draw_quad|lx0[4]                                                  ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |vga_demo|draw_screen:u_draw_screen|draw_quad:u_draw_quad|ly0[5]                                                  ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|draw_quad:u_draw_quad|draw_line:draw_line_inst|x[2]                           ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |vga_demo|draw_screen:u_draw_screen|draw_quad:u_draw_quad|draw_line:draw_line_inst|y[2]                           ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 0 LEs                ; 6 LEs                  ; Yes        ; |vga_demo|draw_screen:u_draw_screen|draw_quad:u_draw_quad|draw_line:draw_line_inst|err[1]                         ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |vga_demo|draw_screen:u_draw_screen|draw_quad:u_draw_quad|line_id[1]                                              ;
+; 7:1                ; 5 bits    ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|dy[1]                                                                         ;
+; 7:1                ; 11 bits   ; 44 LEs        ; 22 LEs               ; 22 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|draw_quad:u_draw_quad|draw_line:draw_line_inst|err[8]                         ;
+; 5:1                ; 9 bits    ; 27 LEs        ; 27 LEs               ; 0 LEs                  ; No         ; |vga_demo|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_bem1:auto_generated|mux_khb:mux3|l3_w2_n4_mux_dataout ;
+; 7:1                ; 3 bits    ; 12 LEs        ; 9 LEs                ; 3 LEs                  ; No         ; |vga_demo|draw_screen:u_draw_screen|Selector8                                                                     ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 6 LEs                ; 4 LEs                  ; No         ; |vga_demo|draw_screen:u_draw_screen|Selector6                                                                     ;
+; 33:1               ; 9 bits    ; 198 LEs       ; 198 LEs              ; 0 LEs                  ; No         ; |vga_demo|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_bem1:auto_generated|mux_khb:mux3|l6_w8_n0_mux_dataout ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------------------------------------------+
 
 
@@ -407,20 +524,37 @@ Encoding Type:  One-Hot
 ; COLOR_DEPTH    ; 3       ; Signed Integer                                ;
 ; nX             ; 11      ; Signed Integer                                ;
 ; nY             ; 10      ; Signed Integer                                ;
-; INIT           ; 00      ; Unsigned Binary                               ;
-; DRAW           ; 01      ; Unsigned Binary                               ;
-; IDLE           ; 10      ; Unsigned Binary                               ;
 +----------------+---------+-----------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+--------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: draw_line:u_draw_line ;
-+----------------+-------+-------------------------------------------+
-; Parameter Name ; Value ; Type                                      ;
-+----------------+-------+-------------------------------------------+
-; CORDW          ; 12    ; Signed Integer                            ;
-+----------------+-------+-------------------------------------------+
++------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: draw_screen:u_draw_screen ;
++----------------+-------+-----------------------------------------------+
+; Parameter Name ; Value ; Type                                          ;
++----------------+-------+-----------------------------------------------+
+; CORDW          ; 12    ; Signed Integer                                ;
++----------------+-------+-----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: draw_screen:u_draw_screen|draw_quad:u_draw_quad ;
++----------------+-------+---------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                ;
++----------------+-------+---------------------------------------------------------------------+
+; CORDW          ; 12    ; Signed Integer                                                      ;
++----------------+-------+---------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: draw_screen:u_draw_screen|draw_quad:u_draw_quad|draw_line:draw_line_inst ;
++----------------+-------+----------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                         ;
++----------------+-------+----------------------------------------------------------------------------------------------+
+; CORDW          ; 12    ; Signed Integer                                                                               ;
++----------------+-------+----------------------------------------------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -971,20 +1105,40 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; color ; Input ; Info     ; Stuck at VCC                                                                                                                                                                       ;
 ; x     ; Input ; Warning  ; Input port expression (11 bits) is wider than the input port (10 bits) it drives.  The 1 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
 ; y     ; Input ; Warning  ; Input port expression (10 bits) is wider than the input port (9 bits) it drives.  The 1 most-significant bit(s) in the expression will be dangling if they have no other fanouts.  ;
+; write ; Input ; Info     ; Stuck at VCC                                                                                                                                                                       ;
 +-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "draw_line:u_draw_line"                                                                   ;
-+-----------+--------+----------+-------------------------------------------------------------------------------------+
-; Port      ; Type   ; Severity ; Details                                                                             ;
-+-----------+--------+----------+-------------------------------------------------------------------------------------+
-; oe        ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; x[11..10] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; y[11..9]  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; drawing   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; busy      ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+-----------+--------+----------+-------------------------------------------------------------------------------------+
++------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "draw_screen:u_draw_screen|draw_quad:u_draw_quad|draw_line:draw_line_inst" ;
++------+--------+----------+---------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                   ;
++------+--------+----------+---------------------------------------------------------------------------+
+; busy ; Output ; Info     ; Explicitly unconnected                                                    ;
++------+--------+----------+---------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "draw_screen:u_draw_screen|draw_quad:u_draw_quad"                                       ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+; Port    ; Type   ; Severity ; Details                                                                             ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+; oe      ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; drawing ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; busy    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "draw_screen:u_draw_screen"                                                                    ;
++----------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port           ; Type   ; Severity ; Details                                                                             ;
++----------------+--------+----------+-------------------------------------------------------------------------------------+
+; draw_X[11..10] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; draw_Y[11..9]  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; busy           ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; done           ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++----------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +-----------------------------------------------------+
@@ -992,27 +1146,27 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 109                         ;
+; arriav_ff             ; 154                         ;
 ;     CLR SCLR          ; 10                          ;
-;     ENA               ; 47                          ;
+;     ENA               ; 70                          ;
 ;     ENA CLR SCLR      ; 10                          ;
-;     SCLR              ; 3                           ;
-;     plain             ; 39                          ;
+;     ENA SLD           ; 19                          ;
+;     SCLR              ; 7                           ;
+;     plain             ; 38                          ;
 ; arriav_io_obuf        ; 2                           ;
-; arriav_lcell_comb     ; 436                         ;
-;     arith             ; 93                          ;
+; arriav_lcell_comb     ; 493                         ;
+;     arith             ; 100                         ;
 ;         0 data inputs ; 4                           ;
-;         1 data inputs ; 33                          ;
-;         2 data inputs ; 53                          ;
-;         5 data inputs ; 3                           ;
-;     normal            ; 319                         ;
+;         1 data inputs ; 37                          ;
+;         2 data inputs ; 35                          ;
+;         5 data inputs ; 24                          ;
+;     normal            ; 369                         ;
 ;         0 data inputs ; 2                           ;
-;         1 data inputs ; 1                           ;
-;         2 data inputs ; 12                          ;
-;         3 data inputs ; 13                          ;
-;         4 data inputs ; 27                          ;
-;         5 data inputs ; 50                          ;
-;         6 data inputs ; 214                         ;
+;         2 data inputs ; 24                          ;
+;         3 data inputs ; 39                          ;
+;         4 data inputs ; 30                          ;
+;         5 data inputs ; 45                          ;
+;         6 data inputs ; 229                         ;
 ;     shared            ; 24                          ;
 ;         0 data inputs ; 2                           ;
 ;         1 data inputs ; 4                           ;
@@ -1023,7 +1177,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; stratixv_ram_block    ; 342                         ;
 ;                       ;                             ;
 ; Max LUT depth         ; 5.00                        ;
-; Average LUT depth     ; 2.98                        ;
+; Average LUT depth     ; 2.91                        ;
 +-----------------------+-----------------------------+
 
 
@@ -1032,7 +1186,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:00     ;
+; Top            ; 00:00:01     ;
 +----------------+--------------+
 
 
@@ -1042,7 +1196,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Sun Nov 16 03:00:51 2025
+    Info: Processing started: Wed Nov 19 00:41:11 2025
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off vga_demo -c vga_demo
 Warning (125092): Tcl Script File object_mem.qip not found
     Info (125063): set_global_assignment -name QIP_FILE object_mem.qip
@@ -1058,26 +1212,18 @@ Info (12021): Found 1 design units, including 1 entities, in source file /users/
     Info (12023): Found entity 1: vga_pll File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/vga_adapter/vga_pll.v Line: 36
 Info (12021): Found 1 design units, including 1 entities, in source file /users/rog/desktop/25_fall/ece241_digital_systems/wayout(1982)_fpga/src/draw/draw_line.sv
     Info (12023): Found entity 1: draw_line File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw/draw_line.sv Line: 11
-Info (12021): Found 6 design units, including 6 entities, in source file /users/rog/desktop/25_fall/ece241_digital_systems/wayout(1982)_fpga/src/vga_demo.sv
+Info (12021): Found 1 design units, including 1 entities, in source file /users/rog/desktop/25_fall/ece241_digital_systems/wayout(1982)_fpga/src/vga_demo.sv
     Info (12023): Found entity 1: vga_demo File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/vga_demo.sv Line: 11
-    Info (12023): Found entity 2: sync File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/vga_demo.sv Line: 241
-    Info (12023): Found entity 3: regn File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/vga_demo.sv Line: 260
-    Info (12023): Found entity 4: upDn_count File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/vga_demo.sv Line: 274
-    Info (12023): Found entity 5: hex7seg File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/vga_demo.sv Line: 292
-    Info (12023): Found entity 6: object File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/vga_demo.sv Line: 331
-Info (12021): Found 1 design units, including 1 entities, in source file /users/rog/desktop/25_fall/ece241_digital_systems/wayout(1982)_fpga/src/vertex_loader.v
-    Info (12023): Found entity 1: vertex_loader File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/vertex_loader.v Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file /users/rog/desktop/25_fall/ece241_digital_systems/wayout(1982)_fpga/src/vertex_ram.v
-    Info (12023): Found entity 1: vertex_ram File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/vertex_ram.v Line: 39
 Info (12021): Found 1 design units, including 1 entities, in source file /users/rog/desktop/25_fall/ece241_digital_systems/wayout(1982)_fpga/src/draw/draw_rectangle.sv
     Info (12023): Found entity 1: draw_rectangle File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw/draw_rectangle.sv Line: 8
-Info (12021): Found 1 design units, including 1 entities, in source file /users/rog/desktop/25_fall/ece241_digital_systems/wayout(1982)_fpga/src/draw/draw_rectangle_fill.sv
-    Info (12023): Found entity 1: draw_rectangle_fill File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw/draw_rectangle_fill.sv Line: 8
-Info (12021): Found 1 design units, including 1 entities, in source file /users/rog/desktop/25_fall/ece241_digital_systems/wayout(1982)_fpga/src/draw/draw_line_1d.sv
-    Info (12023): Found entity 1: draw_line_1d File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw/draw_line_1d.sv Line: 8
+Info (12021): Found 1 design units, including 1 entities, in source file /users/rog/desktop/25_fall/ece241_digital_systems/wayout(1982)_fpga/src/draw/draw_quad.sv
+    Info (12023): Found entity 1: draw_quad File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw/draw_quad.sv Line: 8
+Info (12021): Found 1 design units, including 1 entities, in source file /users/rog/desktop/25_fall/ece241_digital_systems/wayout(1982)_fpga/src/draw_screen.sv
+    Info (12023): Found entity 1: draw_screen File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 6
+Warning (10222): Verilog HDL Parameter Declaration warning at draw_screen.sv(51): Parameter Declaration in module "draw_screen" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 51
+Warning (10222): Verilog HDL Parameter Declaration warning at draw_screen.sv(63): Parameter Declaration in module "draw_screen" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 63
+Warning (10222): Verilog HDL Parameter Declaration warning at draw_screen.sv(66): Parameter Declaration in module "draw_screen" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 66
 Info (12127): Elaborating entity "vga_demo" for the top level hierarchy
-Warning (10230): Verilog HDL assignment warning at vga_demo.sv(124): truncated value with size 32 to match size of target (3) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/vga_demo.sv Line: 124
-Info (10264): Verilog HDL Case Statement information at vga_demo.sv(99): all case item expressions in this case statement are onehot File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/vga_demo.sv Line: 99
 Warning (10034): Output port "LEDR" at vga_demo.sv(30) has no driver File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/vga_demo.sv Line: 30
 Warning (10034): Output port "HEX5" at vga_demo.sv(32) has no driver File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/vga_demo.sv Line: 32
 Warning (10034): Output port "HEX4" at vga_demo.sv(32) has no driver File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/vga_demo.sv Line: 32
@@ -1085,12 +1231,43 @@ Warning (10034): Output port "HEX3" at vga_demo.sv(32) has no driver File: C:/Us
 Warning (10034): Output port "HEX2" at vga_demo.sv(32) has no driver File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/vga_demo.sv Line: 32
 Warning (10034): Output port "HEX1" at vga_demo.sv(32) has no driver File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/vga_demo.sv Line: 32
 Warning (10034): Output port "HEX0" at vga_demo.sv(32) has no driver File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/vga_demo.sv Line: 32
-Info (12128): Elaborating entity "draw_line" for hierarchy "draw_line:u_draw_line" File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/vga_demo.sv Line: 154
+Info (12128): Elaborating entity "draw_screen" for hierarchy "draw_screen:u_draw_screen" File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/vga_demo.sv Line: 64
+Warning (10036): Verilog HDL or VHDL warning at draw_screen.sv(108): object "dx" assigned a value but never read File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 108
+Warning (10036): Verilog HDL or VHDL warning at draw_screen.sv(109): object "draw_right" assigned a value but never read File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 109
+Warning (10036): Verilog HDL or VHDL warning at draw_screen.sv(110): object "first_right" assigned a value but never read File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 110
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(137): truncated value with size 32 to match size of target (5) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 137
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(138): truncated value with size 32 to match size of target (5) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 138
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(152): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 152
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(153): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 153
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(154): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 154
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(155): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 155
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(161): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 161
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(163): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 163
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(164): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 164
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(167): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 167
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(169): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 169
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(170): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 170
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(185): truncated value with size 32 to match size of target (5) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 185
+Info (10264): Verilog HDL Case Statement information at draw_screen.sv(130): all case item expressions in this case statement are onehot File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 130
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(266): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 266
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(267): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 267
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(268): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 268
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(269): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 269
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(270): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 270
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(271): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 271
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(272): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 272
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(273): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 273
+Warning (10034): Output port "busy" at draw_screen.sv(27) has no driver File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 27
+Warning (10034): Output port "done" at draw_screen.sv(29) has no driver File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 29
+Info (12128): Elaborating entity "draw_quad" for hierarchy "draw_screen:u_draw_screen|draw_quad:u_draw_quad" File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 296
+Warning (10230): Verilog HDL assignment warning at draw_quad.sv(61): truncated value with size 32 to match size of target (2) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw/draw_quad.sv Line: 61
+Info (10264): Verilog HDL Case Statement information at draw_quad.sv(34): all case item expressions in this case statement are onehot File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw/draw_quad.sv Line: 34
+Info (12128): Elaborating entity "draw_line" for hierarchy "draw_screen:u_draw_screen|draw_quad:u_draw_quad|draw_line:draw_line_inst" File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw/draw_quad.sv Line: 100
 Warning (10230): Verilog HDL assignment warning at draw_line.sv(61): truncated value with size 32 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw/draw_line.sv Line: 61
 Warning (10230): Verilog HDL assignment warning at draw_line.sv(65): truncated value with size 32 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw/draw_line.sv Line: 65
 Warning (10230): Verilog HDL assignment warning at draw_line.sv(69): truncated value with size 32 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw/draw_line.sv Line: 69
 Warning (10230): Verilog HDL assignment warning at draw_line.sv(70): truncated value with size 32 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw/draw_line.sv Line: 70
-Info (12128): Elaborating entity "vga_adapter" for hierarchy "vga_adapter:VGA" File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/vga_demo.sv Line: 236
+Info (12128): Elaborating entity "vga_adapter" for hierarchy "vga_adapter:VGA" File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/vga_demo.sv Line: 258
 Info (12128): Elaborating entity "vga_address_translator" for hierarchy "vga_adapter:VGA|vga_address_translator:user_input_translator" File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/vga_adapter/vga_adapter.v Line: 128
 Info (12128): Elaborating entity "altsyncram" for hierarchy "vga_adapter:VGA|altsyncram:VideoMemory" File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/vga_adapter/vga_adapter.v Line: 151
 Info (12130): Elaborated megafunction instantiation "vga_adapter:VGA|altsyncram:VideoMemory" File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/vga_adapter/vga_adapter.v Line: 151
@@ -1206,13 +1383,13 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "VGA_B[1]" is stuck at GND File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/vga_demo.sv Line: 36
     Warning (13410): Pin "VGA_SYNC_N" is stuck at VCC File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/vga_demo.sv Line: 40
 Info (286030): Timing-Driven Synthesis is running
+Info (17049): 4 registers lost all their fanouts during netlist optimizations.
 Info (144001): Generated suppressed messages file C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/project/vga_demo.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 5 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
 Warning: RST port on the PLL is not properly connected on instance vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component|altpll_80u:auto_generated|generic_pll1. The reset port on the PLL should be connected. If the PLL loses lock for any reason, you might need to manually reset the PLL in order to re-establish lock to the reference clock. File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/project/db/altpll_80u.tdf Line: 33
     Info: Must be connected
-Warning (21074): Design contains 13 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "SW[1]" File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/vga_demo.sv Line: 28
+Warning (21074): Design contains 12 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "SW[2]" File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/vga_demo.sv Line: 28
     Warning (15610): No output dependent on input pin "SW[3]" File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/vga_demo.sv Line: 28
     Warning (15610): No output dependent on input pin "SW[4]" File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/vga_demo.sv Line: 28
@@ -1225,18 +1402,18 @@ Warning (21074): Design contains 13 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "KEY[1]" File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/vga_demo.sv Line: 29
     Warning (15610): No output dependent on input pin "KEY[2]" File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/vga_demo.sv Line: 29
     Warning (15610): No output dependent on input pin "KEY[3]" File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/vga_demo.sv Line: 29
-Info (21057): Implemented 897 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 961 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 15 input pins
     Info (21059): Implemented 81 output pins
     Info (21060): Implemented 2 bidirectional pins
-    Info (21061): Implemented 456 logic cells
+    Info (21061): Implemented 520 logic cells
     Info (21064): Implemented 342 RAM segments
     Info (21065): Implemented 1 PLLs
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 93 warnings
-    Info: Peak virtual memory: 4951 megabytes
-    Info: Processing ended: Sun Nov 16 03:00:59 2025
-    Info: Elapsed time: 00:00:08
-    Info: Total CPU time (on all processors): 00:00:13
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 121 warnings
+    Info: Peak virtual memory: 4942 megabytes
+    Info: Processing ended: Wed Nov 19 00:41:35 2025
+    Info: Elapsed time: 00:00:24
+    Info: Total CPU time (on all processors): 00:00:53
 
 
 +------------------------------------------+
