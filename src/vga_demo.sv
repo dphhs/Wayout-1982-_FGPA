@@ -16,7 +16,7 @@ module vga_demo(CLOCK_50, SW, KEY, LEDR, PS2_CLK, PS2_DAT, HEX5, HEX4, HEX3, HEX
     parameter RESOLUTION = "640x480"; // "640x480" "320x240" "160x120"
 
     // default color depth. Specify a color in top.v
-    parameter COLOR_DEPTH = 3; // 9 6 3
+    parameter COLOR_DEPTH = 9; // 9 6 3
 
     // specify the number of bits needed for an X (column) pixel coordinate on the VGA display
     parameter nX = (RESOLUTION == "640x480") ? 11 : ((RESOLUTION == "320x240") ? 9 : 8);
@@ -40,17 +40,19 @@ module vga_demo(CLOCK_50, SW, KEY, LEDR, PS2_CLK, PS2_DAT, HEX5, HEX4, HEX3, HEX
 	output wire VGA_SYNC_N;
 	output wire VGA_CLK;	
 	
-    wire signed [nX:0] draw_X;
-    wire signed [nX:0] draw_Y;
+
 
 	wire Resetn = SW[0];
-    wire [COLOR_DEPTH-1:0] Color = 3'b111;
+    wire [8:0] Color = 9'b111111111;
     wire Write = 1;
 
     // Testing===
     wire Refresh = SW[1];
 
-    
+
+    wire signed [nX:0] draw_X;
+    wire signed [nX:0] draw_Y;
+
     wire screen_busy, screen_done;
     draw_screen#(.CORDW(nX+1))
         u_draw_screen (
@@ -62,7 +64,33 @@ module vga_demo(CLOCK_50, SW, KEY, LEDR, PS2_CLK, PS2_DAT, HEX5, HEX4, HEX3, HEX
             .busy(screen_busy),
             .done(screen_done)
         );
-    
+
+    wire  [nX-1:0] VGA_X = draw_X[nX-1:0];
+    wire  [nY-1:0] VGA_Y = draw_Y[nY-1:0];
+
+//===============================================================
+
+    // connect to VGA controller
+    vga_adapter VGA (
+			.resetn(Resetn),
+			.clock(CLOCK_50),
+			.color(Color),
+			.x(VGA_X),
+			.y(VGA_Y),
+			.write(Write),
+
+			.VGA_R(VGA_R),
+			.VGA_G(VGA_G),
+			.VGA_B(VGA_B),
+			.VGA_HS(VGA_HS),
+			.VGA_VS(VGA_VS),
+			.VGA_BLANK_N(VGA_BLANK_N),
+			.VGA_SYNC_N(VGA_SYNC_N),
+			.VGA_CLK(VGA_CLK));
+
+endmodule
+
+
 
     /*
     // The points to draw
@@ -233,28 +261,3 @@ module vga_demo(CLOCK_50, SW, KEY, LEDR, PS2_CLK, PS2_DAT, HEX5, HEX4, HEX3, HEX
         Y0 = draw_Y + displace;
     end
 */
-
-    wire  [nX-1:0] VGA_X = draw_X[nX-1:0];
-    wire  [nY-1:0] VGA_Y = draw_Y[nY-1:0];
-
-//===============================================================
-
-    // connect to VGA controller
-    vga_adapter VGA (
-			.resetn(Resetn),
-			.clock(CLOCK_50),
-			.color(Color),
-			.x(VGA_X),
-			.y(VGA_Y),
-			.write(Write),
-
-			.VGA_R(VGA_R),
-			.VGA_G(VGA_G),
-			.VGA_B(VGA_B),
-			.VGA_HS(VGA_HS),
-			.VGA_VS(VGA_VS),
-			.VGA_BLANK_N(VGA_BLANK_N),
-			.VGA_SYNC_N(VGA_SYNC_N),
-			.VGA_CLK(VGA_CLK));
-
-endmodule

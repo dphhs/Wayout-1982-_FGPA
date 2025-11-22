@@ -22,8 +22,6 @@ add wave -noupdate -label clk -radix binary /tb_draw_screen/clk
 add wave -noupdate -label rstn -radix binary /tb_draw_screen/rstn
 add wave -noupdate -label refresh -radix binary /tb_draw_screen/refresh
 
-
-
 # Divider for DUT Vertexes (instance name is 'dut' in the TB)
 add wave -noupdate -divider DUT_Vertexes
 add wave -noupdate -label X0 -radix decimal /tb_draw_screen/dut/X0
@@ -36,18 +34,38 @@ add wave -noupdate -label X3 -radix decimal /tb_draw_screen/dut/X3
 add wave -noupdate -label Y3 -radix decimal /tb_draw_screen/dut/Y3
 
 # Divider for DUT Vertexes (instance name is 'dut' in the TB)
-add wave -noupdate -divider State
+add wave -noupdate -divider States
 add wave -noupdate -label state -radix binary /tb_draw_screen/dut/state
-add wave -noupdate -label quad_start -radix binary /tb_draw_screen/dut/quad_start
+# add wave -noupdate -label quad_start -radix binary /tb_draw_screen/dut/quad_start
 
+# Divider for DUT V_Calculation
+add wave -noupdate -divider D
+add wave -noupdate -label dD -radix decimal /tb_draw_screen/dut/dD
+add wave -noupdate -label ddD -radix decimal /tb_draw_screen/dut/ddD
+add wave -noupdate -label dV -radix decimal /tb_draw_screen/dut/dV
+add wave -noupdate -label ddV -radix decimal /tb_draw_screen/dut/ddV
 
-# Divider for DUT Internal
-add wave -noupdate -divider Internal
-add wave -noupdate -label check_block -radix binary /tb_draw_screen/dut/check_block
+add wave -noupdate -label isCounting -radix binary /tb_draw_screen/dut/isCounting
+add wave -noupdate -label reachEnd -radix binary /tb_draw_screen/dut/reachEnd
+
+# Divider for DUT current_block
+add wave -noupdate -divider current_block
+add wave -noupdate -label current_block -radix binary /tb_draw_screen/dut/current_block
 add wave -noupdate -label index_x -radix decimal /tb_draw_screen/dut/index_x
 add wave -noupdate -label index_y -radix decimal /tb_draw_screen/dut/index_y
+
+# Divider for DUT test_block
+add wave -noupdate -divider test_block
+add wave -noupdate -label test_block -radix binary /tb_draw_screen/dut/test_block
+add wave -noupdate -label test_x -radix decimal /tb_draw_screen/dut/test_x
+add wave -noupdate -label test_y -radix decimal /tb_draw_screen/dut/test_y
+
+# Divider for DUT Map and Position
+add wave -noupdate -divider Position_Map
 add wave -noupdate -label dx -radix decimal /tb_draw_screen/dut/dx
 add wave -noupdate -label dy -radix decimal /tb_draw_screen/dut/dy
+add wave -noupdate -label ddx -radix decimal /tb_draw_screen/dut/ddx
+add wave -noupdate -label ddy -radix decimal /tb_draw_screen/dut/ddy
 add wave -noupdate -label px -radix decimal /tb_draw_screen/dut/px
 add wave -noupdate -label py -radix decimal /tb_draw_screen/dut/py
 add wave -noupdate -label end_d -radix decimal /tb_draw_screen/dut/end_d
@@ -55,14 +73,14 @@ add wave -noupdate -label map -radix binary /tb_draw_screen/dut/map
 
 
 
-WaveRestoreZoom {0 ns} {0.005 us}
+WaveRestoreZoom {0 ns} {0.01 us}
 
 # Finalize waveform window
 update
 
 # Run simulation until the testbench stops
-run 250000ps   
-wave zoom range 80000ps 100000ps
+run 2000000ps   
+wave zoom range 80000ps 300000ps
 
 # Stop simulation at the end
 stop
