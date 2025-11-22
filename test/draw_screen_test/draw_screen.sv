@@ -52,15 +52,15 @@ module draw_screen #(parameter CORDW=16) (  // signed coordinate width
     parameter
         row0    =   3'b111,
         row1    =   3'b001,
-        row2    =   3'b101,  
+        row2    =   3'b111,  
         row3    =   3'b001,  
         row4    =   3'b101, 
         row5    =   3'b001, 
-        row6    =   3'b101, 
+        row6    =   3'b111, 
 
         init_px =   3'd1,
-        init_py =   3'd6,
-        direction = 2'b01;
+        init_py =   3'd3,
+        direction = 2'b00;
 
     // draw_quad wires================
     logic quad_start;
@@ -91,21 +91,19 @@ module draw_screen #(parameter CORDW=16) (  // signed coordinate width
     // ===================================
 
 
-
-
     // Used in the Comb circuit 
     logic [12:0] dV, ddV;
     logic [y_width+1:0] index_x, index_y;
     logic [y_width+1:0] test_x, test_y;
-    logic forward_x, forward_y;
-    logic left_x, left_y;
+    logic signed [1:0] forward_x, forward_y;
+    logic signed [1:0] left_x, left_y;
 
     // ===================Draw FSM=================
 
     // Internal Signal:
     logic [4:0] dD, ddD;                  // For Calculating the vertex            
-    logic [x_width + 1:0] dx, dy;       // For index_x/y
-    logic [x_width + 1:0] ddx, ddy;     // For test_x/y
+    logic signed [x_width + 1:0] dx, dy;       // For index_x/y
+    logic signed [x_width + 1:0] ddx, ddy;     // For test_x/y
     logic [x_width + 1:0] end_d;        // For knowing when to end drawing 
 
     logic current_block, test_block;
@@ -145,10 +143,11 @@ module draw_screen #(parameter CORDW=16) (  // signed coordinate width
             REFRESH: begin
                 // Draw filled Rec====
 
-
                 // Count end_d
                 if (test_block == 0) begin              // Keep counting when test_block is empty
-                    ddy <= ddy + 1;             // Forward
+                    ddx <= ddx + forward_x;             // x Forward
+                    ddy <= ddy + forward_y;             // y Forward
+
                     end_d <= end_d + 1;         // Forward
                 end else begin                          // Stop counting when test-block is wall
                     // Proceed to draw left
@@ -158,10 +157,10 @@ module draw_screen #(parameter CORDW=16) (  // signed coordinate width
                     
                     dD   <= 0;
                     ddD  <= 0;
-                    dx  <= -1;                  // Left
-                    dy  <= 0;                   // Stay
-                    ddx <= -1;                  // Left
-                    ddy <= 0;                   // Stay
+                    dx  <= left_x;             // Left
+                    dy  <= left_y;             // Stay
+                    ddx <= left_x;             // Left
+                    ddy <= left_y;             // Stay
                 end
             end
 
@@ -176,15 +175,26 @@ module draw_screen #(parameter CORDW=16) (  // signed coordinate width
                         if (first_left == 0) begin
                             draw_left <= 1;
                             if (current_block == 0) begin       // Left block is empty
-                                end_x0 <= dV;    end_y0 <= ddV; 
-                                end_x3 <= dV;    end_y3 <= (H-ddV);
-                            end else begin
+                                // Prevent Drawing Left empty block;
+                                state <= DRAWLEFT;
+                                quad_start <= 1;
+                                first_left <= 1;
+
+                                x0 <= 13'd0;    y0 <= 13'd0;
+                                x1 <= 13'd0;    y1 <= 13'd0;
+                                x2 <= 13'd0;    y2 <= 13'd0;
+                                x3 <= 13'd0;    y3 <= 13'd0;
+                                // Load the left end block vertex directly
+                                end_x0 <= 13'd0;    end_y0 <= ddV; 
+                                end_x3 <= 13'd0;    end_y3 <= (H-ddV);
+                            end else begin                      // Left block is Wall
                                 end_x0 <= ddV;  end_y0 <= ddV; 
                                 end_x3 <= ddV;  end_y3 <= (H-ddV); 
                             end
                         end
-                    end else if (test_block == current_block) begin
-                        ddy <= ddy + 1;             // Forward
+                    end else if (test_block == current_block) begin // Keep counting until test_block is a different block
+                        ddx <= ddx + forward_x;             // x Forward
+                        ddy <= ddy + forward_y;             // y Forward
                         ddD <= ddD + 1;             // Distance Increment 1;
                     end else begin  // Stop Counting when type change
                         isCounting <= 0;
@@ -260,10 +270,10 @@ module draw_screen #(parameter CORDW=16) (  // signed coordinate width
 
                         dD <= 0;
                         ddD <= 0;
-                        dx <= 1;                    // Right
-                        dy <= 0;                    // Stay
-                        ddx <= 1;                   // Right
-                        ddy <= 0;                   // Stay
+                        dx  <= -left_x;              // Right
+                        dy  <= -left_y;              // Stay
+                        ddx <= -left_x;              // Right
+                        ddy <= -left_y;              // Stay
                     end
                 end
             end
@@ -271,7 +281,7 @@ module draw_screen #(parameter CORDW=16) (  // signed coordinate width
             
             INITRIGHT: begin
                 // Count until the wall type change
-                if (isCounting) begin           // Keep counting
+                if (isCounting) begin           
                      if (ddD == end_d) begin    // Stop Counting when reaches the end
                         reachEnd <= 1;
                         draw_right <= 1;
@@ -280,15 +290,28 @@ module draw_screen #(parameter CORDW=16) (  // signed coordinate width
                         if (first_right == 0) begin
                             draw_right <= 1;
                             if (current_block == 0) begin       // Left block is empty
-                                end_x1 <= W-dV;    end_y1 <= ddV; 
-                                end_x2 <= W-dV;    end_y2 <= (H-ddV);
+                            // Prevent Drawing Right empty block;
+                                state <= DRAWRIGHT;
+                                quad_start <= 1;
+                                first_right <= 1;
+                                
+
+                                x0 <= 13'd0;    y0 <= 13'd0;
+                                x1 <= 13'd0;    y1 <= 13'd0;
+                                x2 <= 13'd0;    y2 <= 13'd0;
+                                x3 <= 13'd0;    y3 <= 13'd0;
+                                // Load the left end block vertex directly
+                                end_x1 <= W;        end_y1 <= ddV; 
+                                end_x2 <= W;        end_y2 <= (H-ddV);
+
                             end else begin
                                 end_x1 <= W-ddV;    end_y1 <= ddV; 
                                 end_x2 <= W-ddV;    end_y2 <= (H-ddV);
                             end
                         end
-                     end else if (test_block == current_block) begin
-                        ddy <= ddy + 1;             // Forward
+                     end else if (test_block == current_block) begin // Or stop counting when test_block is a different block
+                        ddx <= ddx + forward_x;             // x Forward
+                        ddy <= ddy + forward_y;             // y Forward
                         ddD <= ddD + 1;             // Distance Increment 1;
                     end else begin    // Stop Counting when type change
                         isCounting <= 0;
@@ -421,16 +444,29 @@ module draw_screen #(parameter CORDW=16) (  // signed coordinate width
 
     always_comb begin
         index_x = px + dx;
-        index_y = py - dy;
+        index_y = py + dy;
         current_block = map[index_y][index_x];
 
         test_x = px + ddx;
-        test_y = py - ddy;  
+        test_y = py + ddy;  
         test_block = map[test_y][test_x];
 
         dV           = Distance[dD-1];    // accesses V
         ddV          = Distance[ddD-1];
 
+        if (direction == east) begin
+            forward_x = 1;  forward_y   = 0;
+            left_x    = 0; left_y      = -1; 
+        end else if (direction == north) begin
+            forward_x = 0;  forward_y   = -1;
+            left_x    = -1; left_y      = 0; 
+        end else if (direction == west) begin
+            forward_x = -1; forward_y   = 0;
+            left_x    = 0;  left_y      = 1; 
+        end else if (direction == south) begin
+            forward_x = 0;  forward_y   = 1;
+            left_x    = 1; left_y      = 0; 
+        end
 
     end
 

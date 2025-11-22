@@ -40,6 +40,16 @@ add wave -noupdate -label state -radix binary /tb_draw_screen/dut/state
 
 # Divider for DUT V_Calculation
 add wave -noupdate -divider D
+add wave -noupdate -label end_x0 -radix decimal /tb_draw_screen/dut/end_x0
+add wave -noupdate -label end_x1 -radix decimal /tb_draw_screen/dut/end_x1
+add wave -noupdate -label end_x2 -radix decimal /tb_draw_screen/dut/end_x2
+add wave -noupdate -label end_x3 -radix decimal /tb_draw_screen/dut/end_x3
+add wave -noupdate -label end_y0 -radix decimal /tb_draw_screen/dut/end_y0
+add wave -noupdate -label end_y1 -radix decimal /tb_draw_screen/dut/end_y1
+add wave -noupdate -label end_y2 -radix decimal /tb_draw_screen/dut/end_y2
+add wave -noupdate -label end_y3 -radix decimal /tb_draw_screen/dut/end_y3
+
+
 add wave -noupdate -label dD -radix decimal /tb_draw_screen/dut/dD
 add wave -noupdate -label ddD -radix decimal /tb_draw_screen/dut/ddD
 add wave -noupdate -label dV -radix decimal /tb_draw_screen/dut/dV

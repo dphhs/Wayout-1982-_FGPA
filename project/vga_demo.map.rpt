@@ -1,5 +1,5 @@
 Analysis & Synthesis report for vga_demo
-Sat Nov 22 00:02:08 2025
+Sat Nov 22 00:16:31 2025
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -65,7 +65,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Sat Nov 22 00:02:07 2025       ;
+; Analysis & Synthesis Status     ; Successful - Sat Nov 22 00:16:30 2025       ;
 ; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                   ; vga_demo                                    ;
 ; Top-level Entity Name           ; vga_demo                                    ;
@@ -187,7 +187,10 @@ refer to the applicable agreement for further details.
 ;     Processor 1            ; 100.0%      ;
 ;     Processor 2            ;   0.0%      ;
 ;     Processor 3            ;   0.0%      ;
-;     Processors 4-16        ;   0.0%      ;
+;     Processor 4            ;   0.0%      ;
+;     Processor 5            ;   0.0%      ;
+;     Processor 6            ;   0.0%      ;
+;     Processors 7-16        ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -335,8 +338,8 @@ Encoding Type:  One-Hot
 ; draw_screen:u_draw_screen|map[0][1]                                                         ; Stuck at VCC due to stuck port data_in                                                         ;
 ; draw_screen:u_draw_screen|map[0][0]                                                         ; Stuck at VCC due to stuck port data_in                                                         ;
 ; draw_screen:u_draw_screen|py[0]                                                             ; Stuck at GND due to stuck port data_in                                                         ;
-; draw_screen:u_draw_screen|py[1]                                                             ; Stuck at VCC due to stuck port data_in                                                         ;
-; draw_screen:u_draw_screen|py[2..6]                                                          ; Stuck at GND due to stuck port data_in                                                         ;
+; draw_screen:u_draw_screen|py[1,2]                                                           ; Stuck at VCC due to stuck port data_in                                                         ;
+; draw_screen:u_draw_screen|py[3..6]                                                          ; Stuck at GND due to stuck port data_in                                                         ;
 ; draw_screen:u_draw_screen|px[0]                                                             ; Stuck at VCC due to stuck port data_in                                                         ;
 ; draw_screen:u_draw_screen|px[1..6]                                                          ; Stuck at GND due to stuck port data_in                                                         ;
 ; draw_screen:u_draw_screen|end_y2[11]                                                        ; Merged with draw_screen:u_draw_screen|end_y2[10]                                               ;
@@ -1151,7 +1154,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:01     ;
+; Top            ; 00:00:09     ;
 +----------------+--------------+
 
 
@@ -1161,7 +1164,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Sat Nov 22 00:01:59 2025
+    Info: Processing started: Sat Nov 22 00:16:06 2025
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off vga_demo -c vga_demo
 Warning (125092): Tcl Script File object_mem.qip not found
     Info (125063): set_global_assignment -name QIP_FILE object_mem.qip
@@ -1418,10 +1421,10 @@ Info (21057): Implemented 1374 device resources after synthesis - the final reso
     Info (21064): Implemented 342 RAM segments
     Info (21065): Implemented 1 PLLs
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 165 warnings
-    Info: Peak virtual memory: 4954 megabytes
-    Info: Processing ended: Sat Nov 22 00:02:08 2025
-    Info: Elapsed time: 00:00:09
-    Info: Total CPU time (on all processors): 00:00:15
+    Info: Peak virtual memory: 4952 megabytes
+    Info: Processing ended: Sat Nov 22 00:16:31 2025
+    Info: Elapsed time: 00:00:25
+    Info: Total CPU time (on all processors): 00:00:35
 
 
 +------------------------------------------+
