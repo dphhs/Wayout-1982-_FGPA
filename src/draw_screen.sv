@@ -38,7 +38,7 @@ module draw_screen #(parameter CORDW=16) (  // signed coordinate width
         south   =   2'b11;
 
     // Parameter array: 1 row, 7 columns
-        parameter logic [12:0] Distance [0:10] = '{
+        parameter logic [12:0] Distance [0:15] = '{
             13'd35,    // D0 35
             13'd65,    // D1 30
             13'd90,    // D2 25
@@ -49,23 +49,28 @@ module draw_screen #(parameter CORDW=16) (  // signed coordinate width
             13'd158,   // D7 7
             13'd164,   // D8 6
             13'd169,   // D9 5
-            13'd174   // D10 5
+            13'd174,   // D10 5
+            13'd179,   // D11 5
+            13'd183,   // D12 4
+            13'd187,   // D13 4
+            13'd191,   // D14 4
+            13'd195    // D15 4
         };
 
     // Player and Map Parameter
     parameter
         row0  = 11'b11111111111,
         row1  = 11'b10001000001,
-        row2  = 11'b11101110101,
+        row2  = 11'b11101010101,
         row3  = 11'b10100010101,
         row4  = 11'b10111011101,
         row5  = 11'b10001000001,
-        row6  = 11'b10111101101,
+        row6  = 11'b10111001101,
         row7  = 11'b10000000001,
         row8  = 11'b10111010101,
         row9  = 11'b10100010001,
         row10 = 11'b10101000111,
-        row11 = 11'b10001010001,
+        row11 = 11'b10001110001,
         row12 = 11'b10101111101,
         row13 = 11'b10100010001,
         row14 = 11'b10111010111,
@@ -90,8 +95,8 @@ module draw_screen #(parameter CORDW=16) (  // signed coordinate width
     logic rec_start;
     logic rec_drawing, rec_busy, rec_done;
     logic signed [CORDW-1:0] rec_draw_X,  rec_draw_Y;
-    logic signed [CORDW-1:0] rec_X0, rec_Y0;  // vertex 0
-    logic signed [CORDW-1:0] rec_X1, rec_Y1;  // vertex 1
+    logic signed [CORDW-1:0] rec_x0, rec_y0;  // vertex 0
+    logic signed [CORDW-1:0] rec_x1, rec_y1;  // vertex 1
 
 
     // Change to Input later==============
@@ -198,11 +203,33 @@ module draw_screen #(parameter CORDW=16) (  // signed coordinate width
                     draw_clear <= 1;
 
                     color <= 9'b000011011;
-                    rec_X0 <= 13'd0;    rec_Y0 <= 13'd0;
-                    rec_X1 <= 13'd640;  rec_Y1 <= 13'd480;
+                    rec_x0 <= 13'd0;    rec_y0 <= 13'd0;
+                    rec_x1 <= 13'd640;  rec_y1 <= 13'd480;
                 end else begin
-                    
-
+                    if(x_count < 10) begin
+                        x_count <= x_count + 1;
+                        if(y_count == 21) begin
+                            draw_map <= 1;
+                            state <= INIT;
+                            color <= 9'b111111111;
+                        end else begin
+                            draw_map <= 0;
+                            rec_start <= 1;
+                            state <= DRAWREFRESH;
+                        end
+                    end else begin
+                        x_count <= 0;
+                        y_count <= y_count + 1;
+                    end
+                if(map[y_count][x_count] == 1) begin
+                    color <= 9'b111111111;
+                end else begin
+                    color <= 9'b000011011;
+                end
+                rec_x0 <= x_count * 13'd20 + 13'd420;   
+                rec_x1 <= x_count * 13'd20 + 13'd420 + 13'd20;           
+                rec_y0 <= y_count * 13'd20 + 13'd30; 
+                rec_y1 <= y_count * 13'd20 + 13'd30 + 13'd20; 
                 end
             end
 
@@ -624,10 +651,10 @@ module draw_screen #(parameter CORDW=16) (  // signed coordinate width
             .rst(!rstn),
             .start(rec_start),
             .oe(Write),
-            .x0(rec_X0),
-            .y0(rec_Y0),   
-            .x1(rec_X1),
-            .y1(rec_Y1),
+            .x0(rec_x0),
+            .y0(rec_y0),   
+            .x1(rec_x1),
+            .y1(rec_y1),
             .x(rec_draw_X),
             .y(rec_draw_Y),
             .drawing(rec_drawing),

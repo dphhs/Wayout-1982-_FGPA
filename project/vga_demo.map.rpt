@@ -1,5 +1,5 @@
 Analysis & Synthesis report for vga_demo
-Mon Nov 24 00:49:20 2025
+Mon Nov 24 01:58:41 2025
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -36,16 +36,15 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
  28. altsyncram Parameter Settings by Entity Instance
  29. altpll Parameter Settings by Entity Instance
  30. Port Connectivity Checks: "vga_adapter:VGA"
- 31. Port Connectivity Checks: "player:u_player"
- 32. Port Connectivity Checks: "draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill|draw_line_1d:draw_line_1d_inst"
- 33. Port Connectivity Checks: "draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill"
- 34. Port Connectivity Checks: "draw_screen:u_draw_screen|draw_quad:u_draw_quad|draw_line:draw_line_inst"
- 35. Port Connectivity Checks: "draw_screen:u_draw_screen|draw_quad:u_draw_quad"
- 36. Port Connectivity Checks: "draw_screen:u_draw_screen"
- 37. Post-Synthesis Netlist Statistics for Top Partition
- 38. Elapsed Time Per Partition
- 39. Analysis & Synthesis Messages
- 40. Analysis & Synthesis Suppressed Messages
+ 31. Port Connectivity Checks: "draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill|draw_line_1d:draw_line_1d_inst"
+ 32. Port Connectivity Checks: "draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill"
+ 33. Port Connectivity Checks: "draw_screen:u_draw_screen|draw_quad:u_draw_quad|draw_line:draw_line_inst"
+ 34. Port Connectivity Checks: "draw_screen:u_draw_screen|draw_quad:u_draw_quad"
+ 35. Port Connectivity Checks: "draw_screen:u_draw_screen"
+ 36. Post-Synthesis Netlist Statistics for Top Partition
+ 37. Elapsed Time Per Partition
+ 38. Analysis & Synthesis Messages
+ 39. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -71,13 +70,13 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Mon Nov 24 00:49:20 2025       ;
+; Analysis & Synthesis Status     ; Successful - Mon Nov 24 01:58:41 2025       ;
 ; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                   ; vga_demo                                    ;
 ; Top-level Entity Name           ; vga_demo                                    ;
 ; Family                          ; Cyclone V                                   ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
-; Total registers                 ; 446                                         ;
+; Total registers                 ; 509                                         ;
 ; Total pins                      ; 98                                          ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 2,764,800                                   ;
@@ -194,7 +193,8 @@ refer to the applicable agreement for further details.
 ;     Processor 2            ;   0.0%      ;
 ;     Processor 3            ;   0.0%      ;
 ;     Processor 4            ;   0.0%      ;
-;     Processors 5-16        ;   0.0%      ;
+;     Processor 5            ;   0.0%      ;
+;     Processors 6-16        ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -239,16 +239,16 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+----------------+
 ; Resource                                    ; Usage          ;
 +---------------------------------------------+----------------+
-; Estimate of Logic utilization (ALMs needed) ; 656            ;
+; Estimate of Logic utilization (ALMs needed) ; 749            ;
 ;                                             ;                ;
-; Combinational ALUT usage for logic          ; 1071           ;
-;     -- 7 input functions                    ; 1              ;
-;     -- 6 input functions                    ; 233            ;
-;     -- 5 input functions                    ; 212            ;
-;     -- 4 input functions                    ; 167            ;
-;     -- <=3 input functions                  ; 458            ;
+; Combinational ALUT usage for logic          ; 1210           ;
+;     -- 7 input functions                    ; 12             ;
+;     -- 6 input functions                    ; 253            ;
+;     -- 5 input functions                    ; 232            ;
+;     -- 4 input functions                    ; 196            ;
+;     -- <=3 input functions                  ; 517            ;
 ;                                             ;                ;
-; Dedicated logic registers                   ; 446            ;
+; Dedicated logic registers                   ; 509            ;
 ;                                             ;                ;
 ; I/O pins                                    ; 98             ;
 ; Total MLAB memory bits                      ; 0              ;
@@ -260,9 +260,9 @@ refer to the applicable agreement for further details.
 ;     -- PLLs                                 ; 1              ;
 ;                                             ;                ;
 ; Maximum fan-out node                        ; CLOCK_50~input ;
-; Maximum fan-out                             ; 751            ;
-; Total fan-out                               ; 16370          ;
-; Average fan-out                             ; 7.95           ;
+; Maximum fan-out                             ; 814            ;
+; Total fan-out                               ; 17230          ;
+; Average fan-out                             ; 7.62           ;
 +---------------------------------------------+----------------+
 
 
@@ -271,14 +271,14 @@ refer to the applicable agreement for further details.
 +---------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------------------------------------------------------------------------+------------------------+--------------+
 ; Compilation Hierarchy Node                              ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                          ; Entity Name            ; Library Name ;
 +---------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------------------------------------------------------------------------+------------------------+--------------+
-; |vga_demo                                               ; 1071 (5)            ; 446 (8)                   ; 2764800           ; 0          ; 98   ; 0            ; |vga_demo                                                                                                    ; vga_demo               ; work         ;
-;    |draw_screen:u_draw_screen|                          ; 759 (450)           ; 389 (202)                 ; 0                 ; 0          ; 0    ; 0            ; |vga_demo|draw_screen:u_draw_screen                                                                          ; draw_screen            ; work         ;
+; |vga_demo                                               ; 1210 (5)            ; 509 (8)                   ; 2764800           ; 0          ; 98   ; 0            ; |vga_demo                                                                                                    ; vga_demo               ; work         ;
+;    |draw_screen:u_draw_screen|                          ; 854 (505)           ; 451 (246)                 ; 0                 ; 0          ; 0    ; 0            ; |vga_demo|draw_screen:u_draw_screen                                                                          ; draw_screen            ; work         ;
 ;       |draw_quad:u_draw_quad|                           ; 271 (58)            ; 145 (54)                  ; 0                 ; 0          ; 0    ; 0            ; |vga_demo|draw_screen:u_draw_screen|draw_quad:u_draw_quad                                                    ; draw_quad              ; work         ;
 ;          |draw_line:draw_line_inst|                     ; 213 (213)           ; 91 (91)                   ; 0                 ; 0          ; 0    ; 0            ; |vga_demo|draw_screen:u_draw_screen|draw_quad:u_draw_quad|draw_line:draw_line_inst                           ; draw_line              ; work         ;
-;       |draw_rectangle_fill:u_draw_rectangle_fill|       ; 38 (22)             ; 42 (28)                   ; 0                 ; 0          ; 0    ; 0            ; |vga_demo|draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill                                ; draw_rectangle_fill    ; work         ;
-;          |draw_line_1d:draw_line_1d_inst|               ; 16 (16)             ; 14 (14)                   ; 0                 ; 0          ; 0    ; 0            ; |vga_demo|draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill|draw_line_1d:draw_line_1d_inst ; draw_line_1d           ; work         ;
-;    |player:u_player|                                    ; 22 (22)             ; 11 (11)                   ; 0                 ; 0          ; 0    ; 0            ; |vga_demo|player:u_player                                                                                    ; player                 ; work         ;
-;    |vga_adapter:VGA|                                    ; 285 (3)             ; 38 (0)                    ; 2764800           ; 0          ; 0    ; 0            ; |vga_demo|vga_adapter:VGA                                                                                    ; vga_adapter            ; work         ;
+;       |draw_rectangle_fill:u_draw_rectangle_fill|       ; 78 (57)             ; 60 (46)                   ; 0                 ; 0          ; 0    ; 0            ; |vga_demo|draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill                                ; draw_rectangle_fill    ; work         ;
+;          |draw_line_1d:draw_line_1d_inst|               ; 21 (21)             ; 14 (14)                   ; 0                 ; 0          ; 0    ; 0            ; |vga_demo|draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill|draw_line_1d:draw_line_1d_inst ; draw_line_1d           ; work         ;
+;    |player:u_player|                                    ; 65 (65)             ; 12 (12)                   ; 0                 ; 0          ; 0    ; 0            ; |vga_demo|player:u_player                                                                                    ; player                 ; work         ;
+;    |vga_adapter:VGA|                                    ; 286 (4)             ; 38 (0)                    ; 2764800           ; 0          ; 0    ; 0            ; |vga_demo|vga_adapter:VGA                                                                                    ; vga_adapter            ; work         ;
 ;       |altsyncram:VideoMemory|                          ; 180 (0)             ; 12 (0)                    ; 2764800           ; 0          ; 0    ; 0            ; |vga_demo|vga_adapter:VGA|altsyncram:VideoMemory                                                             ; altsyncram             ; work         ;
 ;          |altsyncram_bem1:auto_generated|               ; 180 (0)             ; 12 (12)                   ; 2764800           ; 0          ; 0    ; 0            ; |vga_demo|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_bem1:auto_generated                              ; altsyncram_bem1        ; work         ;
 ;             |decode_3na:decode2|                        ; 46 (46)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |vga_demo|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_bem1:auto_generated|decode_3na:decode2           ; decode_3na             ; work         ;
@@ -327,7 +327,242 @@ Encoding Type:  One-Hot
 +-----------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------+
 ; Register name                                                                                                         ; Reason for Removal                                                                                                       ;
 +-----------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------+
+; player:u_player|map[20][10]                                                                                           ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[20][9]                                                                                            ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[20][8]                                                                                            ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[20][7]                                                                                            ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[20][6]                                                                                            ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[20][5]                                                                                            ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[20][4]                                                                                            ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[20][3]                                                                                            ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[20][2]                                                                                            ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[20][1]                                                                                            ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[20][0]                                                                                            ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[19][10]                                                                                           ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[19][9]                                                                                            ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[19][8]                                                                                            ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[19][7]                                                                                            ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[19][6]                                                                                            ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[19][5]                                                                                            ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[19][4]                                                                                            ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[19][3]                                                                                            ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[19][2]                                                                                            ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[19][1]                                                                                            ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[19][0]                                                                                            ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[18][10]                                                                                           ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[18][9]                                                                                            ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[18][8]                                                                                            ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[18][7]                                                                                            ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[18][6]                                                                                            ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[18][5]                                                                                            ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[18][4]                                                                                            ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[18][3]                                                                                            ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[18][2]                                                                                            ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[18][1]                                                                                            ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[18][0]                                                                                            ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[17][10]                                                                                           ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[17][9]                                                                                            ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[17][8]                                                                                            ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[17][7]                                                                                            ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[17][6]                                                                                            ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[17][5]                                                                                            ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[17][4]                                                                                            ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[17][3]                                                                                            ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[17][2]                                                                                            ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[17][1]                                                                                            ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[17][0]                                                                                            ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[16][10]                                                                                           ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[16][9]                                                                                            ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[16][8]                                                                                            ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[16][7]                                                                                            ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[16][6]                                                                                            ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[16][5]                                                                                            ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[16][4]                                                                                            ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[16][3]                                                                                            ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[16][2]                                                                                            ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[16][1]                                                                                            ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[16][0]                                                                                            ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[15][10]                                                                                           ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[15][9]                                                                                            ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[15][8]                                                                                            ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[15][7]                                                                                            ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[15][6]                                                                                            ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[15][5]                                                                                            ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[15][4]                                                                                            ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[15][3]                                                                                            ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[15][2]                                                                                            ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[15][1]                                                                                            ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[15][0]                                                                                            ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[14][10]                                                                                           ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[14][9]                                                                                            ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[14][8]                                                                                            ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[14][7]                                                                                            ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[14][6]                                                                                            ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[14][5]                                                                                            ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[14][4]                                                                                            ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[14][3]                                                                                            ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[14][2]                                                                                            ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[14][1]                                                                                            ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[14][0]                                                                                            ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[13][10]                                                                                           ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[13][9]                                                                                            ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[13][8]                                                                                            ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[13][7]                                                                                            ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[13][6]                                                                                            ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[13][5]                                                                                            ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[13][4]                                                                                            ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[13][3]                                                                                            ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[13][2]                                                                                            ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[13][1]                                                                                            ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[13][0]                                                                                            ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[12][10]                                                                                           ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[12][9]                                                                                            ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[12][8]                                                                                            ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[12][7]                                                                                            ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[12][6]                                                                                            ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[12][5]                                                                                            ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[12][4]                                                                                            ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[12][3]                                                                                            ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[12][2]                                                                                            ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[12][1]                                                                                            ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[12][0]                                                                                            ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[11][10]                                                                                           ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[11][9]                                                                                            ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[11][8]                                                                                            ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[11][7]                                                                                            ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[11][6]                                                                                            ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[11][5]                                                                                            ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[11][4]                                                                                            ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[11][3]                                                                                            ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[11][2]                                                                                            ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[11][1]                                                                                            ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[11][0]                                                                                            ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[10][10]                                                                                           ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[10][9]                                                                                            ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[10][8]                                                                                            ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[10][7]                                                                                            ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[10][6]                                                                                            ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[10][5]                                                                                            ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[10][4]                                                                                            ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[10][3]                                                                                            ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[10][2]                                                                                            ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[10][1]                                                                                            ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[10][0]                                                                                            ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[9][10]                                                                                            ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[9][9]                                                                                             ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[9][8]                                                                                             ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[9][7]                                                                                             ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[9][6]                                                                                             ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[9][5]                                                                                             ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[9][4]                                                                                             ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[9][3]                                                                                             ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[9][2]                                                                                             ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[9][1]                                                                                             ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[9][0]                                                                                             ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[8][10]                                                                                            ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[8][9]                                                                                             ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[8][8]                                                                                             ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[8][7]                                                                                             ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[8][6]                                                                                             ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[8][5]                                                                                             ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[8][4]                                                                                             ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[8][3]                                                                                             ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[8][2]                                                                                             ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[8][1]                                                                                             ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[8][0]                                                                                             ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[7][10]                                                                                            ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[7][9]                                                                                             ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[7][8]                                                                                             ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[7][7]                                                                                             ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[7][6]                                                                                             ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[7][5]                                                                                             ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[7][4]                                                                                             ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[7][3]                                                                                             ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[7][2]                                                                                             ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[7][1]                                                                                             ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[7][0]                                                                                             ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[6][10]                                                                                            ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[6][9]                                                                                             ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[6][8]                                                                                             ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[6][7]                                                                                             ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[6][6]                                                                                             ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[6][5]                                                                                             ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[6][4]                                                                                             ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[6][3]                                                                                             ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[6][2]                                                                                             ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[6][1]                                                                                             ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[6][0]                                                                                             ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[5][10]                                                                                            ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[5][9]                                                                                             ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[5][8]                                                                                             ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[5][7]                                                                                             ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[5][6]                                                                                             ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[5][5]                                                                                             ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[5][4]                                                                                             ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[5][3]                                                                                             ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[5][2]                                                                                             ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[5][1]                                                                                             ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[5][0]                                                                                             ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[4][10]                                                                                            ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[4][9]                                                                                             ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[4][8]                                                                                             ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[4][7]                                                                                             ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[4][6]                                                                                             ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[4][5]                                                                                             ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[4][4]                                                                                             ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[4][3]                                                                                             ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[4][2]                                                                                             ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[4][1]                                                                                             ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[4][0]                                                                                             ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[3][10]                                                                                            ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[3][9]                                                                                             ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[3][8]                                                                                             ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[3][7]                                                                                             ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[3][6]                                                                                             ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[3][5]                                                                                             ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[3][4]                                                                                             ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[3][3]                                                                                             ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[3][2]                                                                                             ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[3][1]                                                                                             ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[3][0]                                                                                             ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[2][10]                                                                                            ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[2][9]                                                                                             ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[2][8]                                                                                             ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[2][7]                                                                                             ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[2][6]                                                                                             ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[2][5]                                                                                             ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[2][4]                                                                                             ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[2][3]                                                                                             ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[2][2]                                                                                             ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[2][1]                                                                                             ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[2][0]                                                                                             ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[1][10]                                                                                            ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[1][9]                                                                                             ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[1][8]                                                                                             ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[1][7]                                                                                             ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[1][6]                                                                                             ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[1][5]                                                                                             ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[1][4]                                                                                             ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[1][3]                                                                                             ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[1][2]                                                                                             ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[1][1]                                                                                             ; Stuck at GND due to stuck port data_in                                                                                   ;
+; player:u_player|map[1][0]                                                                                             ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[0][10]                                                                                            ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[0][9]                                                                                             ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[0][8]                                                                                             ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[0][7]                                                                                             ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[0][6]                                                                                             ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[0][5]                                                                                             ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[0][4]                                                                                             ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[0][3]                                                                                             ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[0][2]                                                                                             ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[0][1]                                                                                             ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; player:u_player|map[0][0]                                                                                             ; Stuck at VCC due to stuck port data_in                                                                                   ;
 ; draw_screen:u_draw_screen|map[20][10]                                                                                 ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; draw_screen:u_draw_screen|rec_y1[0]                                                                                   ; Stuck at GND due to stuck port data_in                                                                                   ;
+; draw_screen:u_draw_screen|rec_x1[0,1]                                                                                 ; Stuck at GND due to stuck port data_in                                                                                   ;
+; draw_screen:u_draw_screen|rec_y0[0,11]                                                                                ; Stuck at GND due to stuck port data_in                                                                                   ;
+; draw_screen:u_draw_screen|rec_x0[0,1,11]                                                                              ; Stuck at GND due to stuck port data_in                                                                                   ;
 ; draw_screen:u_draw_screen|map[20][9]                                                                                  ; Stuck at VCC due to stuck port data_in                                                                                   ;
 ; draw_screen:u_draw_screen|map[20][8]                                                                                  ; Stuck at VCC due to stuck port data_in                                                                                   ;
 ; draw_screen:u_draw_screen|map[20][7]                                                                                  ; Stuck at VCC due to stuck port data_in                                                                                   ;
@@ -431,7 +666,7 @@ Encoding Type:  One-Hot
 ; draw_screen:u_draw_screen|map[11][8]                                                                                  ; Stuck at GND due to stuck port data_in                                                                                   ;
 ; draw_screen:u_draw_screen|map[11][7]                                                                                  ; Stuck at GND due to stuck port data_in                                                                                   ;
 ; draw_screen:u_draw_screen|map[11][6]                                                                                  ; Stuck at VCC due to stuck port data_in                                                                                   ;
-; draw_screen:u_draw_screen|map[11][5]                                                                                  ; Stuck at GND due to stuck port data_in                                                                                   ;
+; draw_screen:u_draw_screen|map[11][5]                                                                                  ; Stuck at VCC due to stuck port data_in                                                                                   ;
 ; draw_screen:u_draw_screen|map[11][4]                                                                                  ; Stuck at VCC due to stuck port data_in                                                                                   ;
 ; draw_screen:u_draw_screen|map[11][3]                                                                                  ; Stuck at GND due to stuck port data_in                                                                                   ;
 ; draw_screen:u_draw_screen|map[11][2]                                                                                  ; Stuck at GND due to stuck port data_in                                                                                   ;
@@ -486,7 +721,7 @@ Encoding Type:  One-Hot
 ; draw_screen:u_draw_screen|map[6][8]                                                                                   ; Stuck at VCC due to stuck port data_in                                                                                   ;
 ; draw_screen:u_draw_screen|map[6][7]                                                                                   ; Stuck at VCC due to stuck port data_in                                                                                   ;
 ; draw_screen:u_draw_screen|map[6][6]                                                                                   ; Stuck at GND due to stuck port data_in                                                                                   ;
-; draw_screen:u_draw_screen|map[6][5]                                                                                   ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; draw_screen:u_draw_screen|map[6][5]                                                                                   ; Stuck at GND due to stuck port data_in                                                                                   ;
 ; draw_screen:u_draw_screen|map[6][4]                                                                                   ; Stuck at VCC due to stuck port data_in                                                                                   ;
 ; draw_screen:u_draw_screen|map[6][3]                                                                                   ; Stuck at VCC due to stuck port data_in                                                                                   ;
 ; draw_screen:u_draw_screen|map[6][2]                                                                                   ; Stuck at VCC due to stuck port data_in                                                                                   ;
@@ -530,7 +765,7 @@ Encoding Type:  One-Hot
 ; draw_screen:u_draw_screen|map[2][8]                                                                                   ; Stuck at VCC due to stuck port data_in                                                                                   ;
 ; draw_screen:u_draw_screen|map[2][7]                                                                                   ; Stuck at GND due to stuck port data_in                                                                                   ;
 ; draw_screen:u_draw_screen|map[2][6]                                                                                   ; Stuck at VCC due to stuck port data_in                                                                                   ;
-; draw_screen:u_draw_screen|map[2][5]                                                                                   ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; draw_screen:u_draw_screen|map[2][5]                                                                                   ; Stuck at GND due to stuck port data_in                                                                                   ;
 ; draw_screen:u_draw_screen|map[2][4]                                                                                   ; Stuck at VCC due to stuck port data_in                                                                                   ;
 ; draw_screen:u_draw_screen|map[2][3]                                                                                   ; Stuck at GND due to stuck port data_in                                                                                   ;
 ; draw_screen:u_draw_screen|map[2][2]                                                                                   ; Stuck at VCC due to stuck port data_in                                                                                   ;
@@ -558,21 +793,16 @@ Encoding Type:  One-Hot
 ; draw_screen:u_draw_screen|map[0][2]                                                                                   ; Stuck at VCC due to stuck port data_in                                                                                   ;
 ; draw_screen:u_draw_screen|map[0][1]                                                                                   ; Stuck at VCC due to stuck port data_in                                                                                   ;
 ; draw_screen:u_draw_screen|map[0][0]                                                                                   ; Stuck at VCC due to stuck port data_in                                                                                   ;
-; draw_screen:u_draw_screen|rec_Y1[0..4]                                                                                ; Stuck at GND due to stuck port data_in                                                                                   ;
-; draw_screen:u_draw_screen|rec_Y1[5..8]                                                                                ; Stuck at VCC due to stuck port data_in                                                                                   ;
-; draw_screen:u_draw_screen|rec_Y1[9..11]                                                                               ; Stuck at GND due to stuck port data_in                                                                                   ;
-; draw_screen:u_draw_screen|rec_X1[0..6]                                                                                ; Stuck at GND due to stuck port data_in                                                                                   ;
-; draw_screen:u_draw_screen|rec_X1[7]                                                                                   ; Stuck at VCC due to stuck port data_in                                                                                   ;
-; draw_screen:u_draw_screen|rec_X1[8]                                                                                   ; Stuck at GND due to stuck port data_in                                                                                   ;
-; draw_screen:u_draw_screen|rec_X1[9]                                                                                   ; Stuck at VCC due to stuck port data_in                                                                                   ;
-; draw_screen:u_draw_screen|rec_X1[10,11]                                                                               ; Stuck at GND due to stuck port data_in                                                                                   ;
-; draw_screen:u_draw_screen|rec_Y0[0..11]                                                                               ; Stuck at GND due to stuck port data_in                                                                                   ;
-; draw_screen:u_draw_screen|rec_X0[0..11]                                                                               ; Stuck at GND due to stuck port data_in                                                                                   ;
-; draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill|lx1[0..6,8,10,11]                                 ; Stuck at GND due to stuck port data_in                                                                                   ;
-; draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill|lx0[0..6,8,10,11]                                 ; Stuck at GND due to stuck port data_in                                                                                   ;
-; draw_screen:u_draw_screen|end_x1[1]                                                                                   ; Merged with draw_screen:u_draw_screen|end_x2[1]                                                                          ;
-; draw_screen:u_draw_screen|end_x1[0]                                                                                   ; Merged with draw_screen:u_draw_screen|end_x2[0]                                                                          ;
+; draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill|lx1[0,1]                                          ; Stuck at GND due to stuck port data_in                                                                                   ;
+; draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill|lx0[0,1]                                          ; Stuck at GND due to stuck port data_in                                                                                   ;
+; draw_screen:u_draw_screen|rec_y1[10,11]                                                                               ; Stuck at GND due to stuck port data_in                                                                                   ;
+; draw_screen:u_draw_screen|rec_x1[11]                                                                                  ; Stuck at GND due to stuck port data_in                                                                                   ;
+; draw_screen:u_draw_screen|rec_y0[10]                                                                                  ; Stuck at GND due to stuck port data_in                                                                                   ;
+; draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill|lx1[11]                                           ; Stuck at GND due to stuck port data_in                                                                                   ;
+; draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill|lx0[11]                                           ; Stuck at GND due to stuck port data_in                                                                                   ;
 ; draw_screen:u_draw_screen|end_y2[10]                                                                                  ; Merged with draw_screen:u_draw_screen|end_y2[11]                                                                         ;
+; draw_screen:u_draw_screen|end_x1[0]                                                                                   ; Merged with draw_screen:u_draw_screen|end_x2[0]                                                                          ;
+; draw_screen:u_draw_screen|end_x1[1]                                                                                   ; Merged with draw_screen:u_draw_screen|end_x2[1]                                                                          ;
 ; draw_screen:u_draw_screen|end_x1[2]                                                                                   ; Merged with draw_screen:u_draw_screen|end_x2[2]                                                                          ;
 ; draw_screen:u_draw_screen|end_x1[3]                                                                                   ; Merged with draw_screen:u_draw_screen|end_x2[3]                                                                          ;
 ; draw_screen:u_draw_screen|end_x1[4]                                                                                   ; Merged with draw_screen:u_draw_screen|end_x2[4]                                                                          ;
@@ -596,8 +826,7 @@ Encoding Type:  One-Hot
 ; draw_screen:u_draw_screen|end_x3[9..11]                                                                               ; Merged with draw_screen:u_draw_screen|end_x3[8]                                                                          ;
 ; draw_screen:u_draw_screen|end_y0[8..11]                                                                               ; Merged with draw_screen:u_draw_screen|end_x3[8]                                                                          ;
 ; draw_screen:u_draw_screen|end_x0[8..11]                                                                               ; Merged with draw_screen:u_draw_screen|end_x3[8]                                                                          ;
-; draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill|lx0[7,9]                                          ; Merged with draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill|lx1[7]                                   ;
-; draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill|lx1[9]                                            ; Merged with draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill|lx1[7]                                   ;
+; draw_screen:u_draw_screen|rec_y0[1]                                                                                   ; Merged with draw_screen:u_draw_screen|rec_y1[1]                                                                          ;
 ; draw_screen:u_draw_screen|dx[4,5]                                                                                     ; Lost fanout                                                                                                              ;
 ; draw_screen:u_draw_screen|dD[5]                                                                                       ; Lost fanout                                                                                                              ;
 ; draw_screen:u_draw_screen|draw_quad:u_draw_quad|draw_line:draw_line_inst|state[2..9,11..31]                           ; Merged with draw_screen:u_draw_screen|draw_quad:u_draw_quad|draw_line:draw_line_inst|state[10]                           ;
@@ -614,11 +843,9 @@ Encoding Type:  One-Hot
 ; draw_screen:u_draw_screen|x2[11]                                                                                      ; Merged with draw_screen:u_draw_screen|x2[10]                                                                             ;
 ; draw_screen:u_draw_screen|x1[11]                                                                                      ; Merged with draw_screen:u_draw_screen|x1[10]                                                                             ;
 ; draw_screen:u_draw_screen|x0[11]                                                                                      ; Merged with draw_screen:u_draw_screen|x0[10]                                                                             ;
-; draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill|lx1[7]                                            ; Stuck at VCC due to stuck port data_in                                                                                   ;
 ; draw_screen:u_draw_screen|end_y1[8]                                                                                   ; Stuck at GND due to stuck port data_in                                                                                   ;
 ; draw_screen:u_draw_screen|end_x3[8]                                                                                   ; Stuck at GND due to stuck port data_in                                                                                   ;
 ; draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill|draw_line_1d:draw_line_1d_inst|state[10]          ; Stuck at GND due to stuck port data_in                                                                                   ;
-; draw_screen:u_draw_screen|color[0]                                                                                    ; Stuck at VCC due to stuck port data_in                                                                                   ;
 ; draw_screen:u_draw_screen|draw_quad:u_draw_quad|draw_line:draw_line_inst|state[10]                                    ; Stuck at GND due to stuck port data_in                                                                                   ;
 ; draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill|state[10]                                         ; Stuck at GND due to stuck port data_in                                                                                   ;
 ; draw_screen:u_draw_screen|draw_quad:u_draw_quad|state[10]                                                             ; Stuck at GND due to stuck port data_in                                                                                   ;
@@ -626,10 +853,11 @@ Encoding Type:  One-Hot
 ; draw_screen:u_draw_screen|state~13                                                                                    ; Lost fanout                                                                                                              ;
 ; draw_screen:u_draw_screen|state~14                                                                                    ; Lost fanout                                                                                                              ;
 ; draw_screen:u_draw_screen|state~15                                                                                    ; Lost fanout                                                                                                              ;
-; draw_screen:u_draw_screen|ddx[4,5]                                                                                    ; Lost fanout                                                                                                              ;
 ; player:u_player|px[4,5]                                                                                               ; Lost fanout                                                                                                              ;
-; player:u_player|py[5]                                                                                                 ; Lost fanout                                                                                                              ;
-; Total Number of Removed Registers = 493                                                                               ;                                                                                                                          ;
+; draw_screen:u_draw_screen|ddx[4,5]                                                                                    ; Lost fanout                                                                                                              ;
+; draw_screen:u_draw_screen|color[0]                                                                                    ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; draw_screen:u_draw_screen|x_count[4]                                                                                  ; Stuck at GND due to stuck port data_in                                                                                   ;
+; Total Number of Removed Registers = 671                                                                               ;                                                                                                                          ;
 +-----------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------+
 
 
@@ -638,30 +866,15 @@ Encoding Type:  One-Hot
 +--------------------------------------+---------------------------+--------------------------------------------------------------------------------------------------------------+
 ; Register name                        ; Reason for Removal        ; Registers Removed due to This Register                                                                       ;
 +--------------------------------------+---------------------------+--------------------------------------------------------------------------------------------------------------+
-; draw_screen:u_draw_screen|rec_X1[0]  ; Stuck at GND              ; draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill|lx1[0],                                  ;
+; draw_screen:u_draw_screen|rec_x1[0]  ; Stuck at GND              ; draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill|lx1[0],                                  ;
 ;                                      ; due to stuck port data_in ; draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill|lx0[0],                                  ;
 ;                                      ;                           ; draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill|draw_line_1d:draw_line_1d_inst|state[10] ;
-; draw_screen:u_draw_screen|rec_X1[1]  ; Stuck at GND              ; draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill|lx1[1],                                  ;
+; draw_screen:u_draw_screen|rec_x1[1]  ; Stuck at GND              ; draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill|lx1[1],                                  ;
 ;                                      ; due to stuck port data_in ; draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill|lx0[1]                                   ;
-; draw_screen:u_draw_screen|rec_X1[2]  ; Stuck at GND              ; draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill|lx1[2],                                  ;
-;                                      ; due to stuck port data_in ; draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill|lx0[2]                                   ;
-; draw_screen:u_draw_screen|rec_X1[3]  ; Stuck at GND              ; draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill|lx1[3],                                  ;
-;                                      ; due to stuck port data_in ; draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill|lx0[3]                                   ;
-; draw_screen:u_draw_screen|rec_X1[4]  ; Stuck at GND              ; draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill|lx1[4],                                  ;
-;                                      ; due to stuck port data_in ; draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill|lx0[4]                                   ;
-; draw_screen:u_draw_screen|rec_X1[5]  ; Stuck at GND              ; draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill|lx1[5],                                  ;
-;                                      ; due to stuck port data_in ; draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill|lx0[5]                                   ;
-; draw_screen:u_draw_screen|rec_X1[6]  ; Stuck at GND              ; draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill|lx1[6],                                  ;
-;                                      ; due to stuck port data_in ; draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill|lx0[6]                                   ;
-; draw_screen:u_draw_screen|rec_X1[8]  ; Stuck at GND              ; draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill|lx1[8],                                  ;
-;                                      ; due to stuck port data_in ; draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill|lx0[8]                                   ;
-; draw_screen:u_draw_screen|rec_X1[10] ; Stuck at GND              ; draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill|lx1[10],                                 ;
-;                                      ; due to stuck port data_in ; draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill|lx0[10]                                  ;
-; draw_screen:u_draw_screen|rec_X1[11] ; Stuck at GND              ; draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill|lx1[11],                                 ;
+; draw_screen:u_draw_screen|rec_x0[11] ; Stuck at GND              ; draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill|lx1[11],                                 ;
 ;                                      ; due to stuck port data_in ; draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill|lx0[11]                                  ;
-; draw_screen:u_draw_screen|rec_X1[7]  ; Stuck at VCC              ; draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill|lx1[7]                                   ;
+; player:u_player|map[20][10]          ; Stuck at VCC              ; player:u_player|px[4]                                                                                        ;
 ;                                      ; due to stuck port data_in ;                                                                                                              ;
-; draw_screen:u_draw_screen|ddx[5]     ; Lost Fanouts              ; draw_screen:u_draw_screen|ddx[4]                                                                             ;
 +--------------------------------------+---------------------------+--------------------------------------------------------------------------------------------------------------+
 
 
@@ -670,12 +883,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 446   ;
-; Number of registers using Synchronous Clear  ; 156   ;
-; Number of registers using Synchronous Load   ; 62    ;
+; Total registers                              ; 509   ;
+; Number of registers using Synchronous Clear  ; 177   ;
+; Number of registers using Synchronous Load   ; 93    ;
 ; Number of registers using Asynchronous Clear ; 20    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 363   ;
+; Number of registers using Clock Enable       ; 426   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -685,45 +898,45 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                                        ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------------------------------------------+
-; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |vga_demo|vga_adapter:VGA|vga_controller:controller|yCounter[9]                                                   ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |vga_demo|player:u_player|direction[1]                                                                            ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill|draw_line_1d:draw_line_1d_inst|x[8] ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |vga_demo|vga_adapter:VGA|vga_controller:controller|yCounter[4]                                                   ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |vga_demo|draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill|draw_line_1d:draw_line_1d_inst|x[1] ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill|draw_line_1d:draw_line_1d_inst|x[3] ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |vga_demo|player:u_player|direction[0]                                                                            ;
 ; 5:1                ; 8 bits    ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|end_x3[0]                                                                     ;
-; 5:1                ; 11 bits   ; 33 LEs        ; 22 LEs               ; 11 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|end_x2[1]                                                                     ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |vga_demo|player:u_player|px[4]                                                                                   ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |vga_demo|player:u_player|py[1]                                                                                   ;
-; 4:1                ; 48 bits   ; 96 LEs        ; 96 LEs               ; 0 LEs                  ; Yes        ; |vga_demo|draw_screen:u_draw_screen|draw_quad:u_draw_quad|ly0[4]                                                  ;
-; 4:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|draw_quad:u_draw_quad|draw_line:draw_line_inst|x[2]                           ;
-; 4:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|draw_quad:u_draw_quad|draw_line:draw_line_inst|y[8]                           ;
-; 5:1                ; 2 bits    ; 6 LEs         ; 2 LEs                ; 4 LEs                  ; Yes        ; |vga_demo|draw_screen:u_draw_screen|color[0]                                                                      ;
-; 5:1                ; 6 bits    ; 18 LEs        ; 6 LEs                ; 12 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|end_d[0]                                                                      ;
-; 6:1                ; 12 bits   ; 48 LEs        ; 0 LEs                ; 48 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill|line_id[10]                         ;
-; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |vga_demo|draw_screen:u_draw_screen|draw_quad:u_draw_quad|line_id[1]                                              ;
+; 5:1                ; 11 bits   ; 33 LEs        ; 22 LEs               ; 11 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|end_x2[10]                                                                    ;
+; 4:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |vga_demo|player:u_player|py[5]                                                                                   ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |vga_demo|player:u_player|py[1]                                                                                   ;
+; 4:1                ; 48 bits   ; 96 LEs        ; 96 LEs               ; 0 LEs                  ; Yes        ; |vga_demo|draw_screen:u_draw_screen|draw_quad:u_draw_quad|lx0[6]                                                  ;
+; 4:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|draw_quad:u_draw_quad|draw_line:draw_line_inst|x[4]                           ;
+; 4:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|draw_quad:u_draw_quad|draw_line:draw_line_inst|y[6]                           ;
+; 5:1                ; 5 bits    ; 15 LEs        ; 5 LEs                ; 10 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|y_count[3]                                                                    ;
+; 5:1                ; 6 bits    ; 18 LEs        ; 6 LEs                ; 12 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|end_d[5]                                                                      ;
+; 6:1                ; 5 bits    ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|x_count[0]                                                                    ;
+; 6:1                ; 12 bits   ; 48 LEs        ; 0 LEs                ; 48 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill|line_id[1]                          ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |vga_demo|draw_screen:u_draw_screen|draw_quad:u_draw_quad|line_id[0]                                              ;
 ; 7:1                ; 5 bits    ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|dD[4]                                                                         ;
-; 7:1                ; 13 bits   ; 52 LEs        ; 26 LEs               ; 26 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|draw_quad:u_draw_quad|draw_line:draw_line_inst|err[9]                         ;
-; 7:1                ; 5 bits    ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|ddD[4]                                                                        ;
-; 9:1                ; 10 bits   ; 60 LEs        ; 20 LEs               ; 40 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|dy[3]                                                                         ;
-; 8:1                ; 8 bits    ; 40 LEs        ; 16 LEs               ; 24 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|x2[0]                                                                         ;
-; 9:1                ; 10 bits   ; 60 LEs        ; 20 LEs               ; 40 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|ddy[0]                                                                        ;
-; 9:1                ; 2 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; Yes        ; |vga_demo|draw_screen:u_draw_screen|ddx[4]                                                                        ;
-; 10:1               ; 8 bits    ; 48 LEs        ; 16 LEs               ; 32 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|x1[5]                                                                         ;
+; 7:1                ; 13 bits   ; 52 LEs        ; 26 LEs               ; 26 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|draw_quad:u_draw_quad|draw_line:draw_line_inst|err[12]                        ;
+; 7:1                ; 5 bits    ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|ddD[1]                                                                        ;
+; 9:1                ; 10 bits   ; 60 LEs        ; 20 LEs               ; 40 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|dy[0]                                                                         ;
+; 8:1                ; 8 bits    ; 40 LEs        ; 16 LEs               ; 24 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|x2[6]                                                                         ;
+; 9:1                ; 10 bits   ; 60 LEs        ; 20 LEs               ; 40 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|ddx[1]                                                                        ;
+; 9:1                ; 2 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; Yes        ; |vga_demo|draw_screen:u_draw_screen|ddx[5]                                                                        ;
+; 10:1               ; 8 bits    ; 48 LEs        ; 16 LEs               ; 32 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|x1[4]                                                                         ;
 ; 10:1               ; 8 bits    ; 48 LEs        ; 16 LEs               ; 32 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|x3[5]                                                                         ;
-; 11:1               ; 3 bits    ; 21 LEs        ; 9 LEs                ; 12 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|x3[9]                                                                         ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 9 LEs                ; 12 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|x3[8]                                                                         ;
 ; 11:1               ; 3 bits    ; 21 LEs        ; 9 LEs                ; 12 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|x2[10]                                                                        ;
-; 12:1               ; 8 bits    ; 64 LEs        ; 16 LEs               ; 48 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|x0[1]                                                                         ;
-; 11:1               ; 11 bits   ; 77 LEs        ; 22 LEs               ; 55 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|y2[10]                                                                        ;
-; 13:1               ; 8 bits    ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|y3[3]                                                                         ;
-; 13:1               ; 8 bits    ; 64 LEs        ; 16 LEs               ; 48 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|y1[0]                                                                         ;
-; 13:1               ; 3 bits    ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|x0[10]                                                                        ;
+; 12:1               ; 8 bits    ; 64 LEs        ; 16 LEs               ; 48 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|x0[2]                                                                         ;
+; 11:1               ; 11 bits   ; 77 LEs        ; 22 LEs               ; 55 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|y2[4]                                                                         ;
+; 13:1               ; 8 bits    ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|y3[0]                                                                         ;
+; 13:1               ; 8 bits    ; 64 LEs        ; 16 LEs               ; 48 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|y1[4]                                                                         ;
+; 13:1               ; 3 bits    ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|x0[9]                                                                         ;
 ; 13:1               ; 3 bits    ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|x1[10]                                                                        ;
-; 15:1               ; 8 bits    ; 80 LEs        ; 16 LEs               ; 64 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|y0[2]                                                                         ;
+; 15:1               ; 8 bits    ; 80 LEs        ; 16 LEs               ; 64 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|y0[1]                                                                         ;
 ; 15:1               ; 3 bits    ; 30 LEs        ; 12 LEs               ; 18 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|y1[8]                                                                         ;
-; 16:1               ; 3 bits    ; 30 LEs        ; 15 LEs               ; 15 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|y3[8]                                                                         ;
-; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |vga_demo|player:u_player|Add2                                                                                    ;
-; 5:1                ; 9 bits    ; 27 LEs        ; 27 LEs               ; 0 LEs                  ; No         ; |vga_demo|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_bem1:auto_generated|mux_khb:mux3|l3_w2_n4_mux_dataout ;
-; 17:1               ; 2 bits    ; 22 LEs        ; 10 LEs               ; 12 LEs                 ; No         ; |vga_demo|draw_screen:u_draw_screen|Selector6                                                                     ;
-; 17:1               ; 2 bits    ; 22 LEs        ; 8 LEs                ; 14 LEs                 ; No         ; |vga_demo|draw_screen:u_draw_screen|Selector10                                                                    ;
-; 17:1               ; 2 bits    ; 22 LEs        ; 8 LEs                ; 14 LEs                 ; No         ; |vga_demo|draw_screen:u_draw_screen|Selector2                                                                     ;
+; 16:1               ; 3 bits    ; 30 LEs        ; 15 LEs               ; 15 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|y3[9]                                                                         ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |vga_demo|draw_screen:u_draw_screen|left_x[0]                                                                     ;
+; 5:1                ; 9 bits    ; 27 LEs        ; 27 LEs               ; 0 LEs                  ; No         ; |vga_demo|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_bem1:auto_generated|mux_khb:mux3|l3_w7_n4_mux_dataout ;
+; 18:1               ; 2 bits    ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; No         ; |vga_demo|draw_screen:u_draw_screen|Selector9                                                                     ;
 ; 33:1               ; 9 bits    ; 198 LEs       ; 198 LEs              ; 0 LEs                  ; No         ; |vga_demo|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_bem1:auto_generated|mux_khb:mux3|l6_w2_n0_mux_dataout ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------------------------------------------+
 
@@ -814,6 +1027,29 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; north          ; 01            ; Unsigned Binary             ;
 ; west           ; 10            ; Unsigned Binary             ;
 ; south          ; 11            ; Unsigned Binary             ;
+; row0           ; 11111111111   ; Unsigned Binary             ;
+; row1           ; 10001000001   ; Unsigned Binary             ;
+; row2           ; 11101010101   ; Unsigned Binary             ;
+; row3           ; 10100010101   ; Unsigned Binary             ;
+; row4           ; 10111011101   ; Unsigned Binary             ;
+; row5           ; 10001000001   ; Unsigned Binary             ;
+; row6           ; 10111001101   ; Unsigned Binary             ;
+; row7           ; 10000000001   ; Unsigned Binary             ;
+; row8           ; 10111010101   ; Unsigned Binary             ;
+; row9           ; 10100010001   ; Unsigned Binary             ;
+; row10          ; 10101000111   ; Unsigned Binary             ;
+; row11          ; 10001110001   ; Unsigned Binary             ;
+; row12          ; 10101111101   ; Unsigned Binary             ;
+; row13          ; 10100010001   ; Unsigned Binary             ;
+; row14          ; 10111010111   ; Unsigned Binary             ;
+; row15          ; 10001000101   ; Unsigned Binary             ;
+; row16          ; 11101111101   ; Unsigned Binary             ;
+; row17          ; 10001000101   ; Unsigned Binary             ;
+; row18          ; 10111010101   ; Unsigned Binary             ;
+; row19          ; 10000010001   ; Unsigned Binary             ;
+; row20          ; 11111111111   ; Unsigned Binary             ;
+; init_px        ; 00001         ; Unsigned Binary             ;
+; init_py        ; 00001         ; Unsigned Binary             ;
 +----------------+---------------+-----------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
@@ -1367,17 +1603,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "player:u_player"                                                                                                                  ;
-+-----------+--------+----------+------------------------------------------------------------------------------------------------------------------------------+
-; Port      ; Type   ; Severity ; Details                                                                                                                      ;
-+-----------+--------+----------+------------------------------------------------------------------------------------------------------------------------------+
-; px        ; Output ; Warning  ; Output or bidir port (6 bits) is wider than the port expression (5 bits) it drives; bit(s) "px[5..5]" have no fanouts        ;
-; py        ; Output ; Warning  ; Output or bidir port (6 bits) is wider than the port expression (5 bits) it drives; bit(s) "py[5..5]" have no fanouts        ;
-; direction ; Output ; Warning  ; Output or bidir port (2 bits) is wider than the port expression (1 bits) it drives; bit(s) "direction[1..1]" have no fanouts ;
-+-----------+--------+----------+------------------------------------------------------------------------------------------------------------------------------+
-
-
 +--------------------------------------------------------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill|draw_line_1d:draw_line_1d_inst" ;
 +------+--------+----------+-----------------------------------------------------------------------------------------------------+
@@ -1417,19 +1642,16 @@ Note: In order to hide this table in the UI and the text report file, please set
 +------+--------+----------+-------------------------------------------------------------------------------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "draw_screen:u_draw_screen"                                                                                                                                  ;
-+----------------+--------+----------+---------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port           ; Type   ; Severity ; Details                                                                                                                                           ;
-+----------------+--------+----------+---------------------------------------------------------------------------------------------------------------------------------------------------+
-; px             ; Input  ; Warning  ; Input port expression (5 bits) is smaller than the input port (6 bits) it drives.  Extra input bit(s) "px[5..5]" will be connected to GND.        ;
-; py             ; Input  ; Warning  ; Input port expression (5 bits) is smaller than the input port (6 bits) it drives.  Extra input bit(s) "py[5..5]" will be connected to GND.        ;
-; direction      ; Input  ; Warning  ; Input port expression (1 bits) is smaller than the input port (2 bits) it drives.  Extra input bit(s) "direction[1..1]" will be connected to GND. ;
-; draw_X[11..10] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                               ;
-; draw_Y[11..9]  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                               ;
-; busy           ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                               ;
-; done           ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                               ;
-+----------------+--------+----------+---------------------------------------------------------------------------------------------------------------------------------------------------+
++--------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "draw_screen:u_draw_screen"                                                                    ;
++----------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port           ; Type   ; Severity ; Details                                                                             ;
++----------------+--------+----------+-------------------------------------------------------------------------------------+
+; draw_X[11..10] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; draw_Y[11..9]  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; busy           ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; done           ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++----------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +-----------------------------------------------------+
@@ -1437,34 +1659,35 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 446                         ;
+; arriav_ff             ; 509                         ;
 ;     CLR SCLR          ; 10                          ;
-;     ENA               ; 186                         ;
+;     ENA               ; 197                         ;
 ;     ENA CLR SCLR      ; 10                          ;
-;     ENA SCLR          ; 106                         ;
+;     ENA SCLR          ; 127                         ;
 ;     ENA SCLR SLD      ; 16                          ;
-;     ENA SLD           ; 45                          ;
+;     ENA SLD           ; 76                          ;
 ;     SCLR              ; 13                          ;
 ;     SCLR SLD          ; 1                           ;
 ;     plain             ; 59                          ;
 ; arriav_io_obuf        ; 2                           ;
-; arriav_lcell_comb     ; 1072                        ;
-;     arith             ; 304                         ;
-;         0 data inputs ; 10                          ;
-;         1 data inputs ; 150                         ;
-;         2 data inputs ; 81                          ;
-;         3 data inputs ; 1                           ;
-;         4 data inputs ; 14                          ;
-;         5 data inputs ; 48                          ;
-;     extend            ; 1                           ;
-;         7 data inputs ; 1                           ;
-;     normal            ; 755                         ;
+; arriav_lcell_comb     ; 1211                        ;
+;     arith             ; 371                         ;
+;         0 data inputs ; 14                          ;
+;         1 data inputs ; 169                         ;
+;         2 data inputs ; 92                          ;
+;         3 data inputs ; 23                          ;
+;         4 data inputs ; 19                          ;
+;         5 data inputs ; 54                          ;
+;     extend            ; 12                          ;
+;         7 data inputs ; 12                          ;
+;     normal            ; 816                         ;
 ;         0 data inputs ; 2                           ;
-;         2 data inputs ; 79                          ;
-;         3 data inputs ; 124                         ;
-;         4 data inputs ; 153                         ;
-;         5 data inputs ; 164                         ;
-;         6 data inputs ; 233                         ;
+;         1 data inputs ; 1                           ;
+;         2 data inputs ; 73                          ;
+;         3 data inputs ; 132                         ;
+;         4 data inputs ; 177                         ;
+;         5 data inputs ; 178                         ;
+;         6 data inputs ; 253                         ;
 ;     shared            ; 12                          ;
 ;         0 data inputs ; 1                           ;
 ;         1 data inputs ; 2                           ;
@@ -1475,7 +1698,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; stratixv_ram_block    ; 342                         ;
 ;                       ;                             ;
 ; Max LUT depth         ; 8.30                        ;
-; Average LUT depth     ; 3.85                        ;
+; Average LUT depth     ; 3.86                        ;
 +-----------------------+-----------------------------+
 
 
@@ -1494,7 +1717,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Mon Nov 24 00:49:11 2025
+    Info: Processing started: Mon Nov 24 01:58:32 2025
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off vga_demo -c vga_demo
 Warning (125092): Tcl Script File object_mem.qip not found
     Info (125063): set_global_assignment -name QIP_FILE object_mem.qip
@@ -1513,7 +1736,7 @@ Info (12021): Found 1 design units, including 1 entities, in source file /users/
     Info (12023): Found entity 1: draw_line File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw/draw_line.sv Line: 12
 Info (12021): Found 2 design units, including 2 entities, in source file /users/rog/desktop/25_fall/ece241_digital_systems/wayout(1982)_fpga/src/vga_demo.sv
     Info (12023): Found entity 1: vga_demo File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/vga_demo.sv Line: 11
-    Info (12023): Found entity 2: player File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/vga_demo.sv Line: 144
+    Info (12023): Found entity 2: player File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/vga_demo.sv Line: 124
 Info (12021): Found 1 design units, including 1 entities, in source file /users/rog/desktop/25_fall/ece241_digital_systems/wayout(1982)_fpga/src/draw/draw_rectangle.sv
     Info (12023): Found entity 1: draw_rectangle File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw/draw_rectangle.sv Line: 9
 Info (12021): Found 1 design units, including 1 entities, in source file /users/rog/desktop/25_fall/ece241_digital_systems/wayout(1982)_fpga/src/draw/draw_quad.sv
@@ -1526,8 +1749,8 @@ Info (12021): Found 1 design units, including 1 entities, in source file /users/
     Info (12023): Found entity 1: draw_line_1d File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw/draw_line_1d.sv Line: 9
 Warning (10222): Verilog HDL Parameter Declaration warning at draw_screen.sv(38): Parameter Declaration in module "draw_screen" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 38
 Warning (10222): Verilog HDL Parameter Declaration warning at draw_screen.sv(41): Parameter Declaration in module "draw_screen" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 41
-Warning (10222): Verilog HDL Parameter Declaration warning at draw_screen.sv(80): Parameter Declaration in module "draw_screen" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 80
-Warning (10222): Verilog HDL Parameter Declaration warning at draw_screen.sv(156): Parameter Declaration in module "draw_screen" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 156
+Warning (10222): Verilog HDL Parameter Declaration warning at draw_screen.sv(85): Parameter Declaration in module "draw_screen" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 85
+Warning (10222): Verilog HDL Parameter Declaration warning at draw_screen.sv(161): Parameter Declaration in module "draw_screen" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 161
 Info (12127): Elaborating entity "vga_demo" for the top level hierarchy
 Warning (10034): Output port "LEDR" at vga_demo.sv(30) has no driver File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/vga_demo.sv Line: 30
 Warning (10034): Output port "HEX5" at vga_demo.sv(32) has no driver File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/vga_demo.sv Line: 32
@@ -1536,90 +1759,94 @@ Warning (10034): Output port "HEX3" at vga_demo.sv(32) has no driver File: C:/Us
 Warning (10034): Output port "HEX2" at vga_demo.sv(32) has no driver File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/vga_demo.sv Line: 32
 Warning (10034): Output port "HEX1" at vga_demo.sv(32) has no driver File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/vga_demo.sv Line: 32
 Warning (10034): Output port "HEX0" at vga_demo.sv(32) has no driver File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/vga_demo.sv Line: 32
-Info (12128): Elaborating entity "draw_screen" for hierarchy "draw_screen:u_draw_screen" File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/vga_demo.sv Line: 103
-Warning (10036): Verilog HDL or VHDL warning at draw_screen.sv(154): object "draw_map" assigned a value but never read File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 154
-Warning (10036): Verilog HDL or VHDL warning at draw_screen.sv(155): object "x_count" assigned a value but never read File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 155
-Warning (10036): Verilog HDL or VHDL warning at draw_screen.sv(155): object "y_count" assigned a value but never read File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 155
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(201): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 201
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(202): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 202
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(229): truncated value with size 32 to match size of target (6) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 229
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(261): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 261
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(262): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 262
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(263): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 263
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(264): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 264
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(266): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 266
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(267): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 267
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(269): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 269
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(270): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 270
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(276): truncated value with size 32 to match size of target (6) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 276
+Info (12128): Elaborating entity "draw_screen" for hierarchy "draw_screen:u_draw_screen" File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/vga_demo.sv Line: 83
+Warning (10036): Verilog HDL or VHDL warning at draw_screen.sv(159): object "draw_map" assigned a value but never read File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 159
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(206): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 206
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(207): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 207
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(210): truncated value with size 32 to match size of target (5) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 210
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(222): truncated value with size 32 to match size of target (5) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 222
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(229): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 229
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(230): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 230
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(231): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 231
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(232): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 232
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(256): truncated value with size 32 to match size of target (6) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 256
 Warning (10230): Verilog HDL assignment warning at draw_screen.sv(288): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 288
 Warning (10230): Verilog HDL assignment warning at draw_screen.sv(289): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 289
 Warning (10230): Verilog HDL assignment warning at draw_screen.sv(290): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 290
 Warning (10230): Verilog HDL assignment warning at draw_screen.sv(291): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 291
 Warning (10230): Verilog HDL assignment warning at draw_screen.sv(293): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 293
 Warning (10230): Verilog HDL assignment warning at draw_screen.sv(294): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 294
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(295): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 295
 Warning (10230): Verilog HDL assignment warning at draw_screen.sv(296): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 296
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(305): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 305
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(306): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 306
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(307): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 307
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(308): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 308
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(311): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 311
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(312): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 312
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(297): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 297
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(303): truncated value with size 32 to match size of target (6) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 303
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(315): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 315
 Warning (10230): Verilog HDL assignment warning at draw_screen.sv(316): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 316
 Warning (10230): Verilog HDL assignment warning at draw_screen.sv(317): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 317
 Warning (10230): Verilog HDL assignment warning at draw_screen.sv(318): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 318
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(319): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 319
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(320): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 320
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(321): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 321
 Warning (10230): Verilog HDL assignment warning at draw_screen.sv(322): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 322
 Warning (10230): Verilog HDL assignment warning at draw_screen.sv(323): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 323
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(377): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 377
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(378): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 378
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(379): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 379
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(380): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 380
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(382): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 382
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(383): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 383
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(386): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 386
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(387): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 387
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(393): truncated value with size 32 to match size of target (6) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 393
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(332): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 332
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(333): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 333
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(334): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 334
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(335): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 335
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(338): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 338
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(339): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 339
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(343): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 343
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(344): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 344
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(345): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 345
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(346): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 346
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(349): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 349
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(350): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 350
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(404): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 404
 Warning (10230): Verilog HDL assignment warning at draw_screen.sv(405): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 405
 Warning (10230): Verilog HDL assignment warning at draw_screen.sv(406): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 406
 Warning (10230): Verilog HDL assignment warning at draw_screen.sv(407): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 407
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(408): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 408
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(411): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 411
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(412): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 412
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(409): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 409
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(410): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 410
 Warning (10230): Verilog HDL assignment warning at draw_screen.sv(413): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 413
 Warning (10230): Verilog HDL assignment warning at draw_screen.sv(414): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 414
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(422): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 422
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(423): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 423
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(424): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 424
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(425): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 425
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(428): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 428
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(429): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 429
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(420): truncated value with size 32 to match size of target (6) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 420
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(432): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 432
 Warning (10230): Verilog HDL assignment warning at draw_screen.sv(433): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 433
 Warning (10230): Verilog HDL assignment warning at draw_screen.sv(434): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 434
 Warning (10230): Verilog HDL assignment warning at draw_screen.sv(435): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 435
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(436): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 436
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(438): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 438
 Warning (10230): Verilog HDL assignment warning at draw_screen.sv(439): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 439
 Warning (10230): Verilog HDL assignment warning at draw_screen.sv(440): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 440
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(471): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 471
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(472): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 472
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(473): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 473
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(474): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 474
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(544): truncated value with size 32 to match size of target (6) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 544
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(546): truncated value with size 32 to match size of target (6) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 546
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(547): truncated value with size 32 to match size of target (6) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 547
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(549): truncated value with size 32 to match size of target (6) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 549
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(584): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 584
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(585): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 585
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(586): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 586
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(587): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 587
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(588): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 588
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(589): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 589
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(590): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 590
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(591): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 591
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(441): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 441
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(449): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 449
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(450): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 450
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(451): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 451
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(452): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 452
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(455): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 455
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(456): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 456
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(460): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 460
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(461): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 461
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(462): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 462
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(463): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 463
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(466): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 466
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(467): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 467
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(498): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 498
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(499): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 499
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(500): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 500
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(501): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 501
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(571): truncated value with size 32 to match size of target (6) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 571
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(573): truncated value with size 32 to match size of target (6) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 573
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(574): truncated value with size 32 to match size of target (6) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 574
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(576): truncated value with size 32 to match size of target (6) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 576
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(611): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 611
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(612): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 612
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(613): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 613
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(614): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 614
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(615): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 615
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(616): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 616
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(617): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 617
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(618): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 618
 Warning (10034): Output port "busy" at draw_screen.sv(22) has no driver File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 22
 Warning (10034): Output port "done" at draw_screen.sv(24) has no driver File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 24
-Info (12128): Elaborating entity "draw_quad" for hierarchy "draw_screen:u_draw_screen|draw_quad:u_draw_quad" File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 616
+Info (12128): Elaborating entity "draw_quad" for hierarchy "draw_screen:u_draw_screen|draw_quad:u_draw_quad" File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 643
 Warning (10230): Verilog HDL assignment warning at draw_quad.sv(62): truncated value with size 32 to match size of target (2) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw/draw_quad.sv Line: 62
 Info (10264): Verilog HDL Case Statement information at draw_quad.sv(35): all case item expressions in this case statement are onehot File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw/draw_quad.sv Line: 35
 Info (12128): Elaborating entity "draw_line" for hierarchy "draw_screen:u_draw_screen|draw_quad:u_draw_quad|draw_line:draw_line_inst" File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw/draw_quad.sv Line: 101
@@ -1627,17 +1854,17 @@ Warning (10230): Verilog HDL assignment warning at draw_line.sv(62): truncated v
 Warning (10230): Verilog HDL assignment warning at draw_line.sv(66): truncated value with size 32 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw/draw_line.sv Line: 66
 Warning (10230): Verilog HDL assignment warning at draw_line.sv(70): truncated value with size 32 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw/draw_line.sv Line: 70
 Warning (10230): Verilog HDL assignment warning at draw_line.sv(71): truncated value with size 32 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw/draw_line.sv Line: 71
-Info (12128): Elaborating entity "draw_rectangle_fill" for hierarchy "draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill" File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 636
+Info (12128): Elaborating entity "draw_rectangle_fill" for hierarchy "draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill" File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 663
 Warning (10230): Verilog HDL assignment warning at draw_rectangle_fill.sv(58): truncated value with size 32 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw/draw_rectangle_fill.sv Line: 58
 Info (10264): Verilog HDL Case Statement information at draw_rectangle_fill.sv(40): all case item expressions in this case statement are onehot File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw/draw_rectangle_fill.sv Line: 40
 Info (12128): Elaborating entity "draw_line_1d" for hierarchy "draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill|draw_line_1d:draw_line_1d_inst" File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw/draw_rectangle_fill.sv Line: 94
 Warning (10230): Verilog HDL assignment warning at draw_line_1d.sv(35): truncated value with size 32 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw/draw_line_1d.sv Line: 35
-Info (12128): Elaborating entity "player" for hierarchy "player:u_player" File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/vga_demo.sv Line: 118
-Warning (10230): Verilog HDL assignment warning at vga_demo.sv(181): truncated value with size 32 to match size of target (2) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/vga_demo.sv Line: 181
-Warning (10230): Verilog HDL assignment warning at vga_demo.sv(183): truncated value with size 32 to match size of target (2) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/vga_demo.sv Line: 183
-Warning (10230): Verilog HDL assignment warning at vga_demo.sv(198): truncated value with size 32 to match size of target (6) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/vga_demo.sv Line: 198
-Warning (10230): Verilog HDL assignment warning at vga_demo.sv(200): truncated value with size 32 to match size of target (6) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/vga_demo.sv Line: 200
-Info (12128): Elaborating entity "vga_adapter" for hierarchy "vga_adapter:VGA" File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/vga_demo.sv Line: 139
+Info (12128): Elaborating entity "player" for hierarchy "player:u_player" File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/vga_demo.sv Line: 98
+Warning (10230): Verilog HDL assignment warning at vga_demo.sv(220): truncated value with size 32 to match size of target (2) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/vga_demo.sv Line: 220
+Warning (10230): Verilog HDL assignment warning at vga_demo.sv(222): truncated value with size 32 to match size of target (2) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/vga_demo.sv Line: 222
+Warning (10230): Verilog HDL assignment warning at vga_demo.sv(247): truncated value with size 32 to match size of target (6) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/vga_demo.sv Line: 247
+Warning (10230): Verilog HDL assignment warning at vga_demo.sv(249): truncated value with size 32 to match size of target (6) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/vga_demo.sv Line: 249
+Info (12128): Elaborating entity "vga_adapter" for hierarchy "vga_adapter:VGA" File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/vga_demo.sv Line: 119
 Info (12128): Elaborating entity "vga_address_translator" for hierarchy "vga_adapter:VGA|vga_address_translator:user_input_translator" File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/vga_adapter/vga_adapter.v Line: 128
 Info (12128): Elaborating entity "altsyncram" for hierarchy "vga_adapter:VGA|altsyncram:VideoMemory" File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/vga_adapter/vga_adapter.v Line: 151
 Info (12130): Elaborated megafunction instantiation "vga_adapter:VGA|altsyncram:VideoMemory" File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/vga_adapter/vga_adapter.v Line: 151
@@ -1688,7 +1915,7 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/altp
     Info (12023): Found entity 1: altpll_80u File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/project/db/altpll_80u.tdf Line: 25
 Info (12128): Elaborating entity "altpll_80u" for hierarchy "vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component|altpll_80u:auto_generated" File: d:/ece241_lab/quartus/libraries/megafunctions/altpll.tdf Line: 897
 Info (12128): Elaborating entity "vga_controller" for hierarchy "vga_adapter:VGA|vga_controller:controller" File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/vga_adapter/vga_adapter.v Line: 188
-Warning (12241): 3 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13039): The following bidirectional pins have no drivers
     Warning (13040): bidirectional pin "PS2_CLK" has no driver File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/vga_demo.sv Line: 31
     Warning (13040): bidirectional pin "PS2_DAT" has no driver File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/vga_demo.sv Line: 31
@@ -1753,7 +1980,7 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "VGA_B[1]" is stuck at GND File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/vga_demo.sv Line: 36
     Warning (13410): Pin "VGA_SYNC_N" is stuck at VCC File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/vga_demo.sv Line: 40
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 12 registers lost all their fanouts during netlist optimizations.
+Info (17049): 11 registers lost all their fanouts during netlist optimizations.
 Info (144001): Generated suppressed messages file C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/project/vga_demo.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 5 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
@@ -1768,18 +1995,18 @@ Warning (21074): Design contains 8 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "SW[7]" File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/vga_demo.sv Line: 28
     Warning (15610): No output dependent on input pin "SW[8]" File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/vga_demo.sv Line: 28
     Warning (15610): No output dependent on input pin "SW[9]" File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/vga_demo.sv Line: 28
-Info (21057): Implemented 1597 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 1764 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 15 input pins
     Info (21059): Implemented 81 output pins
     Info (21060): Implemented 2 bidirectional pins
-    Info (21061): Implemented 1156 logic cells
+    Info (21061): Implemented 1323 logic cells
     Info (21064): Implemented 342 RAM segments
     Info (21065): Implemented 1 PLLs
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 180 warnings
-    Info: Peak virtual memory: 4945 megabytes
-    Info: Processing ended: Mon Nov 24 00:49:20 2025
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 184 warnings
+    Info: Peak virtual memory: 4953 megabytes
+    Info: Processing ended: Mon Nov 24 01:58:41 2025
     Info: Elapsed time: 00:00:09
-    Info: Total CPU time (on all processors): 00:00:15
+    Info: Total CPU time (on all processors): 00:00:16
 
 
 +------------------------------------------+

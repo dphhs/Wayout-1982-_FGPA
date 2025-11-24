@@ -1,5 +1,5 @@
 Flow report for vga_demo
-Mon Nov 24 00:54:12 2025
+Mon Nov 24 02:02:09 2025
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -40,15 +40,15 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Flow Summary                                                                  ;
 +---------------------------------+---------------------------------------------+
-; Flow Status                     ; Successful - Mon Nov 24 00:53:49 2025       ;
+; Flow Status                     ; Successful - Mon Nov 24 02:02:02 2025       ;
 ; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                   ; vga_demo                                    ;
 ; Top-level Entity Name           ; vga_demo                                    ;
 ; Family                          ; Cyclone V                                   ;
 ; Device                          ; 5CSEMA5F31C6                                ;
 ; Timing Models                   ; Final                                       ;
-; Logic utilization (in ALMs)     ; 675 / 32,070 ( 2 % )                        ;
-; Total registers                 ; 501                                         ;
+; Logic utilization (in ALMs)     ; 772 / 32,070 ( 2 % )                        ;
+; Total registers                 ; 565                                         ;
 ; Total pins                      ; 98 / 457 ( 21 % )                           ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 2,764,800 / 4,065,280 ( 68 % )              ;
@@ -67,7 +67,7 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 11/24/2025 00:49:11 ;
+; Start date & time ; 11/24/2025 01:58:32 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; vga_demo            ;
 +-------------------+---------------------+
@@ -79,7 +79,7 @@ refer to the applicable agreement for further details.
 ; Assignment Name                         ; Value                                  ; Default Value ; Entity Name ; Section Id ;
 +-----------------------------------------+----------------------------------------+---------------+-------------+------------+
 ; ALM_REGISTER_PACKING_EFFORT             ; High                                   ; Medium        ; --          ; --         ;
-; COMPILER_SIGNATURE_ID                   ; 1097095629122.176396335110524          ; --            ; --          ; --         ;
+; COMPILER_SIGNATURE_ID                   ; 1097095629122.176396751236352          ; --            ; --          ; --         ;
 ; MAX_CORE_JUNCTION_TEMP                  ; 85                                     ; --            ; --          ; --         ;
 ; MIN_CORE_JUNCTION_TEMP                  ; 0                                      ; --            ; --          ; --         ;
 ; OPTIMIZATION_MODE                       ; Aggressive Area                        ; Balanced      ; --          ; --         ;
@@ -98,11 +98,11 @@ refer to the applicable agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:09     ; 1.0                     ; 4945 MB             ; 00:00:15                           ;
-; Fitter               ; 00:04:01     ; 1.6                     ; 7876 MB             ; 00:31:35                           ;
-; Assembler            ; 00:00:23     ; 1.0                     ; 4891 MB             ; 00:00:21                           ;
-; Timing Analyzer      ; 00:00:22     ; 5.1                     ; 5416 MB             ; 00:00:38                           ;
-; Total                ; 00:04:55     ; --                      ; --                  ; 00:32:49                           ;
+; Analysis & Synthesis ; 00:00:08     ; 1.0                     ; 4953 MB             ; 00:00:15                           ;
+; Fitter               ; 00:03:13     ; 1.1                     ; 7913 MB             ; 00:30:28                           ;
+; Assembler            ; 00:00:06     ; 1.0                     ; 4895 MB             ; 00:00:06                           ;
+; Timing Analyzer      ; 00:00:07     ; 4.3                     ; 5422 MB             ; 00:00:21                           ;
+; Total                ; 00:03:34     ; --                      ; --                  ; 00:31:10                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
