@@ -1,4 +1,5 @@
-// Project F Library - Draw Rectangle
+// Modified from Project F Library - Draw Rectangle
+// Modified that it could draw any quadrilateral given four vertexes
 // (C)2021 Will Green, open source hardware released under the MIT License
 // Learn more at https://projectf.io
 

@@ -1,6 +1,9 @@
 // ==========================
     // Drawing module
-    // Facing North For now
+    
+    // Map Drawing
+    // Plpayer Drawing
+    // 
     
 // ============================
 module draw_screen #(parameter CORDW=16) (  // signed coordinate width
@@ -105,6 +108,9 @@ module draw_screen #(parameter CORDW=16) (  // signed coordinate width
     logic signed [x_width + 1:0] dx, dy;       // For index_x/y
     logic signed [x_width + 1:0] ddx, ddy;     // For test_x/y
     logic [x_width + 1:0] end_d;        // For knowing when to end drawing 
+
+    //=========For testing====
+    logic drawing_done;
 
     logic current_block, test_block;
 
@@ -411,6 +417,7 @@ module draw_screen #(parameter CORDW=16) (  // signed coordinate width
                         state <= INITEND;
                     end else begin
                         state <= IDLE;
+                        drawing_done <= 1;
                     end
                 end
             end
@@ -423,6 +430,7 @@ module draw_screen #(parameter CORDW=16) (  // signed coordinate width
                     ddx <= 0;
                     ddy <= 0;
                     end_d <= 0;
+                    drawing_done <= 0;
 
                     reachEnd    <= 0;
                     draw_frame  <= 0;

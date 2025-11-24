@@ -1,3 +1,4 @@
+// Modified to make it compatible with VGA Adapter
 // Project F Library - Draw 1D Line (assumes x1 >= x0)
 // (C)2021 Will Green, open source hardware released under the MIT License
 // Learn more at https://projectf.io

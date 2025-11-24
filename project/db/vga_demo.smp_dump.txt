@@ -1,11 +1,13 @@
 
 State Machine - |vga_demo|draw_screen:u_draw_screen|state
-Name state.DRAWEND state.INITEND state.DRAWRIGHT state.INITRIGHT state.DRAWLEFT state.INITLEFT state.REFRESH state.IDLE 
-state.IDLE 0 0 0 0 0 0 0 0 
-state.REFRESH 0 0 0 0 0 0 1 1 
-state.INITLEFT 0 0 0 0 0 1 0 1 
-state.DRAWLEFT 0 0 0 0 1 0 0 1 
-state.INITRIGHT 0 0 0 1 0 0 0 1 
-state.DRAWRIGHT 0 0 1 0 0 0 0 1 
-state.INITEND 0 1 0 0 0 0 0 1 
-state.DRAWEND 1 0 0 0 0 0 0 1 
+Name state.DRAWEND state.INITEND state.DRAWRIGHT state.INITRIGHT state.DRAWLEFT state.INITLEFT state.INIT state.DRAWREFRESH state.INITREFRESH state.IDLE 
+state.IDLE 0 0 0 0 0 0 0 0 0 0 
+state.INITREFRESH 0 0 0 0 0 0 0 0 1 1 
+state.DRAWREFRESH 0 0 0 0 0 0 0 1 0 1 
+state.INIT 0 0 0 0 0 0 1 0 0 1 
+state.INITLEFT 0 0 0 0 0 1 0 0 0 1 
+state.DRAWLEFT 0 0 0 0 1 0 0 0 0 1 
+state.INITRIGHT 0 0 0 1 0 0 0 0 0 1 
+state.DRAWRIGHT 0 0 1 0 0 0 0 0 0 1 
+state.INITEND 0 1 0 0 0 0 0 0 0 1 
+state.DRAWEND 1 0 0 0 0 0 0 0 0 1 

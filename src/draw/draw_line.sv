@@ -1,4 +1,5 @@
-// Project F Library - Draw Line
+// Modified from Project F Library - Draw Line
+// Modified to make it compatible with VGA Adapter
 // (C)2021 Will Green, open source hardware released under the MIT License
 // Learn more at https://projectf.io
 

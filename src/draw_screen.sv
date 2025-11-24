@@ -8,15 +8,15 @@ module draw_screen #(parameter CORDW=16) (  // signed coordinate width
     input       wire logic rstn,            // reset
     input       wire logic refresh,         // start rectangle drawing
 
-    /*
-    input wire logic map;
-    input wire logic px;
-    input wire logic py;
-    input wire logic direction;
-    */
+    
+    // input wire logic map;
+    input wire logic signed [5:0] px,
+    input wire logic signed [5:0] py,
+    input wire logic [1:0] direction,
+    
 
     output      logic signed [CORDW-1:0] draw_X,  draw_Y,   // drawing 
-
+    output      logic [8:0] color,
 
     // Do these two later if needed
     output      logic busy,            // drawing request in progress
@@ -31,55 +31,81 @@ module draw_screen #(parameter CORDW=16) (  // signed coordinate width
         x_width =   5,
         y_width =   5,
 
-        displace =  13'd20,
+        displace =  13'd10,
         east    =   2'b00,
         north   =   2'b01,
         west    =   2'b10,
         south   =   2'b11;
 
     // Parameter array: 1 row, 7 columns
-    parameter logic [9:0] Distance [0:6] = '{
-        13'd30,    // D0 30
-        13'd55,    // D1 25
-        13'd78,    // D2 21
-        13'd94,    // D3 18
-        13'd110,   // D4 16
-        13'd124,   // D5 14
-        13'd136    // D6 12
+        parameter logic [12:0] Distance [0:10] = '{
+            13'd35,    // D0 35
+            13'd65,    // D1 30
+            13'd90,    // D2 25
+            13'd111,   // D3 21
+            13'd128,   // D4 17
+            13'd141,   // D5 13
+            13'd151,   // D6 10
+            13'd158,   // D7 7
+            13'd164,   // D8 6
+            13'd169,   // D9 5
+            13'd174   // D10 5
         };
 
     // Player and Map Parameter
     parameter
-        row0    =   3'b111,
-        row1    =   3'b001,
-        row2    =   3'b101,  
-        row3    =   3'b001,  
-        row4    =   3'b101, 
-        row5    =   3'b001, 
-        row6    =   3'b101, 
+        row0  = 11'b11111111111,
+        row1  = 11'b10001000001,
+        row2  = 11'b11101110101,
+        row3  = 11'b10100010101,
+        row4  = 11'b10111011101,
+        row5  = 11'b10001000001,
+        row6  = 11'b10111101101,
+        row7  = 11'b10000000001,
+        row8  = 11'b10111010101,
+        row9  = 11'b10100010001,
+        row10 = 11'b10101000111,
+        row11 = 11'b10001010001,
+        row12 = 11'b10101111101,
+        row13 = 11'b10100010001,
+        row14 = 11'b10111010111,
+        row15 = 11'b10001000101,
+        row16 = 11'b11101111101,
+        row17 = 11'b10001000101,
+        row18 = 11'b10111010101,
+        row19 = 11'b10000010001,
+        row20 = 11'b11111111111,
 
-        init_px =   3'd1,
-        init_py =   3'd6,
-        direction = 2'b01;
+        init_px =   5'd1,
+        init_py =   5'd1;
+        // direction = 2'b00;
 
-    // draw_quad wires================
+// draw_quad wires================
     logic quad_start;
     logic quad_drawing, quad_busy, quad_done;
+    logic signed [CORDW-1:0] quad_draw_X,  quad_draw_Y;
     logic Write = 1'b1;
 
-   
+    // draw_rec wires
+    logic rec_start;
+    logic rec_drawing, rec_busy, rec_done;
+    logic signed [CORDW-1:0] rec_draw_X,  rec_draw_Y;
+    logic signed [CORDW-1:0] rec_X0, rec_Y0;  // vertex 0
+    logic signed [CORDW-1:0] rec_X1, rec_Y1;  // vertex 1
+
+
     // Change to Input later==============
-        // 3 x 5 2D array (x=3, y=5)
-        logic [0:2] map [0:6]; // 5 rows, 3 bits each row
+        // 11 x 21 2D array (x=11, y=21)
+        logic [0:10] map [0:20]; // 21 rows, 11 bits each row
         // map[py][px]
-        logic [x_width + 1:0]px;
-        logic [y_width + 1:0]py;
+        // logic [4:0]px;
+        // logic [4:0]py;
 
         // Initial Map
         always_ff @(posedge clk) begin
             if (!rstn) begin
-                px <= init_px;
-                py <= init_py;
+                //px <= init_px;
+                //py <= init_py;
                 map[0] <= row0;
                 map[1] <= row1;
                 map[2] <= row2;
@@ -87,34 +113,56 @@ module draw_screen #(parameter CORDW=16) (  // signed coordinate width
                 map[4] <= row4;
                 map[5] <= row5;
                 map[6] <= row6;
+                map[7] <= row7;
+                map[8] <= row8;
+                map[9] <= row9;
+                map[10] <= row10;
+                map[11] <= row11;
+                map[12] <= row12;
+                map[13] <= row13;
+                map[14] <= row14;
+                map[15] <= row15;
+                map[16] <= row16;
+                map[17] <= row17;
+                map[18] <= row18;
+                map[19] <= row19;
+                map[20] <= row20;
             end
         end
     // ===================================
 
 
-    // Used in the Comb circuit 
+// Used in the Comb circuit 
     logic [12:0] dV, ddV;
-    logic [y_width+1:0] index_x, index_y;
-    logic [y_width+1:0] test_x, test_y;
-    logic signed [1:0] forward_x, forward_y;
-    logic signed [1:0] left_x, left_y;
+    logic signed [5:0] index_x, index_y;
+    logic signed [5:0] test_x, test_y;
+    logic signed [5:0] forward_x, forward_y;
+    logic signed [5:0] left_x, left_y;
 
-    // ===================Draw FSM=================
+// ===================Draw FSM=================
 
     // Internal Signal:
-    logic [4:0] dD, ddD;                  // For Calculating the vertex            
-    logic signed [x_width + 1:0] dx, dy;       // For index_x/y
-    logic signed [x_width + 1:0] ddx, ddy;     // For test_x/y
-    logic [x_width + 1:0] end_d;        // For knowing when to end drawing 
+    logic signed [5:0] dD, ddD;                  // For Calculating the vertex            
+    logic signed [5:0] dx, dy;       // For index_x/y
+    logic signed [5:0] ddx, ddy;     // For test_x/y
+    logic [5:0] end_d;        // For knowing when to end drawing 
 
     logic current_block, test_block;
 
-    // Signals for Entering the Right Quad to Draw
+// Signals for Entering the Right Quad to Draw
+    // Signal for Refresh
+    logic draw_clear, draw_map;
+    logic [4:0] x_count, y_count;
+    parameter block_width = 13'd20;
+
+    // Signal for INIT
     logic isCounting, reachEnd;
+    // Signal for LEFT and RIGHT
     logic draw_frame, draw_left, draw_right, draw_end;
     logic first_left, first_right;
 
-    // Vertexes
+
+// Vertexes
     logic signed [CORDW-1:0] x0, y0;  // vertex 0
     logic signed [CORDW-1:0] x1, y1;  // vertex 1
     logic signed [CORDW-1:0] x2, y2;  // vertex 0
@@ -126,24 +174,53 @@ module draw_screen #(parameter CORDW=16) (  // signed coordinate width
     logic signed [CORDW-1:0] end_x2, end_y2;  // End vertex 2
     logic signed [CORDW-1:0] end_x3, end_y3;  // End vertex 3
 
-    // Define a 3-bit enum type
-    typedef enum logic [2:0] {
-        IDLE      = 3'd0,
-        REFRESH   = 3'd1,
-        INITLEFT  = 3'd2,
-        DRAWLEFT  = 3'd3,
-        INITRIGHT = 3'd4,
-        DRAWRIGHT = 3'd5,
-        INITEND   = 3'd6,
-        DRAWEND   = 3'd7
+// Define a 3-bit enum type
+    typedef enum logic [3:0] {
+        IDLE        = 4'd0,
+        INITREFRESH = 4'd1,
+        DRAWREFRESH = 4'd2,
+        INIT        = 4'd3,
+        INITLEFT    = 4'd4,
+        DRAWLEFT    = 4'd5,
+        INITRIGHT   = 4'd6,
+        DRAWRIGHT   = 4'd7,
+        INITEND     = 4'd8,
+        DRAWEND     = 4'd9
     } state_t;
     state_t state;
 
     always_ff @(posedge clk) begin
         case (state)
-            REFRESH: begin
-                // Draw filled Rec====
+            INITREFRESH: begin
+                if (draw_clear == 0) begin
+                    rec_start <= 1;
+                    state <= DRAWREFRESH;
+                    draw_clear <= 1;
 
+                    color <= 9'b000011011;
+                    rec_X0 <= 13'd0;    rec_Y0 <= 13'd0;
+                    rec_X1 <= 13'd640;  rec_Y1 <= 13'd480;
+                end else begin
+                    
+
+                end
+            end
+
+            DRAWREFRESH: begin
+                rec_start <= 0;
+                if (rec_done) begin
+                    if (draw_clear == 0) begin
+                        state <= INITREFRESH;
+                        color <= 9'b111111111;
+                    end else begin
+                        state <= INIT;
+                        color <= 9'b111111111;
+
+                    end
+                end
+            end
+
+            INIT: begin
                 // Count end_d
                 if (test_block == 0) begin              // Keep counting when test_block is empty
                     ddx <= ddx + forward_x;             // x Forward
@@ -153,8 +230,8 @@ module draw_screen #(parameter CORDW=16) (  // signed coordinate width
                 end else begin                          // Stop counting when test-block is wall
                     // Proceed to draw left
                     state <= INITLEFT;
+                    
                     isCounting <= 1;
-                    reachEnd <= 0;
                     
                     dD   <= 0;
                     ddD  <= 0;
@@ -416,22 +493,29 @@ module draw_screen #(parameter CORDW=16) (  // signed coordinate width
                 end
             end
 
+
+
             IDLE: begin
                 if(refresh) begin
-                    state <= REFRESH;
+                    state <= INITREFRESH;
                     dx  <= 0;
                     dy  <= 0;
                     ddx <= 0;
                     ddy <= 0;
                     end_d <= 0;
 
+                    draw_clear  <= 0;
+                    draw_map    <= 0;
+                    x_count     <= 0;
+                    y_count     <= 0;
+
                     reachEnd    <= 0;
-                    draw_frame  <= 0;
                     draw_left   <= 0;
                     draw_right  <= 0;
                     draw_end    <= 0;
                     first_left  <= 0;
                     first_right <= 0;
+                    draw_frame  <= 0;
                 end
             end
 
@@ -457,7 +541,7 @@ module draw_screen #(parameter CORDW=16) (  // signed coordinate width
 
         if (direction == east) begin
             forward_x = 1;  forward_y   = 0;
-            left_x    = 0; left_y      = -1; 
+            left_x    = 0;  left_y      = -1; 
         end else if (direction == north) begin
             forward_x = 0;  forward_y   = -1;
             left_x    = -1; left_y      = 0; 
@@ -466,11 +550,27 @@ module draw_screen #(parameter CORDW=16) (  // signed coordinate width
             left_x    = 0;  left_y      = 1; 
         end else if (direction == south) begin
             forward_x = 0;  forward_y   = 1;
-            left_x    = 1; left_y      = 0; 
+            left_x    = 1;  left_y      = 0; 
+        end else begin
+            forward_x = 0;  forward_y   = 0;
+            left_x    = 0;  left_y      = 0;
         end
-
     end
 
+    
+
+
+    always_comb begin
+        if (quad_drawing) begin
+            draw_X = quad_draw_X;
+            draw_Y = quad_draw_Y;
+            // color = 9'b111111111;
+        end else begin
+            draw_X = rec_draw_X;
+            draw_Y = rec_draw_Y;
+            // color = 9'b000000111;
+        end
+    end
 
 
 
@@ -489,6 +589,8 @@ module draw_screen #(parameter CORDW=16) (  // signed coordinate width
         Y2 = y2 + displace;
         X3 = x3 + displace;
         Y3 = y3 + displace;
+    
+
     end
 
 
@@ -506,8 +608,8 @@ module draw_screen #(parameter CORDW=16) (  // signed coordinate width
             .y2(Y2),
             .x3(X3),
             .y3(Y3),
-            .x(draw_X),
-            .y(draw_Y),
+            .x(quad_draw_X),
+            .y(quad_draw_Y),
             .drawing(quad_drawing),
             .busy(quad_busy),
             .done(quad_done)
@@ -515,4 +617,25 @@ module draw_screen #(parameter CORDW=16) (  // signed coordinate width
 
 
 
+
+        draw_rectangle_fill #(.CORDW(CORDW))
+            u_draw_rectangle_fill ( 
+            .clk(clk),           
+            .rst(!rstn),
+            .start(rec_start),
+            .oe(Write),
+            .x0(rec_X0),
+            .y0(rec_Y0),   
+            .x1(rec_X1),
+            .y1(rec_Y1),
+            .x(rec_draw_X),
+            .y(rec_draw_Y),
+            .drawing(rec_drawing),
+            .busy(rec_busy),
+            .done(rec_done)
+        );
+
+
+
 endmodule
+
