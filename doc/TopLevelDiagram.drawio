@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36" version="29.0.3">
   <diagram name="Page-1" id="7e0a89b8-554c-2b80-1dc8-d5c74ca68de4">
-    <mxGraphModel dx="3265" dy="513" grid="1" gridSize="10" guides="0" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2336" pageHeight="1654" background="#FFF4C3" math="0" shadow="0">
+    <mxGraphModel dx="3015" dy="375" grid="1" gridSize="10" guides="0" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2336" pageHeight="1654" background="#FFF4C3" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -334,7 +334,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="S9oshVZeFDZfdl__fxFL-49" value="draw_X / draw_Y" style="edgeLabel;resizable=0;html=1;;align=center;verticalAlign=middle;" connectable="0" vertex="1" parent="S9oshVZeFDZfdl__fxFL-48">
+        <mxCell id="S9oshVZeFDZfdl__fxFL-49" value="draw_X / draw_Y / Color" style="edgeLabel;resizable=0;html=1;;align=center;verticalAlign=middle;" connectable="0" vertex="1" parent="S9oshVZeFDZfdl__fxFL-48">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="25" y="8" as="offset" />
           </mxGeometry>
@@ -349,7 +349,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="S9oshVZeFDZfdl__fxFL-71" value="draw_X / draw_Y" style="edgeLabel;resizable=0;html=1;;align=center;verticalAlign=middle;" connectable="0" vertex="1" parent="S9oshVZeFDZfdl__fxFL-70">
+        <mxCell id="S9oshVZeFDZfdl__fxFL-71" value="draw_X / draw_Y / Color" style="edgeLabel;resizable=0;html=1;;align=center;verticalAlign=middle;" connectable="0" vertex="1" parent="S9oshVZeFDZfdl__fxFL-70">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="30" y="14" as="offset" />
           </mxGeometry>
@@ -388,7 +388,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="S9oshVZeFDZfdl__fxFL-80" value="draw_X / draw_Y" style="edgeLabel;resizable=0;html=1;;align=center;verticalAlign=middle;" connectable="0" vertex="1" parent="S9oshVZeFDZfdl__fxFL-79">
+        <mxCell id="S9oshVZeFDZfdl__fxFL-80" value="draw_X / draw_Y / Color" style="edgeLabel;resizable=0;html=1;;align=center;verticalAlign=middle;" connectable="0" vertex="1" parent="S9oshVZeFDZfdl__fxFL-79">
           <mxGeometry relative="1" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>

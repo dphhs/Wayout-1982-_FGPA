@@ -7,13 +7,11 @@ module draw_screen #(parameter CORDW=16) (  // signed coordinate width
     input       wire logic clk,             // clock
     input       wire logic rstn,            // reset
     input       wire logic refresh,         // start rectangle drawing
-
     
     // input wire logic map;
     input wire logic signed [5:0] px,
     input wire logic signed [5:0] py,
     input wire logic [1:0] direction,
-    
 
     output      logic signed [CORDW-1:0] draw_X,  draw_Y,   // drawing 
     output      logic [8:0] color,
@@ -31,7 +29,14 @@ module draw_screen #(parameter CORDW=16) (  // signed coordinate width
         x_width =   5,
         y_width =   5,
 
-        displace =  13'd10,
+        displace_x          = 13'd10,
+        displace_y          = 13'd40,
+        displace_map_x      = 13'd420,
+        displace_tri_vertex = 13'd2,
+        displace_map_y      = 13'd30,
+        block_width         = 13'd20,
+        block_halfwidth     = 13'd10,
+
         east    =   2'b00,
         north   =   2'b01,
         west    =   2'b10,
@@ -79,11 +84,7 @@ module draw_screen #(parameter CORDW=16) (  // signed coordinate width
         row17 = 11'b10001000101,
         row18 = 11'b10111010101,
         row19 = 11'b10000010001,
-        row20 = 11'b11111111111,
-
-        init_px =   5'd1,
-        init_py =   5'd1;
-        // direction = 2'b00;
+        row20 = 11'b11111111111;
 
 // draw_quad wires================
     logic quad_start;
@@ -98,19 +99,22 @@ module draw_screen #(parameter CORDW=16) (  // signed coordinate width
     logic signed [CORDW-1:0] rec_x0, rec_y0;  // vertex 0
     logic signed [CORDW-1:0] rec_x1, rec_y1;  // vertex 1
 
+    // draw_tri wires
+    logic tri_start;
+    logic tri_drawing, tri_busy, tri_done;
+    logic signed [CORDW-1:0] tri_draw_X,  tri_draw_Y;
+    logic signed [CORDW-1:0] tri_x0, tri_y0;  // vertex 0
+    logic signed [CORDW-1:0] tri_x1, tri_y1;  // vertex 1
+    logic signed [CORDW-1:0] tri_x2, tri_y2;  // vertex 2
 
     // Change to Input later==============
         // 11 x 21 2D array (x=11, y=21)
         logic [0:10] map [0:20]; // 21 rows, 11 bits each row
         // map[py][px]
-        // logic [4:0]px;
-        // logic [4:0]py;
 
         // Initial Map
         always_ff @(posedge clk) begin
             if (!rstn) begin
-                //px <= init_px;
-                //py <= init_py;
                 map[0] <= row0;
                 map[1] <= row1;
                 map[2] <= row2;
@@ -136,7 +140,6 @@ module draw_screen #(parameter CORDW=16) (  // signed coordinate width
         end
     // ===================================
 
-
 // Used in the Comb circuit 
     logic [12:0] dV, ddV;
     logic signed [5:0] index_x, index_y;
@@ -152,13 +155,12 @@ module draw_screen #(parameter CORDW=16) (  // signed coordinate width
     logic signed [5:0] ddx, ddy;     // For test_x/y
     logic [5:0] end_d;        // For knowing when to end drawing 
 
-    logic current_block, test_block;
+    logic map_block, current_block, test_block;
 
 // Signals for Entering the Right Quad to Draw
     // Signal for Refresh
-    logic draw_clear, draw_map;
+    logic draw_clear, draw_map, draw_player;
     logic [4:0] x_count, y_count;
-    parameter block_width = 13'd20;
 
     // Signal for INIT
     logic isCounting, reachEnd;
@@ -184,13 +186,14 @@ module draw_screen #(parameter CORDW=16) (  // signed coordinate width
         IDLE        = 4'd0,
         INITREFRESH = 4'd1,
         DRAWREFRESH = 4'd2,
-        INIT        = 4'd3,
-        INITLEFT    = 4'd4,
-        DRAWLEFT    = 4'd5,
-        INITRIGHT   = 4'd6,
-        DRAWRIGHT   = 4'd7,
-        INITEND     = 4'd8,
-        DRAWEND     = 4'd9
+        INITPLAYER  = 4'd3,
+        DRAWPLAYER  = 4'd4,
+        INITLEFT    = 4'd5,
+        DRAWLEFT    = 4'd6,
+        INITRIGHT   = 4'd7,
+        DRAWRIGHT   = 4'd8,
+        INITEND     = 4'd9,
+        DRAWEND     = 4'd10
     } state_t;
     state_t state;
 
@@ -206,12 +209,12 @@ module draw_screen #(parameter CORDW=16) (  // signed coordinate width
                     rec_x0 <= 13'd0;    rec_y0 <= 13'd0;
                     rec_x1 <= 13'd640;  rec_y1 <= 13'd480;
                 end else begin
-                    if(x_count < 10) begin
+                    if(x_count < 11) begin
                         x_count <= x_count + 1;
                         if(y_count == 21) begin
                             draw_map <= 1;
-                            state <= INIT;
                             color <= 9'b111111111;
+                            state <= INITPLAYER;
                         end else begin
                             draw_map <= 0;
                             rec_start <= 1;
@@ -221,44 +224,84 @@ module draw_screen #(parameter CORDW=16) (  // signed coordinate width
                         x_count <= 0;
                         y_count <= y_count + 1;
                     end
-                if(map[y_count][x_count] == 1) begin
-                    color <= 9'b111111111;
+
+
+                if(map_block == 1) begin
+                    color <= 9'b000001001; // Draw Dark Block
                 end else begin
-                    color <= 9'b000011011;
+                    color <= 9'b000011011; // Draw Transparent Block
                 end
-                rec_x0 <= x_count * 13'd20 + 13'd420;   
-                rec_x1 <= x_count * 13'd20 + 13'd420 + 13'd20;           
-                rec_y0 <= y_count * 13'd20 + 13'd30; 
-                rec_y1 <= y_count * 13'd20 + 13'd30 + 13'd20; 
+                rec_x0 <= x_count * block_width + 13'd420;   
+                rec_x1 <= x_count * block_width + 13'd420 + block_width;           
+                rec_y0 <= y_count * block_width + 13'd30; 
+                rec_y1 <= y_count * block_width + 13'd30 + block_width; 
                 end
             end
 
             DRAWREFRESH: begin
                 rec_start <= 0;
                 if (rec_done) begin
-                    if (draw_clear == 0) begin
+                    if (draw_map == 0) begin
                         state <= INITREFRESH;
-                        color <= 9'b111111111;
                     end else begin
-                        state <= INIT;
-                        color <= 9'b111111111;
-
+                        state <= INITPLAYER;
                     end
                 end
             end
 
-            INIT: begin
+            INITPLAYER: begin
                 // Count end_d
                 if (test_block == 0) begin              // Keep counting when test_block is empty
                     ddx <= ddx + forward_x;             // x Forward
                     ddy <= ddy + forward_y;             // y Forward
-
-                    end_d <= end_d + 1;         // Forward
+                    end_d <= end_d + 1;                 // Increment
                 end else begin                          // Stop counting when test-block is wall
+                    // Draw Player
+                    tri_start <= 1;
+                    state <= DRAWPLAYER;
+                    
+                    color <= 9'b000110110;
+                    // Check the Direction of the player and draw
+                    if (direction == east) begin
+                        tri_x0 <= px * block_width + displace_map_x + displace_tri_vertex;    
+                        tri_y0 <= py * block_width + displace_map_y + displace_tri_vertex; 
+                        tri_x1 <= px * block_width + displace_map_x + block_width - displace_tri_vertex;    
+                        tri_y1 <= py * block_width + displace_map_y + block_halfwidth; 
+                        tri_x2 <= px * block_width + displace_map_x + displace_tri_vertex;    
+                        tri_y2 <= py * block_width + displace_map_y + block_width - displace_tri_vertex; 
+                    end else if (direction == north) begin
+                        tri_x0 <= px * block_width + displace_map_x + block_halfwidth;    
+                        tri_y0 <= py * block_width + displace_map_y + displace_tri_vertex; 
+                        tri_x1 <= px * block_width + displace_map_x + block_width - displace_tri_vertex;    
+                        tri_y1 <= py * block_width + displace_map_y + block_width - displace_tri_vertex;
+                        tri_x2 <= px * block_width + displace_map_x + displace_tri_vertex;    
+                        tri_y2 <= py * block_width + displace_map_y + block_width - displace_tri_vertex; 
+                    end else if (direction == west) begin
+                        tri_x0 <= px * block_width + displace_map_x + block_width - displace_tri_vertex;   
+                        tri_y0 <= py * block_width + displace_map_y + displace_tri_vertex; 
+                        tri_x1 <= px * block_width + displace_map_x + block_width - displace_tri_vertex;    
+                        tri_y1 <= py * block_width + displace_map_y + block_width - displace_tri_vertex; 
+                        tri_x2 <= px * block_width + displace_map_x + displace_tri_vertex;    
+                        tri_y2 <= py * block_width + displace_map_y + block_halfwidth; 
+                    end else begin
+                        tri_x0 <= px * block_width + displace_map_x + displace_tri_vertex;    
+                        tri_y0 <= py * block_width + displace_map_y + displace_tri_vertex; 
+                        tri_x1 <= px * block_width + displace_map_x + block_width - displace_tri_vertex;    
+                        tri_y1 <= py * block_width + displace_map_y + displace_tri_vertex; 
+                        tri_x2 <= px * block_width + displace_map_x + block_halfwidth;    
+                        tri_y2 <= py * block_width + displace_map_y + block_width - displace_tri_vertex; 
+                    end
+                end
+            end
+
+            DRAWPLAYER: begin
+                tri_start <= 0;
+                if (tri_done) begin
                     // Proceed to draw left
                     state <= INITLEFT;
                     
                     isCounting <= 1;
+                    color <= 9'b111111111;
                     
                     dD   <= 0;
                     ddD  <= 0;
@@ -383,7 +426,6 @@ module draw_screen #(parameter CORDW=16) (  // signed coordinate width
                 end
             end
 
-            
             INITRIGHT: begin
                 // Count until the wall type change
                 if (isCounting) begin           
@@ -555,6 +597,8 @@ module draw_screen #(parameter CORDW=16) (  // signed coordinate width
 
 
     always_comb begin
+        map_block = map[y_count][x_count];
+
         index_x = px + dx;
         index_y = py + dy;
         current_block = map[index_y][index_x];
@@ -584,22 +628,20 @@ module draw_screen #(parameter CORDW=16) (  // signed coordinate width
         end
     end
 
-    
-
-
     always_comb begin
         if (quad_drawing) begin
             draw_X = quad_draw_X;
             draw_Y = quad_draw_Y;
             // color = 9'b111111111;
-        end else begin
+        end else if (rec_drawing) begin
             draw_X = rec_draw_X;
             draw_Y = rec_draw_Y;
             // color = 9'b000000111;
+        end else begin
+            draw_X = tri_draw_X;
+            draw_Y = tri_draw_Y;
         end
     end
-
-
 
 //========================================================
     logic signed [CORDW-1:0] X0, Y0;  // vertex 0
@@ -608,18 +650,15 @@ module draw_screen #(parameter CORDW=16) (  // signed coordinate width
     logic signed [CORDW-1:0] X3, Y3;  // vertex 1
 
     always_comb begin
-        X0 = x0 + displace;
-        Y0 = y0 + displace;
-        X1 = x1 + displace;
-        Y1 = y1 + displace;
-        X2 = x2 + displace;
-        Y2 = y2 + displace;
-        X3 = x3 + displace;
-        Y3 = y3 + displace;
-    
-
+        X0 = x0 + displace_x;
+        Y0 = y0 + displace_y;
+        X1 = x1 + displace_x;
+        Y1 = y1 + displace_y;
+        X2 = x2 + displace_x;
+        Y2 = y2 + displace_y;
+        X3 = x3 + displace_x;
+        Y3 = y3 + displace_y;
     end
-
 
     draw_quad #(.CORDW(CORDW))
         u_draw_quad ( 
@@ -641,8 +680,25 @@ module draw_screen #(parameter CORDW=16) (  // signed coordinate width
             .busy(quad_busy),
             .done(quad_done)
         );
-
-
+        
+        draw_triangle_fill #(.CORDW(CORDW))
+        u_draw_triangle_fill ( 
+        .clk(clk),           
+        .rst(!rstn),
+        .start(tri_start),
+        .oe(Write),
+        .x0(tri_x0),
+        .y0(tri_y0),   
+        .x1(tri_x1),
+        .y1(tri_y1),
+        .x2(tri_x2),
+        .y2(tri_y2),
+        .x(tri_draw_X),
+        .y(tri_draw_Y),
+        .drawing(tri_drawing),
+        .busy(tri_busy),
+        .done(tri_done)
+        );
 
 
         draw_rectangle_fill #(.CORDW(CORDW))

@@ -10,15 +10,15 @@ cModel Technology
 dC:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/test/draw_screen_test
 vdraw_screen
 Z0 DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
-Z1 !s110 1763955214
+Z1 !s110 1763973688
 !i10b 1
-!s100 0NMF66VGbacXaCWTH[Jh>2
-I?DlXCmW3^:9bf5NMZ_59V1
+!s100 V9^5I^MkoW@Bnb[=YohiF2
+IcfMoLnD:jOYIGRIUekXh82
 Z2 VDg1SIo80bB@j0V0VzS_@n1
 !s105 draw_screen_sv_unit
 S1
 Z3 dC:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/test/draw_screen_test copy
-w1763955210
+w1763973625
 8draw_screen.sv
 Fdraw_screen.sv
 L0 6
@@ -26,7 +26,7 @@ Z4 OV;L;10.5b;63
 r1
 !s85 0
 31
-Z5 !s108 1763955214.000000
+Z5 !s108 1763973688.000000
 !s107 draw_screen.sv|
 !s90 -reportprogress|300|draw_screen.sv|
 !i113 1

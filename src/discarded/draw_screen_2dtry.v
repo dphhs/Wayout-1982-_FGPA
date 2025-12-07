@@ -75,7 +75,6 @@ module draw_screen #(parameter CORDW=16) (  // signed coordinate width
         row18 = 11'b10111010101,
         row19 = 11'b10000010001,
         row20 = 11'b11111111111,
-
         init_px =   5'd1,
         init_py =   5'd1;
         // direction = 2'b00;

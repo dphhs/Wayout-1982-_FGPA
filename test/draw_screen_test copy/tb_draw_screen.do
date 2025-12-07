@@ -26,10 +26,16 @@ add wave -noupdate -label refresh -radix binary /tb_draw_screen/refresh
 add wave -noupdate -divider REFRESH
 add wave -noupdate -label X0 -radix decimal /tb_draw_screen/dut/X0
 add wave -noupdate -label Y0 -radix decimal /tb_draw_screen/dut/Y0
+add wave -noupdate -label map_block -radix binary /tb_draw_screen/dut/map_block
 add wave -noupdate -label x_count -radix decimal /tb_draw_screen/dut/x_count
 add wave -noupdate -label y_count -radix decimal /tb_draw_screen/dut/y_count
-add wave -noupdate -label rec_x0 -radix decimal /tb_draw_screen/dut/rec_x0
-add wave -noupdate -label rec_y0 -radix decimal /tb_draw_screen/dut/rec_y0
+add wave -noupdate -label tri_x0 -radix decimal /tb_draw_screen/dut/tri_x0
+add wave -noupdate -label tri_y0 -radix decimal /tb_draw_screen/dut/tri_y0
+add wave -noupdate -label tri_x1 -radix decimal /tb_draw_screen/dut/tri_x1
+add wave -noupdate -label tri_y1 -radix decimal /tb_draw_screen/dut/tri_y1
+add wave -noupdate -label tri_x2 -radix decimal /tb_draw_screen/dut/tri_x2
+add wave -noupdate -label tri_y2 -radix decimal /tb_draw_screen/dut/tri_y2
+
 add wave -noupdate -label color -radix binary /tb_draw_screen/dut/color
 
 

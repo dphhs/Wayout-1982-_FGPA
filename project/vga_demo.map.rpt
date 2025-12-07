@@ -1,5 +1,5 @@
 Analysis & Synthesis report for vga_demo
-Mon Nov 24 01:58:41 2025
+Wed Nov 26 15:26:20 2025
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -24,27 +24,35 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
  16. Parameter Settings for User Entity Instance: draw_screen:u_draw_screen
  17. Parameter Settings for User Entity Instance: draw_screen:u_draw_screen|draw_quad:u_draw_quad
  18. Parameter Settings for User Entity Instance: draw_screen:u_draw_screen|draw_quad:u_draw_quad|draw_line:draw_line_inst
- 19. Parameter Settings for User Entity Instance: draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill
- 20. Parameter Settings for User Entity Instance: draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill|draw_line_1d:draw_line_1d_inst
- 21. Parameter Settings for User Entity Instance: player:u_player
- 22. Parameter Settings for User Entity Instance: vga_adapter:VGA
- 23. Parameter Settings for User Entity Instance: vga_adapter:VGA|vga_address_translator:user_input_translator
- 24. Parameter Settings for User Entity Instance: vga_adapter:VGA|altsyncram:VideoMemory
- 25. Parameter Settings for User Entity Instance: vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component
- 26. Parameter Settings for User Entity Instance: vga_adapter:VGA|vga_controller:controller
- 27. Parameter Settings for User Entity Instance: vga_adapter:VGA|vga_controller:controller|vga_address_translator:controller_translator
- 28. altsyncram Parameter Settings by Entity Instance
- 29. altpll Parameter Settings by Entity Instance
- 30. Port Connectivity Checks: "vga_adapter:VGA"
- 31. Port Connectivity Checks: "draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill|draw_line_1d:draw_line_1d_inst"
- 32. Port Connectivity Checks: "draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill"
- 33. Port Connectivity Checks: "draw_screen:u_draw_screen|draw_quad:u_draw_quad|draw_line:draw_line_inst"
- 34. Port Connectivity Checks: "draw_screen:u_draw_screen|draw_quad:u_draw_quad"
- 35. Port Connectivity Checks: "draw_screen:u_draw_screen"
- 36. Post-Synthesis Netlist Statistics for Top Partition
- 37. Elapsed Time Per Partition
- 38. Analysis & Synthesis Messages
- 39. Analysis & Synthesis Suppressed Messages
+ 19. Parameter Settings for User Entity Instance: draw_screen:u_draw_screen|draw_triangle_fill:u_draw_triangle_fill
+ 20. Parameter Settings for User Entity Instance: draw_screen:u_draw_screen|draw_triangle_fill:u_draw_triangle_fill|draw_line:draw_edge_a
+ 21. Parameter Settings for User Entity Instance: draw_screen:u_draw_screen|draw_triangle_fill:u_draw_triangle_fill|draw_line:draw_edge_b
+ 22. Parameter Settings for User Entity Instance: draw_screen:u_draw_screen|draw_triangle_fill:u_draw_triangle_fill|draw_line_1d:draw_h_line
+ 23. Parameter Settings for User Entity Instance: draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill
+ 24. Parameter Settings for User Entity Instance: draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill|draw_line_1d:draw_line_1d_inst
+ 25. Parameter Settings for User Entity Instance: player:u_player
+ 26. Parameter Settings for User Entity Instance: vga_adapter:VGA
+ 27. Parameter Settings for User Entity Instance: vga_adapter:VGA|vga_address_translator:user_input_translator
+ 28. Parameter Settings for User Entity Instance: vga_adapter:VGA|altsyncram:VideoMemory
+ 29. Parameter Settings for User Entity Instance: vga_adapter:VGA|vga_pll:mypll|altpll:altpll_component
+ 30. Parameter Settings for User Entity Instance: vga_adapter:VGA|vga_controller:controller
+ 31. Parameter Settings for User Entity Instance: vga_adapter:VGA|vga_controller:controller|vga_address_translator:controller_translator
+ 32. altsyncram Parameter Settings by Entity Instance
+ 33. altpll Parameter Settings by Entity Instance
+ 34. Port Connectivity Checks: "vga_adapter:VGA"
+ 35. Port Connectivity Checks: "draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill|draw_line_1d:draw_line_1d_inst"
+ 36. Port Connectivity Checks: "draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill"
+ 37. Port Connectivity Checks: "draw_screen:u_draw_screen|draw_triangle_fill:u_draw_triangle_fill|draw_line_1d:draw_h_line"
+ 38. Port Connectivity Checks: "draw_screen:u_draw_screen|draw_triangle_fill:u_draw_triangle_fill|draw_line:draw_edge_b"
+ 39. Port Connectivity Checks: "draw_screen:u_draw_screen|draw_triangle_fill:u_draw_triangle_fill|draw_line:draw_edge_a"
+ 40. Port Connectivity Checks: "draw_screen:u_draw_screen|draw_triangle_fill:u_draw_triangle_fill"
+ 41. Port Connectivity Checks: "draw_screen:u_draw_screen|draw_quad:u_draw_quad|draw_line:draw_line_inst"
+ 42. Port Connectivity Checks: "draw_screen:u_draw_screen|draw_quad:u_draw_quad"
+ 43. Port Connectivity Checks: "draw_screen:u_draw_screen"
+ 44. Post-Synthesis Netlist Statistics for Top Partition
+ 45. Elapsed Time Per Partition
+ 46. Analysis & Synthesis Messages
+ 47. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -70,13 +78,13 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Mon Nov 24 01:58:41 2025       ;
+; Analysis & Synthesis Status     ; Successful - Wed Nov 26 15:26:20 2025       ;
 ; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                   ; vga_demo                                    ;
 ; Top-level Entity Name           ; vga_demo                                    ;
 ; Family                          ; Cyclone V                                   ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
-; Total registers                 ; 509                                         ;
+; Total registers                 ; 988                                         ;
 ; Total pins                      ; 98                                          ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 2,764,800                                   ;
@@ -213,6 +221,7 @@ refer to the applicable agreement for further details.
 ; ../src/draw_screen.sv                       ; yes             ; User SystemVerilog HDL File  ; C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv                       ;         ;
 ; ../src/draw/draw_rectangle_fill.sv          ; yes             ; User SystemVerilog HDL File  ; C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw/draw_rectangle_fill.sv          ;         ;
 ; ../src/draw/draw_line_1d.sv                 ; yes             ; User SystemVerilog HDL File  ; C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw/draw_line_1d.sv                 ;         ;
+; ../src/draw/draw_triangle_fill.sv           ; yes             ; User SystemVerilog HDL File  ; C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw/draw_triangle_fill.sv           ;         ;
 ; altsyncram.tdf                              ; yes             ; Megafunction                 ; d:/ece241_lab/quartus/libraries/megafunctions/altsyncram.tdf                                                   ;         ;
 ; stratix_ram_block.inc                       ; yes             ; Megafunction                 ; d:/ece241_lab/quartus/libraries/megafunctions/stratix_ram_block.inc                                            ;         ;
 ; lpm_mux.inc                                 ; yes             ; Megafunction                 ; d:/ece241_lab/quartus/libraries/megafunctions/lpm_mux.inc                                                      ;         ;
@@ -239,16 +248,16 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+----------------+
 ; Resource                                    ; Usage          ;
 +---------------------------------------------+----------------+
-; Estimate of Logic utilization (ALMs needed) ; 749            ;
+; Estimate of Logic utilization (ALMs needed) ; 1156           ;
 ;                                             ;                ;
-; Combinational ALUT usage for logic          ; 1210           ;
+; Combinational ALUT usage for logic          ; 1882           ;
 ;     -- 7 input functions                    ; 12             ;
-;     -- 6 input functions                    ; 253            ;
-;     -- 5 input functions                    ; 232            ;
-;     -- 4 input functions                    ; 196            ;
-;     -- <=3 input functions                  ; 517            ;
+;     -- 6 input functions                    ; 298            ;
+;     -- 5 input functions                    ; 460            ;
+;     -- 4 input functions                    ; 277            ;
+;     -- <=3 input functions                  ; 835            ;
 ;                                             ;                ;
-; Dedicated logic registers                   ; 509            ;
+; Dedicated logic registers                   ; 988            ;
 ;                                             ;                ;
 ; I/O pins                                    ; 98             ;
 ; Total MLAB memory bits                      ; 0              ;
@@ -260,9 +269,9 @@ refer to the applicable agreement for further details.
 ;     -- PLLs                                 ; 1              ;
 ;                                             ;                ;
 ; Maximum fan-out node                        ; CLOCK_50~input ;
-; Maximum fan-out                             ; 814            ;
-; Total fan-out                               ; 17230          ;
-; Average fan-out                             ; 7.62           ;
+; Maximum fan-out                             ; 1293           ;
+; Total fan-out                               ; 21758          ;
+; Average fan-out                             ; 6.38           ;
 +---------------------------------------------+----------------+
 
 
@@ -271,13 +280,17 @@ refer to the applicable agreement for further details.
 +---------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------------------------------------------------------------------------+------------------------+--------------+
 ; Compilation Hierarchy Node                              ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                          ; Entity Name            ; Library Name ;
 +---------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------------------------------------------------------------------------+------------------------+--------------+
-; |vga_demo                                               ; 1210 (5)            ; 509 (8)                   ; 2764800           ; 0          ; 98   ; 0            ; |vga_demo                                                                                                    ; vga_demo               ; work         ;
-;    |draw_screen:u_draw_screen|                          ; 854 (505)           ; 451 (246)                 ; 0                 ; 0          ; 0    ; 0            ; |vga_demo|draw_screen:u_draw_screen                                                                          ; draw_screen            ; work         ;
+; |vga_demo                                               ; 1882 (5)            ; 988 (8)                   ; 2764800           ; 0          ; 98   ; 0            ; |vga_demo                                                                                                    ; vga_demo               ; work         ;
+;    |draw_screen:u_draw_screen|                          ; 1522 (610)          ; 928 (306)                 ; 0                 ; 0          ; 0    ; 0            ; |vga_demo|draw_screen:u_draw_screen                                                                          ; draw_screen            ; work         ;
 ;       |draw_quad:u_draw_quad|                           ; 271 (58)            ; 145 (54)                  ; 0                 ; 0          ; 0    ; 0            ; |vga_demo|draw_screen:u_draw_screen|draw_quad:u_draw_quad                                                    ; draw_quad              ; work         ;
 ;          |draw_line:draw_line_inst|                     ; 213 (213)           ; 91 (91)                   ; 0                 ; 0          ; 0    ; 0            ; |vga_demo|draw_screen:u_draw_screen|draw_quad:u_draw_quad|draw_line:draw_line_inst                           ; draw_line              ; work         ;
 ;       |draw_rectangle_fill:u_draw_rectangle_fill|       ; 78 (57)             ; 60 (46)                   ; 0                 ; 0          ; 0    ; 0            ; |vga_demo|draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill                                ; draw_rectangle_fill    ; work         ;
 ;          |draw_line_1d:draw_line_1d_inst|               ; 21 (21)             ; 14 (14)                   ; 0                 ; 0          ; 0    ; 0            ; |vga_demo|draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill|draw_line_1d:draw_line_1d_inst ; draw_line_1d           ; work         ;
-;    |player:u_player|                                    ; 65 (65)             ; 12 (12)                   ; 0                 ; 0          ; 0    ; 0            ; |vga_demo|player:u_player                                                                                    ; player                 ; work         ;
+;       |draw_triangle_fill:u_draw_triangle_fill|         ; 563 (140)           ; 417 (229)                 ; 0                 ; 0          ; 0    ; 0            ; |vga_demo|draw_screen:u_draw_screen|draw_triangle_fill:u_draw_triangle_fill                                  ; draw_triangle_fill     ; work         ;
+;          |draw_line:draw_edge_a|                        ; 199 (199)           ; 87 (87)                   ; 0                 ; 0          ; 0    ; 0            ; |vga_demo|draw_screen:u_draw_screen|draw_triangle_fill:u_draw_triangle_fill|draw_line:draw_edge_a            ; draw_line              ; work         ;
+;          |draw_line:draw_edge_b|                        ; 205 (205)           ; 88 (88)                   ; 0                 ; 0          ; 0    ; 0            ; |vga_demo|draw_screen:u_draw_screen|draw_triangle_fill:u_draw_triangle_fill|draw_line:draw_edge_b            ; draw_line              ; work         ;
+;          |draw_line_1d:draw_h_line|                     ; 19 (19)             ; 13 (13)                   ; 0                 ; 0          ; 0    ; 0            ; |vga_demo|draw_screen:u_draw_screen|draw_triangle_fill:u_draw_triangle_fill|draw_line_1d:draw_h_line         ; draw_line_1d           ; work         ;
+;    |player:u_player|                                    ; 69 (69)             ; 14 (14)                   ; 0                 ; 0          ; 0    ; 0            ; |vga_demo|player:u_player                                                                                    ; player                 ; work         ;
 ;    |vga_adapter:VGA|                                    ; 286 (4)             ; 38 (0)                    ; 2764800           ; 0          ; 0    ; 0            ; |vga_demo|vga_adapter:VGA                                                                                    ; vga_adapter            ; work         ;
 ;       |altsyncram:VideoMemory|                          ; 180 (0)             ; 12 (0)                    ; 2764800           ; 0          ; 0    ; 0            ; |vga_demo|vga_adapter:VGA|altsyncram:VideoMemory                                                             ; altsyncram             ; work         ;
 ;          |altsyncram_bem1:auto_generated|               ; 180 (0)             ; 12 (12)                   ; 2764800           ; 0          ; 0    ; 0            ; |vga_demo|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_bem1:auto_generated                              ; altsyncram_bem1        ; work         ;
@@ -304,22 +317,23 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 
 
 Encoding Type:  One-Hot
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; State Machine - |vga_demo|draw_screen:u_draw_screen|state                                                                                                                                 ;
-+-------------------+---------------+---------------+-----------------+-----------------+----------------+----------------+------------+-------------------+-------------------+------------+
-; Name              ; state.DRAWEND ; state.INITEND ; state.DRAWRIGHT ; state.INITRIGHT ; state.DRAWLEFT ; state.INITLEFT ; state.INIT ; state.DRAWREFRESH ; state.INITREFRESH ; state.IDLE ;
-+-------------------+---------------+---------------+-----------------+-----------------+----------------+----------------+------------+-------------------+-------------------+------------+
-; state.IDLE        ; 0             ; 0             ; 0               ; 0               ; 0              ; 0              ; 0          ; 0                 ; 0                 ; 0          ;
-; state.INITREFRESH ; 0             ; 0             ; 0               ; 0               ; 0              ; 0              ; 0          ; 0                 ; 1                 ; 1          ;
-; state.DRAWREFRESH ; 0             ; 0             ; 0               ; 0               ; 0              ; 0              ; 0          ; 1                 ; 0                 ; 1          ;
-; state.INIT        ; 0             ; 0             ; 0               ; 0               ; 0              ; 0              ; 1          ; 0                 ; 0                 ; 1          ;
-; state.INITLEFT    ; 0             ; 0             ; 0               ; 0               ; 0              ; 1              ; 0          ; 0                 ; 0                 ; 1          ;
-; state.DRAWLEFT    ; 0             ; 0             ; 0               ; 0               ; 1              ; 0              ; 0          ; 0                 ; 0                 ; 1          ;
-; state.INITRIGHT   ; 0             ; 0             ; 0               ; 1               ; 0              ; 0              ; 0          ; 0                 ; 0                 ; 1          ;
-; state.DRAWRIGHT   ; 0             ; 0             ; 1               ; 0               ; 0              ; 0              ; 0          ; 0                 ; 0                 ; 1          ;
-; state.INITEND     ; 0             ; 1             ; 0               ; 0               ; 0              ; 0              ; 0          ; 0                 ; 0                 ; 1          ;
-; state.DRAWEND     ; 1             ; 0             ; 0               ; 0               ; 0              ; 0              ; 0          ; 0                 ; 0                 ; 1          ;
-+-------------------+---------------+---------------+-----------------+-----------------+----------------+----------------+------------+-------------------+-------------------+------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |vga_demo|draw_screen:u_draw_screen|state                                                                                                                                                          ;
++-------------------+---------------+---------------+-----------------+-----------------+----------------+----------------+------------------+------------------+-------------------+-------------------+------------+
+; Name              ; state.DRAWEND ; state.INITEND ; state.DRAWRIGHT ; state.INITRIGHT ; state.DRAWLEFT ; state.INITLEFT ; state.DRAWPLAYER ; state.INITPLAYER ; state.DRAWREFRESH ; state.INITREFRESH ; state.IDLE ;
++-------------------+---------------+---------------+-----------------+-----------------+----------------+----------------+------------------+------------------+-------------------+-------------------+------------+
+; state.IDLE        ; 0             ; 0             ; 0               ; 0               ; 0              ; 0              ; 0                ; 0                ; 0                 ; 0                 ; 0          ;
+; state.INITREFRESH ; 0             ; 0             ; 0               ; 0               ; 0              ; 0              ; 0                ; 0                ; 0                 ; 1                 ; 1          ;
+; state.DRAWREFRESH ; 0             ; 0             ; 0               ; 0               ; 0              ; 0              ; 0                ; 0                ; 1                 ; 0                 ; 1          ;
+; state.INITPLAYER  ; 0             ; 0             ; 0               ; 0               ; 0              ; 0              ; 0                ; 1                ; 0                 ; 0                 ; 1          ;
+; state.DRAWPLAYER  ; 0             ; 0             ; 0               ; 0               ; 0              ; 0              ; 1                ; 0                ; 0                 ; 0                 ; 1          ;
+; state.INITLEFT    ; 0             ; 0             ; 0               ; 0               ; 0              ; 1              ; 0                ; 0                ; 0                 ; 0                 ; 1          ;
+; state.DRAWLEFT    ; 0             ; 0             ; 0               ; 0               ; 1              ; 0              ; 0                ; 0                ; 0                 ; 0                 ; 1          ;
+; state.INITRIGHT   ; 0             ; 0             ; 0               ; 1               ; 0              ; 0              ; 0                ; 0                ; 0                 ; 0                 ; 1          ;
+; state.DRAWRIGHT   ; 0             ; 0             ; 1               ; 0               ; 0              ; 0              ; 0                ; 0                ; 0                 ; 0                 ; 1          ;
+; state.INITEND     ; 0             ; 1             ; 0               ; 0               ; 0              ; 0              ; 0                ; 0                ; 0                 ; 0                 ; 1          ;
+; state.DRAWEND     ; 1             ; 0             ; 0               ; 0               ; 0              ; 0              ; 0                ; 0                ; 0                 ; 0                 ; 1          ;
++-------------------+---------------+---------------+-----------------+-----------------+----------------+----------------+------------------+------------------+-------------------+-------------------+------------+
 
 
 +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -795,16 +809,29 @@ Encoding Type:  One-Hot
 ; draw_screen:u_draw_screen|map[0][0]                                                                                   ; Stuck at VCC due to stuck port data_in                                                                                   ;
 ; draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill|lx1[0,1]                                          ; Stuck at GND due to stuck port data_in                                                                                   ;
 ; draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill|lx0[0,1]                                          ; Stuck at GND due to stuck port data_in                                                                                   ;
+; draw_screen:u_draw_screen|tri_y2[0,1]                                                                                 ; Stuck at GND due to stuck port data_in                                                                                   ;
+; draw_screen:u_draw_screen|tri_x2[0]                                                                                   ; Stuck at GND due to stuck port data_in                                                                                   ;
+; draw_screen:u_draw_screen|tri_x2[1]                                                                                   ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; draw_screen:u_draw_screen|tri_y1[0,1]                                                                                 ; Stuck at GND due to stuck port data_in                                                                                   ;
+; draw_screen:u_draw_screen|tri_x1[0]                                                                                   ; Stuck at GND due to stuck port data_in                                                                                   ;
+; draw_screen:u_draw_screen|tri_x1[1]                                                                                   ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; draw_screen:u_draw_screen|tri_y0[0,1]                                                                                 ; Stuck at GND due to stuck port data_in                                                                                   ;
+; draw_screen:u_draw_screen|tri_x0[0]                                                                                   ; Stuck at GND due to stuck port data_in                                                                                   ;
+; draw_screen:u_draw_screen|tri_x0[1]                                                                                   ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; draw_screen:u_draw_screen|tri_y2[11]                                                                                  ; Stuck at GND due to stuck port data_in                                                                                   ;
+; draw_screen:u_draw_screen|tri_x2[11]                                                                                  ; Stuck at GND due to stuck port data_in                                                                                   ;
+; draw_screen:u_draw_screen|tri_y1[11]                                                                                  ; Stuck at GND due to stuck port data_in                                                                                   ;
+; draw_screen:u_draw_screen|tri_y0[11]                                                                                  ; Stuck at GND due to stuck port data_in                                                                                   ;
 ; draw_screen:u_draw_screen|rec_y1[10,11]                                                                               ; Stuck at GND due to stuck port data_in                                                                                   ;
 ; draw_screen:u_draw_screen|rec_x1[11]                                                                                  ; Stuck at GND due to stuck port data_in                                                                                   ;
 ; draw_screen:u_draw_screen|rec_y0[10]                                                                                  ; Stuck at GND due to stuck port data_in                                                                                   ;
 ; draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill|lx1[11]                                           ; Stuck at GND due to stuck port data_in                                                                                   ;
 ; draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill|lx0[11]                                           ; Stuck at GND due to stuck port data_in                                                                                   ;
-; draw_screen:u_draw_screen|end_y2[10]                                                                                  ; Merged with draw_screen:u_draw_screen|end_y2[11]                                                                         ;
-; draw_screen:u_draw_screen|end_x1[0]                                                                                   ; Merged with draw_screen:u_draw_screen|end_x2[0]                                                                          ;
-; draw_screen:u_draw_screen|end_x1[1]                                                                                   ; Merged with draw_screen:u_draw_screen|end_x2[1]                                                                          ;
-; draw_screen:u_draw_screen|end_x1[2]                                                                                   ; Merged with draw_screen:u_draw_screen|end_x2[2]                                                                          ;
 ; draw_screen:u_draw_screen|end_x1[3]                                                                                   ; Merged with draw_screen:u_draw_screen|end_x2[3]                                                                          ;
+; draw_screen:u_draw_screen|end_x1[2]                                                                                   ; Merged with draw_screen:u_draw_screen|end_x2[2]                                                                          ;
+; draw_screen:u_draw_screen|end_x1[1]                                                                                   ; Merged with draw_screen:u_draw_screen|end_x2[1]                                                                          ;
+; draw_screen:u_draw_screen|end_x1[0]                                                                                   ; Merged with draw_screen:u_draw_screen|end_x2[0]                                                                          ;
+; draw_screen:u_draw_screen|end_y2[10]                                                                                  ; Merged with draw_screen:u_draw_screen|end_y2[11]                                                                         ;
 ; draw_screen:u_draw_screen|end_x1[4]                                                                                   ; Merged with draw_screen:u_draw_screen|end_x2[4]                                                                          ;
 ; draw_screen:u_draw_screen|end_x1[5]                                                                                   ; Merged with draw_screen:u_draw_screen|end_x2[5]                                                                          ;
 ; draw_screen:u_draw_screen|end_x1[6]                                                                                   ; Merged with draw_screen:u_draw_screen|end_x2[6]                                                                          ;
@@ -823,59 +850,89 @@ Encoding Type:  One-Hot
 ; draw_screen:u_draw_screen|end_x0[5]                                                                                   ; Merged with draw_screen:u_draw_screen|end_x3[5]                                                                          ;
 ; draw_screen:u_draw_screen|end_x0[6]                                                                                   ; Merged with draw_screen:u_draw_screen|end_x3[6]                                                                          ;
 ; draw_screen:u_draw_screen|end_x0[7]                                                                                   ; Merged with draw_screen:u_draw_screen|end_x3[7]                                                                          ;
-; draw_screen:u_draw_screen|end_x3[9..11]                                                                               ; Merged with draw_screen:u_draw_screen|end_x3[8]                                                                          ;
+; draw_screen:u_draw_screen|end_x3[10,11]                                                                               ; Merged with draw_screen:u_draw_screen|end_x3[8]                                                                          ;
 ; draw_screen:u_draw_screen|end_y0[8..11]                                                                               ; Merged with draw_screen:u_draw_screen|end_x3[8]                                                                          ;
 ; draw_screen:u_draw_screen|end_x0[8..11]                                                                               ; Merged with draw_screen:u_draw_screen|end_x3[8]                                                                          ;
+; draw_screen:u_draw_screen|end_x3[9]                                                                                   ; Merged with draw_screen:u_draw_screen|end_x3[8]                                                                          ;
 ; draw_screen:u_draw_screen|rec_y0[1]                                                                                   ; Merged with draw_screen:u_draw_screen|rec_y1[1]                                                                          ;
 ; draw_screen:u_draw_screen|dx[4,5]                                                                                     ; Lost fanout                                                                                                              ;
 ; draw_screen:u_draw_screen|dD[5]                                                                                       ; Lost fanout                                                                                                              ;
+; draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill|draw_line_1d:draw_line_1d_inst|state[1..9,11..31] ; Merged with draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill|draw_line_1d:draw_line_1d_inst|state[10] ;
 ; draw_screen:u_draw_screen|draw_quad:u_draw_quad|draw_line:draw_line_inst|state[2..9,11..31]                           ; Merged with draw_screen:u_draw_screen|draw_quad:u_draw_quad|draw_line:draw_line_inst|state[10]                           ;
-; draw_screen:u_draw_screen|color[5..8]                                                                                 ; Merged with draw_screen:u_draw_screen|color[2]                                                                           ;
-; draw_screen:u_draw_screen|color[1,3,4]                                                                                ; Merged with draw_screen:u_draw_screen|color[0]                                                                           ;
+; draw_screen:u_draw_screen|color[7,8]                                                                                  ; Merged with draw_screen:u_draw_screen|color[6]                                                                           ;
+; draw_screen:u_draw_screen|color[3]                                                                                    ; Merged with draw_screen:u_draw_screen|color[0]                                                                           ;
+; draw_screen:u_draw_screen|color[4]                                                                                    ; Merged with draw_screen:u_draw_screen|color[1]                                                                           ;
+; draw_screen:u_draw_screen|color[5]                                                                                    ; Merged with draw_screen:u_draw_screen|color[2]                                                                           ;
 ; draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill|state[2..9,11..31]                                ; Merged with draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill|state[10]                                ;
 ; draw_screen:u_draw_screen|draw_quad:u_draw_quad|state[2..9,11..31]                                                    ; Merged with draw_screen:u_draw_screen|draw_quad:u_draw_quad|state[10]                                                    ;
-; draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill|draw_line_1d:draw_line_1d_inst|state[1..9,11..31] ; Merged with draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill|draw_line_1d:draw_line_1d_inst|state[10] ;
+; draw_screen:u_draw_screen|draw_triangle_fill:u_draw_triangle_fill|state[4..9,11..31]                                  ; Merged with draw_screen:u_draw_screen|draw_triangle_fill:u_draw_triangle_fill|state[10]                                  ;
+; draw_screen:u_draw_screen|draw_triangle_fill:u_draw_triangle_fill|draw_line_1d:draw_h_line|state[0]                   ; Merged with draw_screen:u_draw_screen|draw_triangle_fill:u_draw_triangle_fill|draw_line_1d:draw_h_line|busy              ;
 ; draw_screen:u_draw_screen|y3[11]                                                                                      ; Merged with draw_screen:u_draw_screen|y3[10]                                                                             ;
 ; draw_screen:u_draw_screen|y2[11]                                                                                      ; Merged with draw_screen:u_draw_screen|y2[10]                                                                             ;
 ; draw_screen:u_draw_screen|y1[11]                                                                                      ; Merged with draw_screen:u_draw_screen|y1[10]                                                                             ;
 ; draw_screen:u_draw_screen|y0[8,9,11]                                                                                  ; Merged with draw_screen:u_draw_screen|y0[10]                                                                             ;
+; draw_screen:u_draw_screen|draw_triangle_fill:u_draw_triangle_fill|y0s[0,1,11]                                         ; Merged with draw_screen:u_draw_screen|draw_triangle_fill:u_draw_triangle_fill|x0s[0]                                     ;
+; draw_screen:u_draw_screen|draw_triangle_fill:u_draw_triangle_fill|y1s[0,1,11]                                         ; Merged with draw_screen:u_draw_screen|draw_triangle_fill:u_draw_triangle_fill|x1s[0]                                     ;
+; draw_screen:u_draw_screen|draw_triangle_fill:u_draw_triangle_fill|draw_line_1d:draw_h_line|state[1..9,11..31]         ; Merged with draw_screen:u_draw_screen|draw_triangle_fill:u_draw_triangle_fill|draw_line_1d:draw_h_line|state[10]         ;
 ; draw_screen:u_draw_screen|x3[11]                                                                                      ; Merged with draw_screen:u_draw_screen|x3[10]                                                                             ;
 ; draw_screen:u_draw_screen|x2[11]                                                                                      ; Merged with draw_screen:u_draw_screen|x2[10]                                                                             ;
 ; draw_screen:u_draw_screen|x1[11]                                                                                      ; Merged with draw_screen:u_draw_screen|x1[10]                                                                             ;
 ; draw_screen:u_draw_screen|x0[11]                                                                                      ; Merged with draw_screen:u_draw_screen|x0[10]                                                                             ;
+; draw_screen:u_draw_screen|draw_triangle_fill:u_draw_triangle_fill|draw_line:draw_edge_b|y_end[0,1,11]                 ; Merged with draw_screen:u_draw_screen|draw_triangle_fill:u_draw_triangle_fill|draw_line:draw_edge_b|x_end[0]             ;
+; draw_screen:u_draw_screen|draw_triangle_fill:u_draw_triangle_fill|draw_line:draw_edge_b|state[2..9,11..31]            ; Merged with draw_screen:u_draw_screen|draw_triangle_fill:u_draw_triangle_fill|draw_line:draw_edge_b|state[10]            ;
+; draw_screen:u_draw_screen|draw_triangle_fill:u_draw_triangle_fill|y0b[0,1,11]                                         ; Merged with draw_screen:u_draw_screen|draw_triangle_fill:u_draw_triangle_fill|x0b[0]                                     ;
+; draw_screen:u_draw_screen|draw_triangle_fill:u_draw_triangle_fill|y1b[0,1,11]                                         ; Merged with draw_screen:u_draw_screen|draw_triangle_fill:u_draw_triangle_fill|x1b[0]                                     ;
+; draw_screen:u_draw_screen|draw_triangle_fill:u_draw_triangle_fill|y2s[0,1,11]                                         ; Merged with draw_screen:u_draw_screen|draw_triangle_fill:u_draw_triangle_fill|x2s[0]                                     ;
+; draw_screen:u_draw_screen|draw_triangle_fill:u_draw_triangle_fill|draw_line:draw_edge_a|y_end[0,1,11]                 ; Merged with draw_screen:u_draw_screen|draw_triangle_fill:u_draw_triangle_fill|draw_line:draw_edge_a|x_end[0]             ;
+; draw_screen:u_draw_screen|draw_triangle_fill:u_draw_triangle_fill|draw_line:draw_edge_a|state[2..9,11..31]            ; Merged with draw_screen:u_draw_screen|draw_triangle_fill:u_draw_triangle_fill|draw_line:draw_edge_a|state[10]            ;
+; draw_screen:u_draw_screen|draw_triangle_fill:u_draw_triangle_fill|y0a[0,1,11]                                         ; Merged with draw_screen:u_draw_screen|draw_triangle_fill:u_draw_triangle_fill|x0a[0]                                     ;
+; draw_screen:u_draw_screen|draw_triangle_fill:u_draw_triangle_fill|y1a[0,1,11]                                         ; Merged with draw_screen:u_draw_screen|draw_triangle_fill:u_draw_triangle_fill|x1a[0]                                     ;
 ; draw_screen:u_draw_screen|end_y1[8]                                                                                   ; Stuck at GND due to stuck port data_in                                                                                   ;
 ; draw_screen:u_draw_screen|end_x3[8]                                                                                   ; Stuck at GND due to stuck port data_in                                                                                   ;
 ; draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill|draw_line_1d:draw_line_1d_inst|state[10]          ; Stuck at GND due to stuck port data_in                                                                                   ;
+; draw_screen:u_draw_screen|draw_triangle_fill:u_draw_triangle_fill|draw_line_1d:draw_h_line|state[10]                  ; Stuck at GND due to stuck port data_in                                                                                   ;
+; draw_screen:u_draw_screen|draw_triangle_fill:u_draw_triangle_fill|state[10]                                           ; Stuck at GND due to stuck port data_in                                                                                   ;
+; draw_screen:u_draw_screen|draw_triangle_fill:u_draw_triangle_fill|x0s[0]                                              ; Stuck at GND due to stuck port data_in                                                                                   ;
+; draw_screen:u_draw_screen|draw_triangle_fill:u_draw_triangle_fill|x0a[0]                                              ; Stuck at GND due to stuck port data_in                                                                                   ;
 ; draw_screen:u_draw_screen|draw_quad:u_draw_quad|draw_line:draw_line_inst|state[10]                                    ; Stuck at GND due to stuck port data_in                                                                                   ;
 ; draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill|state[10]                                         ; Stuck at GND due to stuck port data_in                                                                                   ;
 ; draw_screen:u_draw_screen|draw_quad:u_draw_quad|state[10]                                                             ; Stuck at GND due to stuck port data_in                                                                                   ;
-; draw_screen:u_draw_screen|state~12                                                                                    ; Lost fanout                                                                                                              ;
+; draw_screen:u_draw_screen|draw_triangle_fill:u_draw_triangle_fill|draw_line:draw_edge_b|state[10]                     ; Stuck at GND due to stuck port data_in                                                                                   ;
+; draw_screen:u_draw_screen|draw_triangle_fill:u_draw_triangle_fill|draw_line:draw_edge_a|state[10]                     ; Stuck at GND due to stuck port data_in                                                                                   ;
+; draw_screen:u_draw_screen|tri_y1[2]                                                                                   ; Merged with draw_screen:u_draw_screen|tri_y2[2]                                                                          ;
+; draw_screen:u_draw_screen|tri_y0[2]                                                                                   ; Merged with draw_screen:u_draw_screen|tri_y2[2]                                                                          ;
 ; draw_screen:u_draw_screen|state~13                                                                                    ; Lost fanout                                                                                                              ;
 ; draw_screen:u_draw_screen|state~14                                                                                    ; Lost fanout                                                                                                              ;
 ; draw_screen:u_draw_screen|state~15                                                                                    ; Lost fanout                                                                                                              ;
-; player:u_player|px[4,5]                                                                                               ; Lost fanout                                                                                                              ;
+; draw_screen:u_draw_screen|state~16                                                                                    ; Lost fanout                                                                                                              ;
 ; draw_screen:u_draw_screen|ddx[4,5]                                                                                    ; Lost fanout                                                                                                              ;
-; draw_screen:u_draw_screen|color[0]                                                                                    ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; draw_screen:u_draw_screen|draw_triangle_fill:u_draw_triangle_fill|x0s[1]                                              ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; draw_screen:u_draw_screen|draw_triangle_fill:u_draw_triangle_fill|x0a[1]                                              ; Stuck at VCC due to stuck port data_in                                                                                   ;
+; draw_screen:u_draw_screen|draw_triangle_fill:u_draw_triangle_fill|draw_line:draw_edge_a|x_end[0]                      ; Stuck at GND due to stuck port data_in                                                                                   ;
 ; draw_screen:u_draw_screen|x_count[4]                                                                                  ; Stuck at GND due to stuck port data_in                                                                                   ;
-; Total Number of Removed Registers = 671                                                                               ;                                                                                                                          ;
+; Total Number of Removed Registers = 836                                                                               ;                                                                                                                          ;
 +-----------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                                                                                     ;
-+--------------------------------------+---------------------------+--------------------------------------------------------------------------------------------------------------+
-; Register name                        ; Reason for Removal        ; Registers Removed due to This Register                                                                       ;
-+--------------------------------------+---------------------------+--------------------------------------------------------------------------------------------------------------+
-; draw_screen:u_draw_screen|rec_x1[0]  ; Stuck at GND              ; draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill|lx1[0],                                  ;
-;                                      ; due to stuck port data_in ; draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill|lx0[0],                                  ;
-;                                      ;                           ; draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill|draw_line_1d:draw_line_1d_inst|state[10] ;
-; draw_screen:u_draw_screen|rec_x1[1]  ; Stuck at GND              ; draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill|lx1[1],                                  ;
-;                                      ; due to stuck port data_in ; draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill|lx0[1]                                   ;
-; draw_screen:u_draw_screen|rec_x0[11] ; Stuck at GND              ; draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill|lx1[11],                                 ;
-;                                      ; due to stuck port data_in ; draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill|lx0[11]                                  ;
-; player:u_player|map[20][10]          ; Stuck at VCC              ; player:u_player|px[4]                                                                                        ;
-;                                      ; due to stuck port data_in ;                                                                                                              ;
-+--------------------------------------+---------------------------+--------------------------------------------------------------------------------------------------------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                                                                                            ;
++-----------------------------------------------------------------------------+---------------------------+--------------------------------------------------------------------------------------------------------------+
+; Register name                                                               ; Reason for Removal        ; Registers Removed due to This Register                                                                       ;
++-----------------------------------------------------------------------------+---------------------------+--------------------------------------------------------------------------------------------------------------+
+; draw_screen:u_draw_screen|tri_y2[0]                                         ; Stuck at GND              ; draw_screen:u_draw_screen|draw_triangle_fill:u_draw_triangle_fill|x0s[0],                                    ;
+;                                                                             ; due to stuck port data_in ; draw_screen:u_draw_screen|draw_triangle_fill:u_draw_triangle_fill|x0a[0],                                    ;
+;                                                                             ;                           ; draw_screen:u_draw_screen|draw_triangle_fill:u_draw_triangle_fill|x0s[1],                                    ;
+;                                                                             ;                           ; draw_screen:u_draw_screen|draw_triangle_fill:u_draw_triangle_fill|x0a[1]                                     ;
+; draw_screen:u_draw_screen|rec_x1[0]                                         ; Stuck at GND              ; draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill|lx1[0],                                  ;
+;                                                                             ; due to stuck port data_in ; draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill|lx0[0],                                  ;
+;                                                                             ;                           ; draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill|draw_line_1d:draw_line_1d_inst|state[10] ;
+; draw_screen:u_draw_screen|rec_x1[1]                                         ; Stuck at GND              ; draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill|lx1[1],                                  ;
+;                                                                             ; due to stuck port data_in ; draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill|lx0[1]                                   ;
+; draw_screen:u_draw_screen|rec_x0[11]                                        ; Stuck at GND              ; draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill|lx1[11],                                 ;
+;                                                                             ; due to stuck port data_in ; draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill|lx0[11]                                  ;
+; draw_screen:u_draw_screen|draw_triangle_fill:u_draw_triangle_fill|state[10] ; Stuck at GND              ; draw_screen:u_draw_screen|draw_triangle_fill:u_draw_triangle_fill|draw_line:draw_edge_b|state[10],           ;
+;                                                                             ; due to stuck port data_in ; draw_screen:u_draw_screen|draw_triangle_fill:u_draw_triangle_fill|draw_line:draw_edge_a|state[10]            ;
++-----------------------------------------------------------------------------+---------------------------+--------------------------------------------------------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -883,62 +940,81 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 509   ;
-; Number of registers using Synchronous Clear  ; 177   ;
-; Number of registers using Synchronous Load   ; 93    ;
+; Total registers                              ; 988   ;
+; Number of registers using Synchronous Clear  ; 197   ;
+; Number of registers using Synchronous Load   ; 285   ;
 ; Number of registers using Asynchronous Clear ; 20    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 426   ;
+; Number of registers using Clock Enable       ; 863   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                                                  ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                                        ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------------------------------------------+
-; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |vga_demo|vga_adapter:VGA|vga_controller:controller|yCounter[4]                                                   ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |vga_demo|draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill|draw_line_1d:draw_line_1d_inst|x[1] ;
-; 3:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill|draw_line_1d:draw_line_1d_inst|x[3] ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |vga_demo|player:u_player|direction[0]                                                                            ;
-; 5:1                ; 8 bits    ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|end_x3[0]                                                                     ;
-; 5:1                ; 11 bits   ; 33 LEs        ; 22 LEs               ; 11 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|end_x2[10]                                                                    ;
-; 4:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |vga_demo|player:u_player|py[5]                                                                                   ;
-; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |vga_demo|player:u_player|py[1]                                                                                   ;
-; 4:1                ; 48 bits   ; 96 LEs        ; 96 LEs               ; 0 LEs                  ; Yes        ; |vga_demo|draw_screen:u_draw_screen|draw_quad:u_draw_quad|lx0[6]                                                  ;
-; 4:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|draw_quad:u_draw_quad|draw_line:draw_line_inst|x[4]                           ;
-; 4:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|draw_quad:u_draw_quad|draw_line:draw_line_inst|y[6]                           ;
-; 5:1                ; 5 bits    ; 15 LEs        ; 5 LEs                ; 10 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|y_count[3]                                                                    ;
-; 5:1                ; 6 bits    ; 18 LEs        ; 6 LEs                ; 12 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|end_d[5]                                                                      ;
-; 6:1                ; 5 bits    ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|x_count[0]                                                                    ;
-; 6:1                ; 12 bits   ; 48 LEs        ; 0 LEs                ; 48 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill|line_id[1]                          ;
-; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |vga_demo|draw_screen:u_draw_screen|draw_quad:u_draw_quad|line_id[0]                                              ;
-; 7:1                ; 5 bits    ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|dD[4]                                                                         ;
-; 7:1                ; 13 bits   ; 52 LEs        ; 26 LEs               ; 26 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|draw_quad:u_draw_quad|draw_line:draw_line_inst|err[12]                        ;
-; 7:1                ; 5 bits    ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|ddD[1]                                                                        ;
-; 9:1                ; 10 bits   ; 60 LEs        ; 20 LEs               ; 40 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|dy[0]                                                                         ;
-; 8:1                ; 8 bits    ; 40 LEs        ; 16 LEs               ; 24 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|x2[6]                                                                         ;
-; 9:1                ; 10 bits   ; 60 LEs        ; 20 LEs               ; 40 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|ddx[1]                                                                        ;
-; 9:1                ; 2 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; Yes        ; |vga_demo|draw_screen:u_draw_screen|ddx[5]                                                                        ;
-; 10:1               ; 8 bits    ; 48 LEs        ; 16 LEs               ; 32 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|x1[4]                                                                         ;
-; 10:1               ; 8 bits    ; 48 LEs        ; 16 LEs               ; 32 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|x3[5]                                                                         ;
-; 11:1               ; 3 bits    ; 21 LEs        ; 9 LEs                ; 12 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|x3[8]                                                                         ;
-; 11:1               ; 3 bits    ; 21 LEs        ; 9 LEs                ; 12 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|x2[10]                                                                        ;
-; 12:1               ; 8 bits    ; 64 LEs        ; 16 LEs               ; 48 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|x0[2]                                                                         ;
-; 11:1               ; 11 bits   ; 77 LEs        ; 22 LEs               ; 55 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|y2[4]                                                                         ;
-; 13:1               ; 8 bits    ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|y3[0]                                                                         ;
-; 13:1               ; 8 bits    ; 64 LEs        ; 16 LEs               ; 48 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|y1[4]                                                                         ;
-; 13:1               ; 3 bits    ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|x0[9]                                                                         ;
-; 13:1               ; 3 bits    ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|x1[10]                                                                        ;
-; 15:1               ; 8 bits    ; 80 LEs        ; 16 LEs               ; 64 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|y0[1]                                                                         ;
-; 15:1               ; 3 bits    ; 30 LEs        ; 12 LEs               ; 18 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|y1[8]                                                                         ;
-; 16:1               ; 3 bits    ; 30 LEs        ; 15 LEs               ; 15 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|y3[9]                                                                         ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |vga_demo|draw_screen:u_draw_screen|left_x[0]                                                                     ;
-; 5:1                ; 9 bits    ; 27 LEs        ; 27 LEs               ; 0 LEs                  ; No         ; |vga_demo|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_bem1:auto_generated|mux_khb:mux3|l3_w7_n4_mux_dataout ;
-; 18:1               ; 2 bits    ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; No         ; |vga_demo|draw_screen:u_draw_screen|Selector9                                                                     ;
-; 33:1               ; 9 bits    ; 198 LEs       ; 198 LEs              ; 0 LEs                  ; No         ; |vga_demo|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_bem1:auto_generated|mux_khb:mux3|l6_w2_n0_mux_dataout ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------------------------------------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                                                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                                         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------------------------------------+
+; 3:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |vga_demo|vga_adapter:VGA|vga_controller:controller|yCounter[4]                                                    ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |vga_demo|draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill|draw_line_1d:draw_line_1d_inst|x[11] ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill|draw_line_1d:draw_line_1d_inst|x[9]  ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |vga_demo|player:u_player|direction[1]                                                                             ;
+; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|draw_triangle_fill:u_draw_triangle_fill|draw_line_1d:draw_h_line|x[11]         ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; Yes        ; |vga_demo|draw_screen:u_draw_screen|tri_y1[8]                                                                      ;
+; 5:1                ; 8 bits    ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|end_x3[7]                                                                      ;
+; 5:1                ; 11 bits   ; 33 LEs        ; 22 LEs               ; 11 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|end_x2[4]                                                                      ;
+; 4:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |vga_demo|player:u_player|py[0]                                                                                    ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |vga_demo|player:u_player|py[1]                                                                                    ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |vga_demo|draw_screen:u_draw_screen|tri_x0[9]                                                                      ;
+; 4:1                ; 48 bits   ; 96 LEs        ; 96 LEs               ; 0 LEs                  ; Yes        ; |vga_demo|draw_screen:u_draw_screen|draw_quad:u_draw_quad|ly0[3]                                                   ;
+; 3:1                ; 42 bits   ; 84 LEs        ; 0 LEs                ; 84 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|draw_triangle_fill:u_draw_triangle_fill|x1b[9]                                 ;
+; 4:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|draw_triangle_fill:u_draw_triangle_fill|draw_line:draw_edge_b|y[10]            ;
+; 4:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|draw_triangle_fill:u_draw_triangle_fill|draw_line:draw_edge_a|y[6]             ;
+; 4:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|draw_triangle_fill:u_draw_triangle_fill|draw_line:draw_edge_b|x[4]             ;
+; 4:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|draw_triangle_fill:u_draw_triangle_fill|draw_line:draw_edge_a|x[11]            ;
+; 4:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|draw_quad:u_draw_quad|draw_line:draw_line_inst|x[1]                            ;
+; 4:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|draw_quad:u_draw_quad|draw_line:draw_line_inst|y[2]                            ;
+; 4:1                ; 24 bits   ; 48 LEs        ; 0 LEs                ; 48 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|draw_triangle_fill:u_draw_triangle_fill|prev_xb[7]                             ;
+; 5:1                ; 5 bits    ; 15 LEs        ; 5 LEs                ; 10 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|y_count[0]                                                                     ;
+; 5:1                ; 6 bits    ; 18 LEs        ; 6 LEs                ; 12 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|end_d[5]                                                                       ;
+; 5:1                ; 18 bits   ; 54 LEs        ; 36 LEs               ; 18 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|draw_triangle_fill:u_draw_triangle_fill|x0s[10]                                ;
+; 5:1                ; 18 bits   ; 54 LEs        ; 36 LEs               ; 18 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|draw_triangle_fill:u_draw_triangle_fill|y2s[9]                                 ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |vga_demo|draw_screen:u_draw_screen|draw_triangle_fill:u_draw_triangle_fill|x1s[1]                                 ;
+; 5:1                ; 19 bits   ; 57 LEs        ; 38 LEs               ; 19 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|draw_triangle_fill:u_draw_triangle_fill|x1s[3]                                 ;
+; 5:1                ; 12 bits   ; 36 LEs        ; 24 LEs               ; 12 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|draw_triangle_fill:u_draw_triangle_fill|prev_y[4]                              ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |vga_demo|draw_screen:u_draw_screen|color[6]                                                                       ;
+; 6:1                ; 5 bits    ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|x_count[3]                                                                     ;
+; 6:1                ; 12 bits   ; 48 LEs        ; 0 LEs                ; 48 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill|line_id[11]                          ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |vga_demo|draw_screen:u_draw_screen|draw_quad:u_draw_quad|line_id[1]                                               ;
+; 7:1                ; 5 bits    ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|dD[0]                                                                          ;
+; 7:1                ; 13 bits   ; 52 LEs        ; 26 LEs               ; 26 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|draw_quad:u_draw_quad|draw_line:draw_line_inst|err[12]                         ;
+; 7:1                ; 13 bits   ; 52 LEs        ; 26 LEs               ; 26 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|draw_triangle_fill:u_draw_triangle_fill|draw_line:draw_edge_b|err[2]           ;
+; 7:1                ; 13 bits   ; 52 LEs        ; 26 LEs               ; 26 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|draw_triangle_fill:u_draw_triangle_fill|draw_line:draw_edge_a|err[3]           ;
+; 7:1                ; 5 bits    ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|ddD[3]                                                                         ;
+; 9:1                ; 10 bits   ; 60 LEs        ; 20 LEs               ; 40 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|dy[0]                                                                          ;
+; 8:1                ; 8 bits    ; 40 LEs        ; 16 LEs               ; 24 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|x2[1]                                                                          ;
+; 10:1               ; 8 bits    ; 48 LEs        ; 16 LEs               ; 32 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|x1[3]                                                                          ;
+; 10:1               ; 8 bits    ; 48 LEs        ; 16 LEs               ; 32 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|x3[1]                                                                          ;
+; 11:1               ; 10 bits   ; 70 LEs        ; 20 LEs               ; 50 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|ddx[0]                                                                         ;
+; 11:1               ; 2 bits    ; 14 LEs        ; 4 LEs                ; 10 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|ddx[5]                                                                         ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 9 LEs                ; 12 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|x3[8]                                                                          ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 9 LEs                ; 12 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|x2[8]                                                                          ;
+; 12:1               ; 8 bits    ; 64 LEs        ; 16 LEs               ; 48 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|x0[3]                                                                          ;
+; 11:1               ; 11 bits   ; 77 LEs        ; 22 LEs               ; 55 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|y2[8]                                                                          ;
+; 13:1               ; 8 bits    ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|y3[2]                                                                          ;
+; 13:1               ; 8 bits    ; 64 LEs        ; 16 LEs               ; 48 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|y1[0]                                                                          ;
+; 13:1               ; 3 bits    ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|x0[8]                                                                          ;
+; 13:1               ; 3 bits    ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|x1[8]                                                                          ;
+; 15:1               ; 8 bits    ; 80 LEs        ; 16 LEs               ; 64 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|y0[2]                                                                          ;
+; 15:1               ; 3 bits    ; 30 LEs        ; 12 LEs               ; 18 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|y1[9]                                                                          ;
+; 16:1               ; 3 bits    ; 30 LEs        ; 15 LEs               ; 15 LEs                 ; Yes        ; |vga_demo|draw_screen:u_draw_screen|y3[10]                                                                         ;
+; 3:1                ; 19 bits   ; 38 LEs        ; 38 LEs               ; 0 LEs                  ; No         ; |vga_demo|draw_screen:u_draw_screen|draw_X[8]                                                                      ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |vga_demo|player:u_player|forward_y[0]                                                                             ;
+; 5:1                ; 9 bits    ; 27 LEs        ; 27 LEs               ; 0 LEs                  ; No         ; |vga_demo|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_bem1:auto_generated|mux_khb:mux3|l3_w6_n4_mux_dataout  ;
+; 33:1               ; 9 bits    ; 198 LEs       ; 198 LEs              ; 0 LEs                  ; No         ; |vga_demo|vga_adapter:VGA|altsyncram:VideoMemory|altsyncram_bem1:auto_generated|mux_khb:mux3|l6_w7_n0_mux_dataout  ;
+; 20:1               ; 2 bits    ; 26 LEs        ; 12 LEs               ; 14 LEs                 ; No         ; |vga_demo|draw_screen:u_draw_screen|Selector9                                                                      ;
+; 20:1               ; 2 bits    ; 26 LEs        ; 8 LEs                ; 18 LEs                 ; No         ; |vga_demo|draw_screen:u_draw_screen|Selector5                                                                      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------------------------------------+
 
 
 +----------------------------------------------------------------------------------------------+
@@ -990,6 +1066,46 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+-------+----------------------------------------------------------------------------------------------+
 ; CORDW          ; 12    ; Signed Integer                                                                               ;
 +----------------+-------+----------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: draw_screen:u_draw_screen|draw_triangle_fill:u_draw_triangle_fill ;
++----------------+-------+---------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                  ;
++----------------+-------+---------------------------------------------------------------------------------------+
+; CORDW          ; 12    ; Signed Integer                                                                        ;
++----------------+-------+---------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: draw_screen:u_draw_screen|draw_triangle_fill:u_draw_triangle_fill|draw_line:draw_edge_a ;
++----------------+-------+-------------------------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                                        ;
++----------------+-------+-------------------------------------------------------------------------------------------------------------+
+; CORDW          ; 12    ; Signed Integer                                                                                              ;
++----------------+-------+-------------------------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: draw_screen:u_draw_screen|draw_triangle_fill:u_draw_triangle_fill|draw_line:draw_edge_b ;
++----------------+-------+-------------------------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                                        ;
++----------------+-------+-------------------------------------------------------------------------------------------------------------+
+; CORDW          ; 12    ; Signed Integer                                                                                              ;
++----------------+-------+-------------------------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: draw_screen:u_draw_screen|draw_triangle_fill:u_draw_triangle_fill|draw_line_1d:draw_h_line ;
++----------------+-------+----------------------------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                                           ;
++----------------+-------+----------------------------------------------------------------------------------------------------------------+
+; CORDW          ; 12    ; Signed Integer                                                                                                 ;
++----------------+-------+----------------------------------------------------------------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -1612,8 +1728,47 @@ Note: In order to hide this table in the UI and the text report file, please set
 +------+--------+----------+-----------------------------------------------------------------------------------------------------+
 
 
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill"                ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; oe   ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; busy ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "draw_screen:u_draw_screen|draw_triangle_fill:u_draw_triangle_fill|draw_line_1d:draw_h_line" ;
++------+--------+----------+---------------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                                     ;
++------+--------+----------+---------------------------------------------------------------------------------------------+
+; done ; Output ; Info     ; Explicitly unconnected                                                                      ;
++------+--------+----------+---------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "draw_screen:u_draw_screen|draw_triangle_fill:u_draw_triangle_fill|draw_line:draw_edge_b" ;
++---------+--------+----------+---------------------------------------------------------------------------------------+
+; Port    ; Type   ; Severity ; Details                                                                               ;
++---------+--------+----------+---------------------------------------------------------------------------------------+
+; drawing ; Output ; Info     ; Explicitly unconnected                                                                ;
+; done    ; Output ; Info     ; Explicitly unconnected                                                                ;
++---------+--------+----------+---------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "draw_screen:u_draw_screen|draw_triangle_fill:u_draw_triangle_fill|draw_line:draw_edge_a" ;
++---------+--------+----------+---------------------------------------------------------------------------------------+
+; Port    ; Type   ; Severity ; Details                                                                               ;
++---------+--------+----------+---------------------------------------------------------------------------------------+
+; drawing ; Output ; Info     ; Explicitly unconnected                                                                ;
+; done    ; Output ; Info     ; Explicitly unconnected                                                                ;
++---------+--------+----------+---------------------------------------------------------------------------------------+
+
+
 +-------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill"                   ;
+; Port Connectivity Checks: "draw_screen:u_draw_screen|draw_triangle_fill:u_draw_triangle_fill"                     ;
 +---------+--------+----------+-------------------------------------------------------------------------------------+
 ; Port    ; Type   ; Severity ; Details                                                                             ;
 +---------+--------+----------+-------------------------------------------------------------------------------------+
@@ -1659,35 +1814,35 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 509                         ;
+; arriav_ff             ; 988                         ;
 ;     CLR SCLR          ; 10                          ;
-;     ENA               ; 197                         ;
+;     ENA               ; 437                         ;
 ;     ENA CLR SCLR      ; 10                          ;
-;     ENA SCLR          ; 127                         ;
-;     ENA SCLR SLD      ; 16                          ;
-;     ENA SLD           ; 76                          ;
-;     SCLR              ; 13                          ;
+;     ENA SCLR          ; 132                         ;
+;     ENA SCLR SLD      ; 17                          ;
+;     ENA SLD           ; 267                         ;
+;     SCLR              ; 27                          ;
 ;     SCLR SLD          ; 1                           ;
-;     plain             ; 59                          ;
+;     plain             ; 87                          ;
 ; arriav_io_obuf        ; 2                           ;
-; arriav_lcell_comb     ; 1211                        ;
-;     arith             ; 371                         ;
-;         0 data inputs ; 14                          ;
-;         1 data inputs ; 169                         ;
-;         2 data inputs ; 92                          ;
-;         3 data inputs ; 23                          ;
-;         4 data inputs ; 19                          ;
-;         5 data inputs ; 54                          ;
+; arriav_lcell_comb     ; 1883                        ;
+;     arith             ; 621                         ;
+;         0 data inputs ; 21                          ;
+;         1 data inputs ; 248                         ;
+;         2 data inputs ; 181                         ;
+;         3 data inputs ; 28                          ;
+;         4 data inputs ; 23                          ;
+;         5 data inputs ; 120                         ;
 ;     extend            ; 12                          ;
 ;         7 data inputs ; 12                          ;
-;     normal            ; 816                         ;
+;     normal            ; 1238                        ;
 ;         0 data inputs ; 2                           ;
-;         1 data inputs ; 1                           ;
-;         2 data inputs ; 73                          ;
-;         3 data inputs ; 132                         ;
-;         4 data inputs ; 177                         ;
-;         5 data inputs ; 178                         ;
-;         6 data inputs ; 253                         ;
+;         1 data inputs ; 4                           ;
+;         2 data inputs ; 97                          ;
+;         3 data inputs ; 243                         ;
+;         4 data inputs ; 254                         ;
+;         5 data inputs ; 340                         ;
+;         6 data inputs ; 298                         ;
 ;     shared            ; 12                          ;
 ;         0 data inputs ; 1                           ;
 ;         1 data inputs ; 2                           ;
@@ -1698,7 +1853,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; stratixv_ram_block    ; 342                         ;
 ;                       ;                             ;
 ; Max LUT depth         ; 8.30                        ;
-; Average LUT depth     ; 3.86                        ;
+; Average LUT depth     ; 3.97                        ;
 +-----------------------+-----------------------------+
 
 
@@ -1707,7 +1862,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:02     ;
+; Top            ; 00:00:03     ;
 +----------------+--------------+
 
 
@@ -1717,7 +1872,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Mon Nov 24 01:58:32 2025
+    Info: Processing started: Wed Nov 26 15:26:06 2025
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off vga_demo -c vga_demo
 Warning (125092): Tcl Script File object_mem.qip not found
     Info (125063): set_global_assignment -name QIP_FILE object_mem.qip
@@ -1747,10 +1902,11 @@ Info (12021): Found 1 design units, including 1 entities, in source file /users/
     Info (12023): Found entity 1: draw_rectangle_fill File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw/draw_rectangle_fill.sv Line: 9
 Info (12021): Found 1 design units, including 1 entities, in source file /users/rog/desktop/25_fall/ece241_digital_systems/wayout(1982)_fpga/src/draw/draw_line_1d.sv
     Info (12023): Found entity 1: draw_line_1d File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw/draw_line_1d.sv Line: 9
-Warning (10222): Verilog HDL Parameter Declaration warning at draw_screen.sv(38): Parameter Declaration in module "draw_screen" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 38
-Warning (10222): Verilog HDL Parameter Declaration warning at draw_screen.sv(41): Parameter Declaration in module "draw_screen" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 41
-Warning (10222): Verilog HDL Parameter Declaration warning at draw_screen.sv(85): Parameter Declaration in module "draw_screen" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 85
-Warning (10222): Verilog HDL Parameter Declaration warning at draw_screen.sv(161): Parameter Declaration in module "draw_screen" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 161
+Info (12021): Found 1 design units, including 1 entities, in source file /users/rog/desktop/25_fall/ece241_digital_systems/wayout(1982)_fpga/src/draw/draw_triangle_fill.sv
+    Info (12023): Found entity 1: draw_triangle_fill File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw/draw_triangle_fill.sv Line: 8
+Warning (10222): Verilog HDL Parameter Declaration warning at draw_screen.sv(43): Parameter Declaration in module "draw_screen" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 43
+Warning (10222): Verilog HDL Parameter Declaration warning at draw_screen.sv(46): Parameter Declaration in module "draw_screen" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 46
+Warning (10222): Verilog HDL Parameter Declaration warning at draw_screen.sv(87): Parameter Declaration in module "draw_screen" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 87
 Info (12127): Elaborating entity "vga_demo" for the top level hierarchy
 Warning (10034): Output port "LEDR" at vga_demo.sv(30) has no driver File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/vga_demo.sv Line: 30
 Warning (10034): Output port "HEX5" at vga_demo.sv(32) has no driver File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/vga_demo.sv Line: 32
@@ -1760,93 +1916,116 @@ Warning (10034): Output port "HEX2" at vga_demo.sv(32) has no driver File: C:/Us
 Warning (10034): Output port "HEX1" at vga_demo.sv(32) has no driver File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/vga_demo.sv Line: 32
 Warning (10034): Output port "HEX0" at vga_demo.sv(32) has no driver File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/vga_demo.sv Line: 32
 Info (12128): Elaborating entity "draw_screen" for hierarchy "draw_screen:u_draw_screen" File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/vga_demo.sv Line: 83
-Warning (10036): Verilog HDL or VHDL warning at draw_screen.sv(159): object "draw_map" assigned a value but never read File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 159
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(206): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 206
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(207): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 207
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(210): truncated value with size 32 to match size of target (5) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 210
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(222): truncated value with size 32 to match size of target (5) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 222
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(229): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 229
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(230): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 230
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(231): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 231
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(232): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 232
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(256): truncated value with size 32 to match size of target (6) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 256
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(209): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 209
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(210): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 210
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(213): truncated value with size 32 to match size of target (5) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 213
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(225): truncated value with size 32 to match size of target (5) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 225
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(234): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 234
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(235): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 235
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(236): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 236
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(237): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 237
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(257): truncated value with size 32 to match size of target (6) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 257
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(266): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 266
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(267): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 267
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(268): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 268
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(269): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 269
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(270): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 270
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(271): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 271
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(273): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 273
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(274): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 274
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(275): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 275
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(276): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 276
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(277): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 277
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(278): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 278
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(280): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 280
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(281): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 281
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(282): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 282
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(283): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 283
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(284): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 284
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(285): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 285
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(287): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 287
 Warning (10230): Verilog HDL assignment warning at draw_screen.sv(288): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 288
 Warning (10230): Verilog HDL assignment warning at draw_screen.sv(289): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 289
 Warning (10230): Verilog HDL assignment warning at draw_screen.sv(290): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 290
 Warning (10230): Verilog HDL assignment warning at draw_screen.sv(291): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 291
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(293): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 293
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(294): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 294
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(296): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 296
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(297): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 297
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(303): truncated value with size 32 to match size of target (6) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 303
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(315): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 315
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(316): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 316
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(317): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 317
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(318): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 318
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(320): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 320
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(321): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 321
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(322): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 322
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(323): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 323
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(292): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 292
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(331): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 331
 Warning (10230): Verilog HDL assignment warning at draw_screen.sv(332): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 332
 Warning (10230): Verilog HDL assignment warning at draw_screen.sv(333): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 333
 Warning (10230): Verilog HDL assignment warning at draw_screen.sv(334): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 334
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(335): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 335
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(338): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 338
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(336): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 336
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(337): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 337
 Warning (10230): Verilog HDL assignment warning at draw_screen.sv(339): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 339
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(343): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 343
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(344): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 344
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(345): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 345
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(346): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 346
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(349): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 349
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(350): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 350
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(404): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 404
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(405): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 405
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(406): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 406
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(407): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 407
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(409): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 409
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(410): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 410
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(413): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 413
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(414): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 414
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(420): truncated value with size 32 to match size of target (6) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 420
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(432): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 432
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(433): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 433
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(434): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 434
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(435): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 435
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(438): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 438
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(439): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 439
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(440): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 440
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(441): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 441
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(340): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 340
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(346): truncated value with size 32 to match size of target (6) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 346
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(358): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 358
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(359): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 359
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(360): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 360
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(361): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 361
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(363): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 363
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(364): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 364
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(365): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 365
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(366): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 366
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(375): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 375
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(376): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 376
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(377): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 377
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(378): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 378
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(381): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 381
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(382): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 382
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(386): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 386
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(387): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 387
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(388): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 388
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(389): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 389
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(392): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 392
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(393): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 393
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(446): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 446
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(447): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 447
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(448): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 448
 Warning (10230): Verilog HDL assignment warning at draw_screen.sv(449): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 449
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(450): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 450
 Warning (10230): Verilog HDL assignment warning at draw_screen.sv(451): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 451
 Warning (10230): Verilog HDL assignment warning at draw_screen.sv(452): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 452
 Warning (10230): Verilog HDL assignment warning at draw_screen.sv(455): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 455
 Warning (10230): Verilog HDL assignment warning at draw_screen.sv(456): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 456
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(460): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 460
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(461): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 461
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(462): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 462
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(463): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 463
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(466): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 466
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(467): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 467
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(462): truncated value with size 32 to match size of target (6) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 462
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(474): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 474
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(475): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 475
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(476): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 476
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(477): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 477
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(480): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 480
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(481): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 481
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(482): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 482
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(483): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 483
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(491): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 491
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(492): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 492
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(493): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 493
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(494): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 494
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(497): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 497
 Warning (10230): Verilog HDL assignment warning at draw_screen.sv(498): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 498
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(499): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 499
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(500): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 500
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(501): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 501
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(571): truncated value with size 32 to match size of target (6) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 571
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(573): truncated value with size 32 to match size of target (6) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 573
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(574): truncated value with size 32 to match size of target (6) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 574
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(576): truncated value with size 32 to match size of target (6) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 576
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(611): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 611
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(612): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 612
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(613): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 613
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(614): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 614
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(615): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 615
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(616): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 616
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(617): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 617
-Warning (10230): Verilog HDL assignment warning at draw_screen.sv(618): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 618
-Warning (10034): Output port "busy" at draw_screen.sv(22) has no driver File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 22
-Warning (10034): Output port "done" at draw_screen.sv(24) has no driver File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 24
-Info (12128): Elaborating entity "draw_quad" for hierarchy "draw_screen:u_draw_screen|draw_quad:u_draw_quad" File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 643
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(502): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 502
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(503): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 503
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(504): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 504
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(505): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 505
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(508): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 508
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(509): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 509
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(540): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 540
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(541): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 541
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(542): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 542
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(543): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 543
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(615): truncated value with size 32 to match size of target (6) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 615
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(617): truncated value with size 32 to match size of target (6) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 617
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(618): truncated value with size 32 to match size of target (6) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 618
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(620): truncated value with size 32 to match size of target (6) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 620
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(653): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 653
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(654): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 654
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(655): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 655
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(656): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 656
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(657): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 657
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(658): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 658
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(659): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 659
+Warning (10230): Verilog HDL assignment warning at draw_screen.sv(660): truncated value with size 13 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 660
+Warning (10034): Output port "busy" at draw_screen.sv(20) has no driver File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 20
+Warning (10034): Output port "done" at draw_screen.sv(22) has no driver File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 22
+Info (12128): Elaborating entity "draw_quad" for hierarchy "draw_screen:u_draw_screen|draw_quad:u_draw_quad" File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 682
 Warning (10230): Verilog HDL assignment warning at draw_quad.sv(62): truncated value with size 32 to match size of target (2) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw/draw_quad.sv Line: 62
 Info (10264): Verilog HDL Case Statement information at draw_quad.sv(35): all case item expressions in this case statement are onehot File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw/draw_quad.sv Line: 35
 Info (12128): Elaborating entity "draw_line" for hierarchy "draw_screen:u_draw_screen|draw_quad:u_draw_quad|draw_line:draw_line_inst" File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw/draw_quad.sv Line: 101
@@ -1854,11 +2033,12 @@ Warning (10230): Verilog HDL assignment warning at draw_line.sv(62): truncated v
 Warning (10230): Verilog HDL assignment warning at draw_line.sv(66): truncated value with size 32 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw/draw_line.sv Line: 66
 Warning (10230): Verilog HDL assignment warning at draw_line.sv(70): truncated value with size 32 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw/draw_line.sv Line: 70
 Warning (10230): Verilog HDL assignment warning at draw_line.sv(71): truncated value with size 32 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw/draw_line.sv Line: 71
-Info (12128): Elaborating entity "draw_rectangle_fill" for hierarchy "draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill" File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 663
+Info (12128): Elaborating entity "draw_triangle_fill" for hierarchy "draw_screen:u_draw_screen|draw_triangle_fill:u_draw_triangle_fill" File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 701
+Info (12128): Elaborating entity "draw_line_1d" for hierarchy "draw_screen:u_draw_screen|draw_triangle_fill:u_draw_triangle_fill|draw_line_1d:draw_h_line" File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw/draw_triangle_fill.sv Line: 219
+Warning (10230): Verilog HDL assignment warning at draw_line_1d.sv(35): truncated value with size 32 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw/draw_line_1d.sv Line: 35
+Info (12128): Elaborating entity "draw_rectangle_fill" for hierarchy "draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill" File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw_screen.sv Line: 719
 Warning (10230): Verilog HDL assignment warning at draw_rectangle_fill.sv(58): truncated value with size 32 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw/draw_rectangle_fill.sv Line: 58
 Info (10264): Verilog HDL Case Statement information at draw_rectangle_fill.sv(40): all case item expressions in this case statement are onehot File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw/draw_rectangle_fill.sv Line: 40
-Info (12128): Elaborating entity "draw_line_1d" for hierarchy "draw_screen:u_draw_screen|draw_rectangle_fill:u_draw_rectangle_fill|draw_line_1d:draw_line_1d_inst" File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw/draw_rectangle_fill.sv Line: 94
-Warning (10230): Verilog HDL assignment warning at draw_line_1d.sv(35): truncated value with size 32 to match size of target (12) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/draw/draw_line_1d.sv Line: 35
 Info (12128): Elaborating entity "player" for hierarchy "player:u_player" File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/vga_demo.sv Line: 98
 Warning (10230): Verilog HDL assignment warning at vga_demo.sv(220): truncated value with size 32 to match size of target (2) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/vga_demo.sv Line: 220
 Warning (10230): Verilog HDL assignment warning at vga_demo.sv(222): truncated value with size 32 to match size of target (2) File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/vga_demo.sv Line: 222
@@ -1980,7 +2160,7 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "VGA_B[1]" is stuck at GND File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/vga_demo.sv Line: 36
     Warning (13410): Pin "VGA_SYNC_N" is stuck at VCC File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/vga_demo.sv Line: 40
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 11 registers lost all their fanouts during netlist optimizations.
+Info (17049): 9 registers lost all their fanouts during netlist optimizations.
 Info (144001): Generated suppressed messages file C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/project/vga_demo.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 5 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
@@ -1995,18 +2175,18 @@ Warning (21074): Design contains 8 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "SW[7]" File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/vga_demo.sv Line: 28
     Warning (15610): No output dependent on input pin "SW[8]" File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/vga_demo.sv Line: 28
     Warning (15610): No output dependent on input pin "SW[9]" File: C:/Users/ROG/Desktop/25_Fall/ECE241_Digital_Systems/Wayout(1982)_FPGA/src/vga_demo.sv Line: 28
-Info (21057): Implemented 1764 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 2645 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 15 input pins
     Info (21059): Implemented 81 output pins
     Info (21060): Implemented 2 bidirectional pins
-    Info (21061): Implemented 1323 logic cells
+    Info (21061): Implemented 2204 logic cells
     Info (21064): Implemented 342 RAM segments
     Info (21065): Implemented 1 PLLs
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 184 warnings
-    Info: Peak virtual memory: 4953 megabytes
-    Info: Processing ended: Mon Nov 24 01:58:41 2025
-    Info: Elapsed time: 00:00:09
-    Info: Total CPU time (on all processors): 00:00:16
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 206 warnings
+    Info: Peak virtual memory: 4967 megabytes
+    Info: Processing ended: Wed Nov 26 15:26:20 2025
+    Info: Elapsed time: 00:00:14
+    Info: Total CPU time (on all processors): 00:00:20
 
 
 +------------------------------------------+
